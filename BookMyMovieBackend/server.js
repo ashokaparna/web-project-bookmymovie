@@ -10,7 +10,7 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 //connecting to DB using mongoose 
 //Database with name kaminiDatabase will create automatically
-mongoose.connect('');
+mongoose.connect('mongodb+srv://thesparklers:The_Sparklers@1@bookmymoviecluster-9bnce.mongodb.net/test?retryWrites=true');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
