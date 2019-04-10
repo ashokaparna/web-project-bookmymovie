@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //importing contact routes
-var routes = require('./api/routes/contactRoutes'); 
+var routes = require('./api/routes/loginRoutes'); 
 routes(app); //register the route
 
 app.listen(port);
