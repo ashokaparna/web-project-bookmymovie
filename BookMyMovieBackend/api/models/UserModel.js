@@ -28,4 +28,4 @@ var UserSchema = new Schema({
 
 });
 // exports model
-module.exports = mongoose.model('tblUser', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
