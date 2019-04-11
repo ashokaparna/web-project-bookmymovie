@@ -15,7 +15,7 @@ var OrderSchema = new Schema({
         type:String,
         required:'kindly select movie.'
     },
-    CreatedAt:{
+     CreatedAt:{
         type:Date,
         required:'kindly enter creation date.'
     },
@@ -29,4 +29,4 @@ var OrderSchema = new Schema({
     },
 });
 // exports model
-module.exports = mongoose.model('tblOrder', OrderSchema);
+module.exports = mongoose.model('Orders', OrderSchema);
