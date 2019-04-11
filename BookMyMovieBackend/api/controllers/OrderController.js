@@ -48,3 +48,20 @@ exports.list_all_orders = function (request, response) {
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
+
+
+/**
+ * Returns a contact object in JSON.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.user_orders = function (request, response) {
+    const resolve = (u_orders) => {
+        response.status(200);
+        response.json(u_orders);
+    };
+    orderService.user_orders(request.params.userId)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+};

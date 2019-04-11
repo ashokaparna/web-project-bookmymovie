@@ -13,8 +13,13 @@ module.exports = function(app){
         // .put(userlist.update_user);
         //.delete(contactlist.delete_contact)
 
+        // Order Routes for get, post 
         app.route('/orders')
          .get(orderlist.list_all_orders)
          .post(orderlist.create_order);
+
+        // Order Routes to get the orders for any user.
+        app.route('/orders/:userId')
+        .get(orderlist.user_orders) 
 
 };
