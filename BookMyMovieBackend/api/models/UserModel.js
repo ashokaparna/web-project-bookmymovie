@@ -2,7 +2,7 @@
 //initiate mongoose
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var UserSchema = new Schema({
+var User = new Schema({
     UserId : {
         type: String,
         required: true,
@@ -28,4 +28,5 @@ var UserSchema = new Schema({
 
 });
 // exports model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', User);
+
