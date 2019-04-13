@@ -6,7 +6,8 @@ $grid__bp-md: 1200;
    grid-template-columns: 30% auto 30%;
    margin: 0 auto;
    background-color:whitesmoke;
-   grid-auto-rows: minmax(150px, auto);
+//   grid-auto-rows: minmax(150px, auto);
+grid-auto-rows: minmax(80px, auto);
    grid-gap: 8px;
 }
 
@@ -27,11 +28,58 @@ background-color:rgb(218, 178, 178);
 {
 grid-column: 3 / 4;
 grid-row: 1 / 4;
-background-color:rgb(184, 165, 199);
+background-color:rgb(31, 27, 34);
+}
+.mainc_d
+{
+grid-column: 1 / 4;
+grid-row: 4 / 5;
+background-color:rgb(218, 178, 178);
 }
 
+.gradient {
+    position: relative;
+}
+.gradient:after {
+    content: 'Gradient Text';
+    color:#000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.gradient h2 {
+    color: #117FB2;
+    -webkit-mask-box-image: -webkit-gradient(linear,
+                left top, left bottom,
+                color-stop(20%,rgba(0,0,0,1)),
+                color-stop(100%,rgba(0,0,0,0)));
+}
 
+//order summary 
+.height {
+    min-height: 200px;
+}
 
+.icon {
+    font-size: 47px;
+    color: #5CB85C;
+}
 
-//another 
+.iconbig {
+    font-size: 77px;
+    color: #5CB85C;
+}
+
+.table > tbody > tr > .emptyrow {
+    border-top: none;
+}
+
+.table > thead > tr > .emptyrow {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .highrow {
+    border-top: 3px solid;
+}
 
