@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-
+//import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SliderTrackComponent } from './slider-track/slider-track.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SliderTrackComponent
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
-    Ng2CarouselamosModule
+    HttpClientModule,
+    FormsModule
+    //AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

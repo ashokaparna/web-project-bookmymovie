@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
  
   title = 'BookMyMovie';
+ // data: any = {};
+
+ /* onSubmit()
+  {
+    alert(JSON.stringify(this.data))
+  }*/
 }
