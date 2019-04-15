@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { CarouselDivComponent } from './carousel-div/carousel-div.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselDivComponent
   ],
   imports: [
     BrowserModule,
