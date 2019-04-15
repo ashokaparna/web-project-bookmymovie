@@ -5,11 +5,19 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { CarouselDivComponent } from './carousel-div/carousel-div.component';
+import { MiddleDivComponent } from './middle-div/middle-div.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaymentComponent
+    PaymentComponent,
+    HeaderComponent,
+    FooterComponent,
+    CarouselDivComponent,
+    MiddleDivComponent
   ],
   imports: [
     BrowserModule,
