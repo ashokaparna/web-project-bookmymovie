@@ -1,7 +1,5 @@
 
-
-export class order
-{
+export class order {
     _id: String;
     O_Id: String;
     U_Id: String;
@@ -11,8 +9,7 @@ export class order
     Amount: Number;
 
     constructor(_id: String, OrderId: String, UserId: String,
-         MovieId: String, CreatedAt: Date, NoOfSeats: Number, TotalAmount: Number)
-    {
+        MovieId: String, CreatedAt: Date, NoOfSeats: Number, TotalAmount: Number) {
         this._id = _id;
         this.O_Id = OrderId;
         this.U_Id = UserId;
@@ -24,9 +21,8 @@ export class order
 }
 
 
-export class order_list
-{
-    
+export class order_list {
+
     O_Id: String;
     U_Id: String;
     M_Id: String;
@@ -35,8 +31,7 @@ export class order_list
     Amount: Number;
 
     constructor(OrderId: String, UserId: String,
-         MovieId: String, CreatedAt: Date, NoOfSeats: Number, TotalAmount: Number)
-    {
+        MovieId: String, CreatedAt: Date, NoOfSeats: Number, TotalAmount: Number) {
 
         this.O_Id = OrderId;
         this.U_Id = UserId;
