@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaymentComponent
+    PaymentComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
