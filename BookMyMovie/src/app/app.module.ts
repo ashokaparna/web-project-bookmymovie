@@ -8,6 +8,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselDivComponent } from './carousel-div/carousel-div.component';
+import { MiddleDivComponent } from './middle-div/middle-div.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CarouselDivComponent } from './carousel-div/carousel-div.component';
     PaymentComponent,
     HeaderComponent,
     FooterComponent,
-    CarouselDivComponent
+    CarouselDivComponent,
+    MiddleDivComponent
   ],
   imports: [
     BrowserModule,
