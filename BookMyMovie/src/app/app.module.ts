@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselDivComponent } from './carousel-div/carousel-div.component';
 import { MiddleDivComponent } from './middle-div/middle-div.component';
+import { Order_Service } from './Services/order.service';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { MiddleDivComponent } from './middle-div/middle-div.component';
     FormsModule
     //AppRoutingModule
   ],
-  providers: [],
+  providers: [Order_Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
