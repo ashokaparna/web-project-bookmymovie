@@ -6,7 +6,6 @@ require('../models/UserModel');
 let User = mongoose.model('User');
 // save method
 exports.login = function (user) {
-    const promise = user.findOne({UserName: user.body.UserName, Password: user.body.Password});
-    console.log(promise);
+    const promise = User.findOne({UserName: user.body.UserName, Password: user.body.Password});
     return promise;
 };
