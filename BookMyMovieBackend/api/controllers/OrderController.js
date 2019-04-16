@@ -3,6 +3,7 @@
 'use strict';
 //import order service.
 const orderService = require('../services/orderServices');
+const emailService = require('../services/emailServices');
 
 //code for post method
 exports.create_order = function(req, res) {  
@@ -13,9 +14,11 @@ exports.create_order = function(req, res) {
         
         res.status(200);
         res.json(order);
+      
+        
     };
     orderService.save(newOrder)
-        .then(resolve).then(console.log("orderresolved"))
+        .then(resolve).then( emailService.email(newOrder))
         .catch(renderErrorResponse(res));
   };
 

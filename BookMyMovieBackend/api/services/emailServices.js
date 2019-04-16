@@ -20,27 +20,25 @@ var mailOptions = {
   text: 'That was easy!'
 };
 
-function sendmail()
-{
-  console.log("email function");
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      });
-}
+exports.email = function (newOrder) {
+  console.log('Inside email-' + newOrder.OrderId);
+  mailOptions.text = 'OrderId: ' + newOrder.OrderId;
+  console.log('Inside email-' + newOrder.Email);
+  mailOptions.to = newOrder.Email;
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+};
 
 
 
-exports.transporter.sendMail = function(mailOptions, function(error, info)
-{
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      };
+
+
+
+
 
     

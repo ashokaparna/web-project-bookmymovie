@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Order_Service} from '../Services/order.service';
 import { order_list } from '../Models/order';
 import { Observable } from 'rxjs';
+// import { getMaxListeners } from 'cluster';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -12,14 +13,13 @@ export class PaymentComponent implements OnInit {
   orderService : Order_Service;
  
   model:any =  {
-  
-    OrderId: '102',
-    UserId: '232',
+    OrderId: '104',
+    UserId: '242',
     MovieId: '102',
   CreatedAt : new Date("2016-05-15"),
   NoOfSeats: 5,
-  TotalAmount: 750
-    
+  TotalAmount: 750,
+  Email: "deepibm2012@gmail.com"
   };
 
   
