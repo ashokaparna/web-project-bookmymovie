@@ -3,11 +3,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var User = new Schema({
-    UserId : {
-        type: String,
-        required: true,
-        unique:true
-    },
+    // UserId : {
+    //     type: String,
+    //     required: true,
+    //     unique:true
+    // },
     UserName :{
         type:String,
         required:'kindly enter your Username.'
