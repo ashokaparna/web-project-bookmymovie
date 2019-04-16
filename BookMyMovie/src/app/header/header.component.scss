@@ -1,0 +1,84 @@
+
+//css for the header component
+input {
+    outline: none;
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.container-fluid {
+    height: 100px;
+}
+
+.navbar-nav {
+    padding-left: 20px;
+    padding-top: 28px;
+}
+
+//logo height
+#logo {
+    height: 90px;
+}
+
+input[type=search] {
+    margin-top: 7px;
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: 55px;
+    border-radius: 10em;
+    transition: all .5s;
+}
+
+
+//css when the search field is in focus
+input[type=search]:focus {
+    width: 60px;
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    background-color: #fff;
+    border-color: #66CC75;
+}
+
+//search field id
+#demo-2 input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+
+#demo-2 input[type=search]:hover {
+    background-color: #fff;
+}
+
+#demo-2 input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+#demo-2 input[type=search]:focus {
+    width: 200px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}
+
+#demo-2 input:-moz-placeholder {
+    color: transparent;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: rgb(33, 33, 35);
+}
+
