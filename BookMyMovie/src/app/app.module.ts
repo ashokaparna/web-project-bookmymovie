@@ -12,6 +12,8 @@ import { MiddleDivComponent } from './middle-div/middle-div.component';
 import { Order_Service } from './Services/order.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 
 
 const appRoutes: Routes = [
@@ -24,6 +26,17 @@ const appRoutes: Routes = [
     path: 'payment',
     component: PaymentComponent,
     data: { title: 'Payment Form' }
+  },
+  {
+    path: 'seatselection',
+    component: SeatSelectionComponent,
+    data: { title: 'seatselection' }
+  },
+  
+  {
+    path: 'moviedetails',
+    component: MovieDetailsComponent,
+    data: { title: 'Movie Details' }
   },
  
   { path: '',
@@ -42,7 +55,9 @@ const appRoutes: Routes = [
     FooterComponent,
     CarouselDivComponent,
     MiddleDivComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MovieDetailsComponent,
+    SeatSelectionComponent
   ],
   imports: [
     BrowserModule,
