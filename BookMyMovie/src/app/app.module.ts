@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     PageNotFoundComponent,
     LoginComponent,
     SignupComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [Order_Service],
   bootstrap: [AppComponent]
