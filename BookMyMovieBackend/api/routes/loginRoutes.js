@@ -2,7 +2,7 @@
 module.exports = function(app){
     let userlist = require('../controllers/UserController');
     let login = require('../controllers/loginController');
-
+    let signUp = require('../controllers/SignUpController');
     let orderlist = require('../controllers/OrderController');
 
     app.route('/users')
@@ -14,6 +14,8 @@ module.exports = function(app){
         // .put(userlist.update_user);
         //.delete(contactlist.delete_contact)
 
+    app.route('/signUp')
+        .post(signUp.signUp);
 
     app.route('/login')
         .post(login.login);
