@@ -3,27 +3,28 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var User = new Schema({
-    // UserId : {
-    //     type: String
-    //    // unique:true
-    // },
-    UserName :{
+    username :{
         type:String,
-        required:'kindly enter your Username.'
+        required:'Please enter your username.',
+        unique:true
     },
-    Email:{
+    email:{
         type:String,
-        required:'kindly enter your email.'
+        required:'Please enter your email.',
+        unique:true
     },    
-    Password:{
+    password:{
         type:String,
-        required:'kindly enter your password.'
+        required:'Please enter your password.'
     },
-    PhoneNo:{
-        type:Number,
-        required:'kindly enter your phone number.'
+    phoneno:{
+        type:String,
+        required:'Please enter your phone number.'
     },
-    
+    address: {
+        type: String,
+        required: 'Please enter your address'
+    }
 
 });
 // exports model

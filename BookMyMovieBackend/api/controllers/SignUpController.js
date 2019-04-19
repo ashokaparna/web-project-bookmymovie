@@ -13,7 +13,7 @@ let config = require('../../config');
  */
 exports.signUp = function (request, response) {
     response.header('Access-Control-Allow-Origin' , '*' );
-    if (!request.body.UserName || !request.body.Password || !request.body.Email || !request.body.PhoneNo){
+    if (!request.body.username || !request.body.password || !request.body.email || !request.body.phoneno){
         response.json({
             status: 400,
             message: 'Error in request, Please check the request'
@@ -21,17 +21,16 @@ exports.signUp = function (request, response) {
         return;
     }
     const token = jwt.sign({
-        username: request.body.UserName
+        username: request.body.username
     }, Buffer.from(config.secret).toString('base64'), {expiresIn: "24 hours"});
     const resolve = (res) => {
         if(res !== null){
-            response.status(200);
             response.json({
                 status: 409,
                 message: "User already exists"
             });
         }else{
-            console.log('Request' + request.body.UserName);
+            console.log('Request' + request.body.username);
             signUpService.signUp(request.body)
                 .then(resolveSignUp)
                 .catch(renderErrorResponse(response));
