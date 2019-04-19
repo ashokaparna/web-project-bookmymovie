@@ -12,11 +12,16 @@ import { MiddleDivComponent } from './middle-div/middle-div.component';
 import { Order_Service } from './Services/order.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+
 
 @NgModule({
   declarations: [
@@ -27,10 +32,19 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CarouselDivComponent,
     MiddleDivComponent,
     PageNotFoundComponent,
+
+    MovieDetailsComponent,
+    SeatSelectionComponent
+
     LoginComponent,
     SignupComponent,
+<<<<<<< HEAD
     ForgotpasswordComponent,
     OrderHistoryComponent
+=======
+    ForgotpasswordComponent
+
+>>>>>>> 69e50a27e70999d2946ed2befdea8b10441d5a8f
   ],
   imports: [
     BrowserModule,
