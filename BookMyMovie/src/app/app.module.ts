@@ -11,9 +11,15 @@ import { CarouselDivComponent } from './carousel-div/carousel-div.component';
 import { MiddleDivComponent } from './middle-div/middle-div.component';
 import { Order_Service } from './Services/order.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import {LoginService} from "./Services/login.service";
+import {CookieService} from "ngx-cookie-service";
+
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 
@@ -27,19 +33,20 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     CarouselDivComponent,
     MiddleDivComponent,
     PageNotFoundComponent,
+    SeatSelectionComponent,
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    SeatSelectionComponent
-
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
-  providers: [Order_Service],
+  providers: [Order_Service, LoginService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

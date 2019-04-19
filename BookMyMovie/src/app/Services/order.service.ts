@@ -25,9 +25,9 @@ idURL: string;
 
   
 
- viewUserOrders(_id: string): Observable<order> {
+ viewUserOrders(_id: string): Observable<Array<order>> {
    this.idURL = `${_id}`;
-   return this.http.get<order>(`${this.orderDbURL}/${this.idURL}`);
+   return this.http.get<Array<order>>(`${this.orderDbURL}/${this.idURL}`);
  }
 
  /**
@@ -52,7 +52,4 @@ idURL: string;
    // alert("Before Post " + neworder.M_Id + neworder.C_Date);
      return this.http.post<order_list>(`${environment.serverBaseURL}${this.orderDbName}`, neworder);
    }
-
-
-
 }

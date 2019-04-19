@@ -1,0 +1,34 @@
+
+<div class="mainc">
+    <!-- <div class = "mainc_a">
+      </div> -->
+      <div class = "mainc_b">
+  <br>
+  <span> <h1>Booking History</h1></span>
+  <br>
+  <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Booking Id</th>
+      <th scope="col">Booking Date</th>
+      <th scope="col">Movie Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor ="let c of list | paginate: { itemsPerPage:10, currentPage: p }"> 
+       <td> # </td>
+        <td>{{c.OrderId}}</td>
+        <td>{{c.CreatedAt}}</td>
+
+    <!--   <td><button  value="{{c._id}}" #view (click)="onClickDetail(c._id)">
+      View</button></td>-->
+      </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>
+<div class = "mainc_c">
+  </div>
+
+</div>
