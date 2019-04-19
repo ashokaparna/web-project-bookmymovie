@@ -2,25 +2,25 @@
 //initiate mongoose
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ShowTimeSchema = new Schema({
+var ReviewSchema = new Schema({
    
     movieName :{
         type:String,
-        required:'kindly enter your Username.'
+        required:'kindly enter movie name.'
     },
-    theatreName :{
+    userName :{
         type:String,
         required:'kindly enter your Username.'
     },
-    showTime:{
+    description:{
         type:String,
-        required:'kindly enter showTime.'
+        required:'kindly enter description.'
     },
-    seats:{
+    date:{
         type:String,
-        required:'kindly enter showTime.'
-    }
-
+        required:'kindly enter date.'
+    },
+   
 });
 // exports model
-module.exports = mongoose.model('ShowTime', ShowTimeSchema);
+module.exports = mongoose.model('Review', ReviewSchema);
