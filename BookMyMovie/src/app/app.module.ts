@@ -10,7 +10,6 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselDivComponent } from './carousel-div/carousel-div.component';
 import { MiddleDivComponent } from './middle-div/middle-div.component';
 import { Order_Service } from './Services/order.service';
-import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { LoginComponent } from './login/login.component';
@@ -21,7 +20,7 @@ import {CookieService} from "ngx-cookie-service";
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
+
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 
 
@@ -34,7 +33,6 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     CarouselDivComponent,
     MiddleDivComponent,
     PageNotFoundComponent,
-    MovieDetailsComponent,
     SeatSelectionComponent,
     LoginComponent,
     SignupComponent,
