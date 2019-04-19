@@ -1,0 +1,22 @@
+.login-container{
+  max-width: 400px;
+  margin: 60px auto 0;
+}
+
+.login{
+  color: white;
+  background-color: darkred;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.remember-me{
+  border: 1px gray;
+  padding-left: 20px;
+}
+
+.error{
+  color: tomato;
+  font-size: 12px;
+  padding-top: 4px
+}

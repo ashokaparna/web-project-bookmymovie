@@ -52,7 +52,4 @@ idURL: string;
    // alert("Before Post " + neworder.M_Id + neworder.C_Date);
      return this.http.post<order_list>(`${environment.serverBaseURL}${this.orderDbName}`, neworder);
    }
-
-
-
 }

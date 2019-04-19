@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import {LoginService} from "./Services/login.service";
+import {CookieService} from "ngx-cookie-service";
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -32,19 +34,12 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     CarouselDivComponent,
     MiddleDivComponent,
     PageNotFoundComponent,
-
     MovieDetailsComponent,
-    SeatSelectionComponent
-
+    SeatSelectionComponent,
     LoginComponent,
     SignupComponent,
-<<<<<<< HEAD
     ForgotpasswordComponent,
     OrderHistoryComponent
-=======
-    ForgotpasswordComponent
-
->>>>>>> 69e50a27e70999d2946ed2befdea8b10441d5a8f
   ],
   imports: [
     BrowserModule,
@@ -53,7 +48,7 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [Order_Service],
+  providers: [Order_Service, LoginService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
