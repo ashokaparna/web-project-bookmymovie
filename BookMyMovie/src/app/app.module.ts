@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import {LoginService} from "./Services/login.service";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     FormsModule,
     AppRoutingModule
   ],
-  providers: [Order_Service],
+  providers: [Order_Service, LoginService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

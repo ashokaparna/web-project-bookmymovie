@@ -1,3 +1,45 @@
-<p>
-  login works!
-</p>
+<div ng-app="myApp" ng-controller="myController" class="container">
+  <form name="myForm">
+    <div class="login-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required class="form-control"
+                   [(ngModel)]="username">
+
+            <!--<div *ngIf="username.touched && !username.valid" class="error">Invalid email!</div>-->
+            <!--<div *ngIf="email.touched && email  ng-show="myForm.email.$error.required &amp;&amp; myForm.email.$touched" class="error">Required!</div>-->
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="pass" required class="form-control" [(ngModel)]="password">
+            <!--<div *ngIf="password.touched && !password.valid"  class="error">Required!</div>-->
+          </div>
+        </div>
+        <div>
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="form-check-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description small text-dark remember-me">Remember me on this computer</span>
+          </label>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <!--<button ng-click="authenticate()" ng-disabled="myForm.$invalid" class="btn btn-success login">Login</button>-->
+            <button (click)="authenticate()"  class="btn btn-success login">Login</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!--<div class="col-md-12">-->
+          <!--<div ng-show="showError" class="alert alert-danger">Wrong credentials!</div>-->
+          <!--<div ng-show="showSuccess" class="alert alert-success">Login Successful!</div>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </form>
+</div>

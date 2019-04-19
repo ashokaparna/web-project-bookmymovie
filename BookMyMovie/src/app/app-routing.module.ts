@@ -21,17 +21,17 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    data: { title: 'Payment Form' }
+    data: { title: 'Login ' }
   },
   {
     path: 'signup',
     component: SignupComponent,
-    data: { title: 'Payment Form' }
+    data: { title: 'Sign up' }
   },
   {
     path: 'forgotpassword',
     component: ForgotpasswordComponent,
-    data: { title: 'Payment Form' }
+    data: { title: 'Forgot password' }
   },
   { path: '',
     redirectTo: '/dashboard',
