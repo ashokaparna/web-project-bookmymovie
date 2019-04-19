@@ -8,9 +8,15 @@ import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
+import { MovieSingleComponent } from './movie-single/movie-single.component';
 
 
 const routes: Routes = [
+  {
+    path: 'movie-single',
+    component: MovieSingleComponent,
+    data: { title: 'Dashboard' }
+  },
   
   {
     path: 'seatselection',
