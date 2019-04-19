@@ -2,6 +2,7 @@
 module.exports = function(app){
     let userlist = require('../controllers/UserController');
     let login = require('../controllers/loginController');
+    var movieList = require('../controllers/MovieController');
 
     let orderlist = require('../controllers/OrderController');
 
@@ -25,7 +26,17 @@ module.exports = function(app){
 
         // Order Routes to get the orders for any user.
         app.route('/orders/:userId')
-        .get(orderlist.user_orders) 
+        .get(orderlist.user_orders) ;
+
+
+        app.route('/movies')
+        .get(movieList.listMovies)
+        .post(movieList.createMovies);
+
+
+    app.route('/movies/:movieId')
+        .get(movieList.readMovie)
+        .put(movieList.updateMovie)
 
 
 };

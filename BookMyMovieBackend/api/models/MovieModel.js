@@ -1,14 +1,14 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var MovieSchema = new Schema({
+var Movies = new Schema({
 
     movieName: {
         type: String,
         required: 'Name of movie is mandatory field.'
     },
     movieLength: {
-        type: Number,
+        type: String,
         required: 'Length of Movie is mandatory field.'
     },
     directorName: {
@@ -26,7 +26,7 @@ var MovieSchema = new Schema({
     rating: {
         type: String,
         required: 'Rating is a mandatory field.'
-    },
+    }
 });
 // exports model
-module.exports = mongoose.model('Movies', OrderSchema);
+module.exports = mongoose.model('Movies', Movies);
