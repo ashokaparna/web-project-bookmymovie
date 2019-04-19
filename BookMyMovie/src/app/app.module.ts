@@ -23,6 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
+import { MovieSingleComponent } from './movie-single/movie-single.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.
     SignupComponent,
     ForgotpasswordComponent,
     OrderHistoryComponent,
-    MovieShowSelectComponent
+    MovieShowSelectComponent,
+    MovieSingleComponent
   ],
   imports: [
     BrowserModule,

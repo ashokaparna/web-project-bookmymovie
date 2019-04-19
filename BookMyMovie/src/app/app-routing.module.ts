@@ -7,6 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,11 @@ const routes: Routes = [
   {
     path: 'seatselection',
     component: SeatSelectionComponent,
+    data: { title: 'Dashboard' }
+  },
+  {
+    path: 'shows',
+    component: MovieShowSelectComponent,
     data: { title: 'Dashboard' }
   },
   {
