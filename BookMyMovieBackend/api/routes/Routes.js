@@ -4,6 +4,7 @@ module.exports = function (app) {
     let login = require('../controllers/loginController');
     let orderlist = require('../controllers/OrderController');
     let theatrelist = require('../controllers/TheatreController');
+    let showtimelist = require('../controllers/ShowTimeController');
 
     app.route('/users')
         .get(userlist.list_all_users)
@@ -18,6 +19,12 @@ module.exports = function (app) {
         .get(orderlist.user_orders)
      app.route('/theatre')        
         .post(theatrelist.create_theatre);
+    app.route('/showtime')       
+        .get(showtimelist.list)
+        .post(showtimelist.create_showtime);
+    app.route('/showtime/:movieName')       
+        .get(showtimelist.list_by_movie)
+      
 
 
 };

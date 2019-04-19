@@ -15,7 +15,7 @@ function main () {
 //connecting to DB using mongoose
 //Database with name kaminiDatabase will create automatically
     mongoose.connect('mongodb+srv://thesparklers:The_Sparklers@1@bookmymoviecluster-9bnce.mongodb.net/bookmymovie-db?retryWrites=true',{
-        useMongoClient: true, useNewUrlParser: true
+        useMongoClient: true, useNewUrlParser: true, useCreateIndex: true
     });
 //mongoose.connect('mongodb://localhost/contacts_db');
 
