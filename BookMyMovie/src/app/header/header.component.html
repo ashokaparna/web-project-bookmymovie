@@ -27,7 +27,59 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a [routerLink]="['/login']">Log In</a></li>
         <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
-        <li><a href="#">HAM</a></li>
+        <li><a href="#">
+            <nav role='navigation'>
+              <div id="menuToggle">
+                <!--
+              A fake / hidden checkbox is used as click reciever,
+              so you can use the :checked selector on it.
+              -->
+                <input type="checkbox" />
+
+                <!--
+              Some spans to act as a hamburger.
+              
+              They are acting like a real hamburger,
+              not that McDonalds stuff.
+              -->
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <!--
+              Too bad the menu has to be inside of the button
+              but hey, it's pure CSS magic.
+              -->
+                <ul id="menu">
+                  <a href="#">
+                    Sign In
+                  </a><a href="#">
+                    / Sign Up
+                  </a> <br><br>
+                  <a href="#">
+                    Quick pay
+                  </a> <br><br>
+
+                  <a href="#">
+                    Booking History
+                  </a> <br><br>
+
+                  <a href="#">
+                    Book A Smile
+                  </a> <br><br>
+
+                  <a href="#">
+                    About Us
+                  </a> <br><br>
+
+                  <a href="#">
+                    Settings
+                  </a> <br><br>
+
+                </ul>
+              </div>
+            </nav>
+          </a></li>
       </ul>
     </div>
   </div>
