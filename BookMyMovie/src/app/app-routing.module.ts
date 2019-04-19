@@ -6,8 +6,16 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
+import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+
 
 const routes: Routes = [
+  
+  {
+    path: 'seatselection',
+    component: SeatSelectionComponent,
+    data: { title: 'Dashboard' }
+  },
   {
     path: 'dashboard',
     component: MiddleDivComponent,
