@@ -7,6 +7,14 @@ var Movies = new Schema({
         type: String,
         required: 'Name of movie is mandatory field.'
     },
+    movieImage: {
+        type: String,
+        required: 'Movie Image name is mandatory field'
+    },
+    movieURL: {
+        type: String,
+        required: 'Movie URL is a mandatory field'
+    },
     movieLength: {
         type: String,
         required: 'Length of Movie is mandatory field.'
