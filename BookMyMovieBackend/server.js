@@ -23,7 +23,7 @@ function main () {
     app.use(bodyParser.json());
 
 //importing contact routes
-    var routes = require('./api/routes/loginRoutes');
+    var routes = require('./api/routes/Routes');
     routes(app); //register the route
 
     app.listen(port);
