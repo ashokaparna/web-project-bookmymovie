@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Order_Service} from '../Services/order.service';
 import { order_list } from '../Models/order';
 import { Observable } from 'rxjs';
+import { DatePipe } from '@angular/common';
 // import { getMaxListeners } from 'cluster';
 @Component({
   selector: 'app-payment',
@@ -11,12 +12,16 @@ import { Observable } from 'rxjs';
 export class PaymentComponent implements OnInit {
 
   orderService : Order_Service;
+  //dt = new Date("2016-05-18");
+  
+    //console.log(dateSendingToServer);
  
+
   model:any =  {
-    OrderId: '104',
-    UserId: '242',
-    MovieId: '102',
-  CreatedAt : new Date("2016-05-15"),
+    OrderId: '188888',
+    UserId: '2',
+    MovieId: '140',
+  CreatedAt : new Date("2016-05-19"),
   NoOfSeats: 5,
   TotalAmount: 750,
   Email: "deepibm2012@gmail.com"
@@ -32,8 +37,12 @@ export class PaymentComponent implements OnInit {
     }
     onClickPlaceOrder(){
         alert("inside order ");
+        let dt = new DatePipe('en-US').transform(this.model.CreatedAt, 'dd/MM/yyyy');
+     //   this.model.CreatedAt = dt;
        let neworder$: Observable<order_list> = this.orderService.createOrder(this.model);
-       console.log(this.model);
+       
+       //console.log(dt);
+  // console.log( this.model.CreatedAt);
        neworder$.subscribe(
         success => { alert("order success")},
         error => {

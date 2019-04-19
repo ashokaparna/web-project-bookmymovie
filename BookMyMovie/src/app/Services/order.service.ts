@@ -25,9 +25,9 @@ idURL: string;
 
   
 
- viewUserOrders(_id: string): Observable<order> {
+ viewUserOrders(_id: string): Observable<Array<order>> {
    this.idURL = `${_id}`;
-   return this.http.get<order>(`${this.orderDbURL}/${this.idURL}`);
+   return this.http.get<Array<order>>(`${this.orderDbURL}/${this.idURL}`);
  }
 
  /**

@@ -8,16 +8,16 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'deepti.spring.admit@gmail.com',
-    pass: 'FestingRoad2019@'
+    user: 'bookmymovie13@gmail.com',
+    pass: 'ijklmn786@'
   }
 });
 
 var mailOptions = {
-  from: 'deepti.spring.admit@gmail.com',
+  from: 'bookmymovie13@gmail.com',
   to: 'deeptinigamadmit@gmail.com',
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
+  subject: 'Order Successful',
+  text: 'Congratulation on your order booking'
 };
 
 exports.email = function (newOrder) {
