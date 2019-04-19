@@ -3,6 +3,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var User = new Schema({
+    firstname :{
+        type:String,
+        required:'Please enter your first name.'
+    },
+    lastname :{
+        type:String,
+        required:'Please enter your last name.'
+    },
     username :{
         type:String,
         required:'Please enter your username.',
@@ -17,13 +25,15 @@ var User = new Schema({
         type:String,
         required:'Please enter your password.'
     },
-    phoneno:{
+    phoneNo:{
         type:String,
         required:'Please enter your phone number.'
     },
     address: {
-        type: String,
-        required: 'Please enter your address'
+        type: String
+    },
+    profilePicUrl: {
+        type: String
     }
 
 });
