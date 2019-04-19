@@ -2,11 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var OrderSchema = new Schema({
-    OrderId : {
-        type: String,
-        required: true,
-        unique:true
-    },
+   
     UserId :{
         type:String,
         required:'kindly select user.'
