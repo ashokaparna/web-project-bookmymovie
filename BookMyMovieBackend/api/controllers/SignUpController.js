@@ -13,7 +13,8 @@ let config = require('../../config');
  */
 exports.signUp = function (request, response) {
     response.header('Access-Control-Allow-Origin' , '*' );
-    if (!request.body.username || !request.body.password || !request.body.email || !request.body.phoneno){
+    console.log('Username' + request.body.username);
+    if (!request.body.username || !request.body.password || !request.body.email || !request.body.phoneNo){
         response.json({
             status: 400,
             message: 'Error in request, Please check the request'

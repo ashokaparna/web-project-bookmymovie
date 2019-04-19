@@ -1,26 +1,16 @@
-
 'use strict';
-
 let mongoose = require('mongoose');
 require('../models/UserModel');
 
 let User = mongoose.model('User');
-// save method
-exports.save = function (user) {
-    console.log("inside");
-    const newuser = new User(user);
-    console.log("before save");
-    const promise = newuser.save();
-    console.log(promise);
+// update method
+exports.updateUser = function (user) {
+    const promise = User.findOneAndUpdate({_id: user._id}, { $set: {phoneNo: user.phoneNo, email: user.email} }, {new: true}).exec();
     return promise;
 };
 
-/**
- * Returns an all users.
- *
- */
-exports.userList = function() {
-    const promise = User.find().exec();
-    return promise;
-}
-
+exports.getUserDetails =function (_id) {
+    console.log(_id);
+    const promise = User.findOne({_id:_id}).exec();
+    return promise
+};
