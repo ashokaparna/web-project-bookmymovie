@@ -43,7 +43,7 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
     SignupComponent,
     ForgotpasswordComponent,
     OrderHistoryComponent,
-    CustomerReviewTemplateComponent
+    CustomerReviewTemplateComponent,
     MovieShowSelectComponent,
     MovieSingleComponent
   ],
