@@ -23,6 +23,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import { CustomerReviewTemplateComponent } from './customer-review-template/customer-review-template.component';
+
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { MovieSingle_Service } from './Services/moviesingle.service';
@@ -41,6 +43,7 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
     SignupComponent,
     ForgotpasswordComponent,
     OrderHistoryComponent,
+    CustomerReviewTemplateComponent
     MovieShowSelectComponent,
     MovieSingleComponent
   ],
