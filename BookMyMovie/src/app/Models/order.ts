@@ -23,7 +23,6 @@ export class order {
     }
 }
 
-
 export class order_list {
 
     User_Id: String;
