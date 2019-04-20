@@ -10,14 +10,13 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
 import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
-  
   {
     path: 'seatselection',
     component: SeatSelectionComponent,
     data: { title: 'Dashboard' }
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
     component: MiddleDivComponent,
     data: { title: 'Dashboard' }
   },
