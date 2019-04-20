@@ -2,17 +2,16 @@
 //initiate mongoose
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
+
+
 var ShowTimeSchema = new Schema({
    
-    movieName :{
+    movieId :{
         type:String,
         required:'kindly enter your Username.'
     },
-    theatreName :{
-    // type: Schema.Types.ObjectId, ref:'Theatre',
-        type:String,
-        required:'kindly enter your Username.'
-    },
+    theatreId :{type:mongoose.Schema.Types.ObjectId, ref:"theatreModel"},
     showTime:{
         type:String,
         required:'kindly enter showTime.'

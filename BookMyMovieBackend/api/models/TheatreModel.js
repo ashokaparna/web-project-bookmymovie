@@ -9,5 +9,7 @@ var TheatreSchema = new Schema({
         required:'kindly enter your theatreName.'
     }
 });
-// exports model
-module.exports = mongoose.model('Theatre', TheatreSchema);
+
+var theatreModel = mongoose.model("Theatre", TheatreSchema);
+module.exports = theatreModel;
+module.exports = TheatreSchema;

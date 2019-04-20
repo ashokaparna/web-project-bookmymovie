@@ -11,15 +11,14 @@ require('../models/ShowTimeModel');/**
 let ShowTime = mongoose.model('ShowTime');
 exports.showtimeList = function() {
     console.log("");
-    ShowTime.aggregate([
-       
+    ShowTime.aggregate([  
       
-        { '$lookup': { from: 'theatres', localField: Object('theatreId'), foreignField: '_id', as: 'theatreRef'} },
+        { '$lookup': { from: 'theatres', localField: 'theatreId', foreignField: '_id', as: 'theatreRef'} },
         { '$unwind': '$theatreRef' }
     ]).exec(function (err, docs){
-        console.log(JSON.stringify(docs));
+        console.log(docs);
     //Use docs here. It will be object so for printing results: 
-    const promise =  JSON.stringify(docs);
+    const promise =  docs;
     return promise;
 
 });   

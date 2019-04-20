@@ -33,6 +33,7 @@ exports.list_by_movie = function (request, response) {
 exports.list_all_showtime = function (request, response) {
    
     const resolve = (showtime) => {
+        console.log("hii" + showtime);
         response.status(200);
         response.json(showtime);
     };
