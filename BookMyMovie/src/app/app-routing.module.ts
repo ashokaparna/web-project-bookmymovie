@@ -18,6 +18,9 @@ const routes: Routes = [
     data: { title: 'Dashboard' }
   },
   
+import { OrderHistoryComponent } from './order-history/order-history.component';
+
+const routes: Routes = [
   {
     path: 'seatselection',
     component: SeatSelectionComponent,
@@ -29,7 +32,8 @@ const routes: Routes = [
     data: { title: 'Dashboard' }
   },
   {
-    path: 'dashboard',
+   
+    path: 'dashboard/:id',
     component: MiddleDivComponent,
     data: { title: 'Dashboard' }
   },
@@ -56,6 +60,11 @@ const routes: Routes = [
   { path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
+  },
+  {
+    path: 'orderhistory',
+    component: OrderHistoryComponent,
+    data: { title: 'Order History ' }
   },
   { path: '**', component: PageNotFoundComponent }
 ];

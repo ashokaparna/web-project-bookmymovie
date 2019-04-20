@@ -17,6 +17,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import {LoginService} from "./Services/login.service";
 import {CookieService} from "ngx-cookie-service";
+import{MovieService} from './Services/movie.service';
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -50,7 +51,7 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
