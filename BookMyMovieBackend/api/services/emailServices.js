@@ -22,7 +22,7 @@ var mailOptions = {
 
 exports.email = function (newOrder) {
   console.log('Inside email-' + newOrder.OrderId);
-  mailOptions.text = 'OrderId: ' + newOrder.OrderId;
+  mailOptions.text = 'OrderId: ' + newOrder.theatername;
   console.log('Inside email-' + newOrder.email);
   mailOptions.to = newOrder.email;
   //mailOptions.to =  "deepibm2012@gmail.com";
