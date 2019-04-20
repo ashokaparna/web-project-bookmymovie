@@ -26,7 +26,6 @@ import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.
 import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { MovieSingle_Service } from './Services/moviesingle.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

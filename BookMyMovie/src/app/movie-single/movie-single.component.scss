@@ -1,11 +1,12 @@
 .video
 {
-    width:600px;
-    height: 300px;
+    width:800px;
+    height: 450px;
    
 }
 .middle{
     margin:2%;
+    
 }
 
 .movie-date-selection div div.location {
@@ -16,7 +17,10 @@
     font-weight:600;
     color: #dc3545;
 }
-
+.uppar
+{
+display: block;
+}
 
 .movie-date-selection div.time {
     display: inline;
@@ -34,7 +38,7 @@
 }
 
 
-.btn {
+.btn1 {
     display: inline-block;
     margin-bottom: 0;
     font-weight: 400;
@@ -51,3 +55,21 @@
     line-height: 1.42857143;
     border-radius: 4px;
 }
+.movie-meta
+{
+    margin: 50px;
+    .starring,ul,li
+ {
+    margin: 10px;
+    list-style: none; 
+}
+
+
+}
+
+
+.movie-meta li, .starring li {
+      margin-bottom: 10px; }
+      .checked {
+        color: orange;
+      }

@@ -1,21 +1,35 @@
-<div class="middle">
-  <h3> <span class="label label-warning">Trailer</span></h3>
+<div class="uppar">
+  <div class="middle">
+    <h3> <span class="label label-warning">Trailer</span></h3>
 
-  <iframe class="video" src="https://www.youtube.com/embed/jzQq-avJuBc">
-  </iframe>
+    <iframe class="video" src="https://www.youtube.com/embed/jzQq-avJuBc">
+    </iframe>
+  </div>
+  <div class="movie-details">
+    <ul class="movie-meta">
+      <li><strong>Rating:</strong>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+      </li>
+      <li><strong>Length:</strong> 98 min</li>
+      <li><strong>Premiere:</strong> 22 March 2013 (USA)</li>
+      <li><strong>Category:</strong> Animation/Adventure/Comedy</li>
+    </ul>
+  </div>
 </div>
 <div class="movie-date-selection">
 
   <div *ngFor="let c of result" class="main">
     <div class="location">
-        {{c.name}}
+      {{c.name}}
     </div>
-   
+
     <div class="time" *ngFor="let ca of c.values;">
-      <button type="button" class="btn btn-outline-danger">{{ca.showTime}} </button>
+      <button type="button" class="btn1 btn-outline-danger">{{ca.showTime}} </button>
     </div>
   </div>
-  
-  
+
+  <button type="button" class="btn btn-primary middle">Book Tickets</button>
 
 </div>

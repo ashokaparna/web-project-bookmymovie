@@ -3,12 +3,15 @@ import { MovieSingle_Service } from '../Services/moviesingle.service';
 import { showTime } from '../Models/showtime';
 import { Observable } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-movie-single',
   templateUrl: './movie-single.component.html',
   styleUrls: ['./movie-single.component.scss']
 })
 export class MovieSingleComponent implements OnInit {
+  model;
   list_showtimes: Array<showTime>;
   movieName: string = "Tarzan";
   result:any[];
@@ -40,4 +43,7 @@ export class MovieSingleComponent implements OnInit {
   ngOnInit() {
   }
 
+}
+export class NgbdDatepickerPopup {
+  model;
 }
