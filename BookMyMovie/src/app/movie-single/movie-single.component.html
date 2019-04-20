@@ -6,13 +6,16 @@
 </div>
 <div class="movie-date-selection">
 
-  <ul>
-    <li class="location">
-      <a href="pic-a-movie.html"><i class="fa fa-map-marker"></i>Theater Name: Location</a>
-    </li>
-    <li class="time">
-      <button type="button" class="btn btn-outline-danger">11::00 AM</button>
-    </li>
-  </ul>
+  <div *ngFor="let c of result" class="main">
+    <div class="location">
+        {{c.name}}
+    </div>
+   
+    <div class="time" *ngFor="let ca of c.values;">
+      <button type="button" class="btn btn-outline-danger">{{ca.showTime}} </button>
+    </div>
+  </div>
   
+  
+
 </div>

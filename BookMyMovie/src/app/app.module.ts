@@ -24,6 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 import { MovieSingleComponent } from './movie-single/movie-single.component';
+import { MovieSingle_Service } from './Services/moviesingle.service';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { MovieSingleComponent } from './movie-single/movie-single.component';
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [Order_Service, LoginService, CookieService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

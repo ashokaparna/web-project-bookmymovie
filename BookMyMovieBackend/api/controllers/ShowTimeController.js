@@ -23,10 +23,12 @@ exports.list_by_movie = function (request, response) {
    
     const resolve = (showtime) => {
         response.status(200);
+        console.log(showtime);
         response.json(showtime);
     };
     showtimeService.list_by_movieName(request.params.movieName)
         .then(resolve)
+       
         .catch(renderErrorResponse(response));
 };
 

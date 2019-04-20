@@ -27,6 +27,7 @@ exports.showtimeList = function() {
 
 exports.list_by_movieName = function(movieName) {
     const promise = ShowTime.find({"movieName": movieName}).exec();
+    console.log(promise);
     return promise;
 }
 
