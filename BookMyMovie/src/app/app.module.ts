@@ -23,6 +23,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import { CustomerReviewTemplateComponent } from './customer-review-template/customer-review-template.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    CustomerReviewTemplateComponent
   ],
   imports: [
     BrowserModule,
