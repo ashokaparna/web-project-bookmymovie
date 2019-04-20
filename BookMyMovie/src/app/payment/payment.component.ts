@@ -1,3 +1,4 @@
+
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Order_Service} from '../Services/order.service';
 import { order_list } from '../Models/order';
@@ -13,18 +14,17 @@ export class PaymentComponent implements OnInit {
 
   orderService : Order_Service;
   //dt = new Date("2016-05-18");
-  
-    //console.log(dateSendingToServer);
+ //console.log(dateSendingToServer);
  
-
   model:any =  {
-    OrderId: '188888',
-    UserId: '2',
-    MovieId: '140',
-  CreatedAt : new Date("2016-05-19"),
-  NoOfSeats: 5,
-  TotalAmount: 750,
-  Email: "deepibm2012@gmail.com"
+    UserId: '21',
+    TheaterName: 'ABC Cinema',
+    MovieName : 'x-men',
+    ShowTime :'12:00 PM',
+    NoOfSeats : 2,
+    TotalAmount : 1500,
+    CreationTime : '12:30PM'
+
   };
 
   
@@ -36,9 +36,10 @@ export class PaymentComponent implements OnInit {
     ngOnInit() {
     }
     onClickPlaceOrder(){
-        alert("inside order ");
-        let dt = new DatePipe('en-US').transform(this.model.CreatedAt, 'dd/MM/yyyy');
+        alert("inside order " + this.model.TheaterName);
+      //  let dt = new DatePipe('en-US').transform(this.model.CreatedAt, 'dd/MM/yyyy');
      //   this.model.CreatedAt = dt;
+    
        let neworder$: Observable<order_list> = this.orderService.createOrder(this.model);
        
        //console.log(dt);
@@ -51,10 +52,8 @@ export class PaymentComponent implements OnInit {
         this.add_pay_invoked.emit(); 
   }
 
- /* PlaceOrder(regForm)
-  {
-    console.log(regForm);
-  }*/
-
   }
+  
+
+  
   

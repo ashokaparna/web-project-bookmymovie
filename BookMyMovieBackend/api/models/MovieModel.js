@@ -1,16 +1,29 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var MovieSchema = new Schema({
+var Movies = new Schema({
 
     movieName: {
         type: String,
         required: 'Name of movie is mandatory field.'
     },
+    movieImage: {
+        type: String,
+        required: 'Movie Image name is mandatory field'
+    },
+    movieURL: {
+        type: String,
+        required: 'Movie URL is a mandatory field'
+    },
     movieLength: {
-        type: Number,
+        type: String,
         required: 'Length of Movie is mandatory field.'
     },
+    movieReleaseDate: {
+        type: String,
+        required: 'Movie Release Date'
+    },
+
     directorName: {
         type: String,
         required: 'Name of the director is mandatory field.'
@@ -26,7 +39,7 @@ var MovieSchema = new Schema({
     rating: {
         type: String,
         required: 'Rating is a mandatory field.'
-    },
+    }
 });
 // exports model
-module.exports = mongoose.model('Movies', OrderSchema);
+module.exports = mongoose.model('Movies', Movies);

@@ -19,7 +19,8 @@ exports.create_order = function(req, res) {
         
     };
     orderService.save(newOrder)
-        .then(resolve).then( emailService.email(newOrder))
+        .then(resolve)
+        .then( emailService.email(newOrder))
         .catch(renderErrorResponse(res));
   };
 

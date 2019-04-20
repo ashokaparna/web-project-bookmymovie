@@ -7,7 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
-
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
   {
@@ -43,6 +43,11 @@ const routes: Routes = [
   { path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
+  },
+  {
+    path: 'orderhistory',
+    component: OrderHistoryComponent,
+    data: { title: 'Order History ' }
   },
   { path: '**', component: PageNotFoundComponent }
 ];
