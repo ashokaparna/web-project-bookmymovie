@@ -23,7 +23,9 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
-
+import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
+import { MovieSingleComponent } from './movie-single/movie-single.component';
+import { MovieSingle_Service } from './Services/moviesingle.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    MovieShowSelectComponent,
+    MovieSingleComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,7 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
