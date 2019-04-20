@@ -4,11 +4,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ShowTimeSchema = new Schema({
    
-    movieName :{
+    movieId :{
         type:String,
         required:'kindly enter your Username.'
     },
-    theatreName :{
+    theatreId :{
         type:String,
         required:'kindly enter your Username.'
     },
