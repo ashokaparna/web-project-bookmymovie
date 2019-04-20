@@ -19,6 +19,11 @@ var Movies = new Schema({
         type: String,
         required: 'Length of Movie is mandatory field.'
     },
+    movieReleaseDate: {
+        type: String,
+        required: 'Movie Release Date'
+    },
+
     directorName: {
         type: String,
         required: 'Name of the director is mandatory field.'
