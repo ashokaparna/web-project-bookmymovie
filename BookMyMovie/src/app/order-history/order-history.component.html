@@ -10,17 +10,24 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Booking Id</th>
+      <th scope="col">Booking ID</th>
       <th scope="col">Booking Date</th>
       <th scope="col">Movie Name</th>
     </tr>
   </thead>
   <tbody>
+      <!-- User_Id: String;
+      Theatre_Name: String;
+      Movie_Name: String;
+      Show_Time: String;
+      No_of_seats: Number;
+      Total_Amount: Number; -->
     <tr  *ngFor ="let c of list | paginate: { itemsPerPage:10, currentPage: p }"> 
        <td> # </td>
-        <td>{{c.OrderId}}</td>
-        <td>{{c.CreatedAt}}</td>
-
+        <td>{{c._id}}</td>
+        <td>{{c.creationtime}}</td>
+        <td>{{c.moviename}}</td>
+        
     <!--   <td><button  value="{{c._id}}" #view (click)="onClickDetail(c._id)">
       View</button></td>-->
       </tr>
