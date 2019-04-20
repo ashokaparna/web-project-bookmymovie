@@ -22,9 +22,14 @@ var mailOptions = {
 
 exports.email = function (newOrder) {
   console.log('Inside email-' + newOrder.OrderId);
-  mailOptions.text = 'OrderId: ' + newOrder.OrderId;
-  console.log('Inside email-' + newOrder.Email);
-  mailOptions.to = newOrder.Email;
+  mailOptions.text = 'Theater Name: ' + newOrder.theatername + 
+  " Movie Name: " + newOrder.moviename + " Show Time: " 
+  + newOrder.showtime + " Total Seats: " + newOrder.noofseats + 
+ " Total Amount: " + newOrder.totalamount + " Booking Time: " +
+ newOrder.creationtime;
+  console.log('Inside email-' + newOrder.email);
+  mailOptions.to = newOrder.email;
+  //mailOptions.to =  "deepibm2012@gmail.com";
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);

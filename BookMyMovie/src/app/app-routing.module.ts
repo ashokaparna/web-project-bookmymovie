@@ -9,16 +9,16 @@ import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
 
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
-  
   {
     path: 'seatselection',
     component: SeatSelectionComponent,
     data: { title: 'Dashboard' }
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
     component: MiddleDivComponent,
     data: { title: 'Dashboard' }
   },
@@ -51,7 +51,13 @@ const routes: Routes = [
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: 'orderhistory',
+    component: OrderHistoryComponent,
+    data: { title: 'Order History ' }
+  }
+  // ,
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 

@@ -1,3 +1,4 @@
+
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Order_Service } from '../Services/order.service';
 import { order_list } from '../Models/order';
@@ -15,18 +16,17 @@ export class PaymentComponent implements OnInit {
 
   orderService: Order_Service;
   //dt = new Date("2016-05-18");
+ //console.log(dateSendingToServer);
+ 
+  model:any =  {
+    UserId: '21',
+    TheaterName: 'ABC Cinema',
+    MovieName : 'x-men',
+    ShowTime :'12:00 PM',
+    NoOfSeats : 2,
+    TotalAmount : 1500,
+    CreationTime : '12:30PM'
 
-  //console.log(dateSendingToServer);
-
-
-  model: any = {
-    OrderId: '188888',
-    UserId: '2',
-    MovieId: '140',
-    CreatedAt: new Date("2016-05-19"),
-    NoOfSeats: 5,
-    TotalAmount: 750,
-    Email: "deepibm2012@gmail.com"
   };
 
 

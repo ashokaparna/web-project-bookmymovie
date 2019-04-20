@@ -4,6 +4,8 @@ module.exports = function (app) {
     let login = require('../controllers/loginController');
     let orderlist = require('../controllers/OrderController');
     let theatrelist = require('../controllers/TheatreController');
+    let showtimelist = require('../controllers/ShowTimeController');
+    let reviewlist = require('../controllers/ReviewController');
     let signUp = require('../controllers/SignUpController');
     var movieList = require('../controllers/MovieController');
 
@@ -20,16 +22,25 @@ module.exports = function (app) {
         .post(orderlist.create_order);
     app.route('/orders/:userId')
         .get(orderlist.user_orders)
-    app.route('/theatre')
+     app.route('/theatre')        
         .post(theatrelist.create_theatre);
+    app.route('/showtime')       
+        .get(showtimelist.list)
+        .post(showtimelist.create_showtime);
+    app.route('/showtime/:movieName')       
+        .get(showtimelist.list_by_movie)
+     app.route('/reviews')     
+        .get(reviewlist.list_all_reviews)   
+        .post(reviewlist.create_review);
+    app.route('/reviews/:userId')
+        .get(reviewlist.user_reviews) 
+     app.route('/reviews/:reviewId')
+         .delete(reviewlist.delete) 
     app.route('/movies')
         .get(movieList.listMovies)
         .post(movieList.createMovies);
     app.route('/movies/:movieId')
         .get(movieList.readMovie)
         .put(movieList.updateMovie)
-
-
-
 };
 

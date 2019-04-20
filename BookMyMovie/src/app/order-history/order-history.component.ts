@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class OrderHistoryComponent implements OnInit {
   list: Array<order>;
   constructor(public o_service: Order_Service) { 
-    let orders$: Observable<Array<order>> = o_service.viewUserOrders('2');
+    let orders$: Observable<Array<order>> = o_service.viewUserOrders('31');
     orders$.subscribe(orders => {
       this.list = orders;
     });

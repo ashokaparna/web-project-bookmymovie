@@ -38,17 +38,16 @@ idURL: string;
   createOrder(order: order_list): Observable<order_list> {
    
      let neworder: order_list;
-    //  order.O_Id = "101";
-    //  order.U_Id = "101";
-    //  order.M_Id = "101";
-    //  order.C_Date = new Date();
-    // // order.C_Date = formatDate(order.C_Date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
-    // order.Seats = 4;
-    // order.Amount = 1000;
-   
-    neworder = order ? order : new order_list(order.O_Id, order.U_Id,
-    order.M_Id,order.C_Date,order.Seats,order.Amount);
-   // alert("Before Post " + neworder.M_Id + neworder.C_Date);
+  
+  alert('Inside Create Order - ' + order.Creation_Time);
+    neworder = order ? order : new order_list(order.User_Id,
+      order.Theater_Name,order.Movie_Name,order.Show_Time,
+      order.No_of_seats,order.Total_Amount,order.Creation_Time);
+  
+// alert("Before Post " + neworder.M_Id + neworder.C_Date);
      return this.http.post<order_list>(`${environment.serverBaseURL}${this.orderDbName}`, neworder);
    }
+
+
+
 }
