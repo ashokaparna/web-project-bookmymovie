@@ -1,42 +1,50 @@
 
 export class order {
     _id: String;
-    O_Id: String;
-    U_Id: String;
-    M_Id: String;
-    C_Date: Date;
-    Seats: Number;
-    Amount: Number;
+    User_Id: String;
+    Theater_Name: String;
+    Movie_Name: String;
+    Show_Time: String;
+    No_of_seats: Number;
+    Total_Amount: Number;
+    Creation_Time: String;
 
-    constructor(_id: String, OrderId: String, UserId: String,
-        MovieId: String, CreatedAt: Date, NoOfSeats: Number, TotalAmount: Number) {
+    constructor(_id: String, userid: String,
+        theatername: String, moviename: String, showtime: String, 
+        noofseats: Number, totalamount: Number, creationtime: String) {
         this._id = _id;
-        this.O_Id = OrderId;
-        this.U_Id = UserId;
-        this.M_Id = MovieId;
-        this.C_Date = CreatedAt;
-        this.Seats = NoOfSeats;
-        this.Amount = TotalAmount;
+        this.User_Id = userid;
+        this.Theater_Name = theatername;
+        this.Movie_Name = moviename;
+        this.Show_Time = showtime;
+        this.No_of_seats = noofseats;
+        this.Total_Amount = totalamount;
+        this.Creation_Time = creationtime;
     }
 }
 
 export class order_list {
 
-    O_Id: String;
-    U_Id: String;
-    M_Id: String;
-    C_Date: Date;
-    Seats: Number;
-    Amount: Number;
+    User_Id: String;
+    Theater_Name: String;
+    Movie_Name: String;
+    Show_Time: String;
+    No_of_seats: Number;
+    Total_Amount: Number;
+    Creation_Time: String;
 
-    constructor(OrderId: String, UserId: String,
-        MovieId: String, CreatedAt: Date, NoOfSeats: Number, TotalAmount: Number) {
 
-        this.O_Id = OrderId;
-        this.U_Id = UserId;
-        this.M_Id = MovieId;
-        this.C_Date = CreatedAt;
-        this.Seats = NoOfSeats;
-        this.Amount = TotalAmount;
+ constructor(userid: String,
+    theatername: String, moviename: String, showtime: String, 
+    noofseats: Number, totalamount: Number, creationtime: String)
+        {
+        
+            this.User_Id = userid;
+            this.Theater_Name = theatername;
+            this.Movie_Name = moviename;
+            this.Show_Time = showtime;
+            this.No_of_seats = noofseats;
+            this.Total_Amount = totalamount;
+            this.Creation_Time = creationtime;
     }
 }
