@@ -20,7 +20,6 @@ export class order {
     }
 }
 
-
 export class order_list {
 
     O_Id: String;
