@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FilterPipe} from './middle-div/filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -45,7 +46,8 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
     OrderHistoryComponent,
     CustomerReviewTemplateComponent,
     MovieShowSelectComponent,
-    MovieSingleComponent
+    MovieSingleComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

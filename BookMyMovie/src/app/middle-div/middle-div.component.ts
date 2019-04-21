@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 
 export class MiddleDivComponent implements OnInit {
   list: Array<movie>;
+  searchTerm: string;
   id: string;
   constructor(private activatedroute: ActivatedRoute, public movieservice: MovieService) {
     this.id = this.activatedroute.snapshot.params['id'];
