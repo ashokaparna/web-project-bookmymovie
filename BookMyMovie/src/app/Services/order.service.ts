@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { order, order_list} from './../Models/order';
+import { order} from './../Models/order';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 import { formatDate } from '@angular/common';
@@ -32,20 +32,20 @@ idURL: string;
  /**
    * Creates new order.
    *
-   * @param  {order_list} order: order_list {new order_list object}
-   * @return {Observable<order_list>} {Observable for saved order object}
+   * @param  {order order: order_list {new order_list object}
+   * @return {Observable<order>} {Observable for saved order object}
    */
-  createOrder(order: order_list): Observable<order_list> {
+  createOrder(order: order): Observable<order> {
    
-     let neworder: order_list;
+    let neworder: order;
   
-  alert('Inside Create Order - ' + order.Creation_Time);
-    neworder = order ? order : new order_list(order.User_Id,
-      order.Theater_Name,order.Movie_Name,order.Show_Time,
-      order.No_of_seats,order.Total_Amount,order.Creation_Time);
-  
-// alert("Before Post " + neworder.M_Id + neworder.C_Date);
-     return this.http.post<order_list>(`${environment.serverBaseURL}${this.orderDbName}`, neworder);
+  alert('Inside Create Order - ' + order.creationtime);
+    neworder = order;
+    //  : new order(order.userid,
+    //   order.theaterid,order.movieid,order.showtime,
+    //   order.seatdetails,order.totalamount,order.creationtime);
+
+     return this.http.post<order>(`${environment.serverBaseURL}${this.orderDbName}`, neworder);
    }
 
 
