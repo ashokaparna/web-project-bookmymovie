@@ -6,10 +6,10 @@ export class movie {
     movieLength: String;
     directorName: String;
     language: String;
-    type: String;
+    movieType: String;
     rating: String;
 
-    constructor(movieName: String, movieImage: String, movieURL: String, movieReleaseDate: String, movieLength: String, directorName: String, language: String, type: String, rating: String) {
+    constructor(movieName: String, movieImage: String, movieURL: String, movieReleaseDate: String, movieLength: String, directorName: String, language: String, movieType: String, rating: String) {
         this.movieName = movieName;
         this.movieImage = movieImage;
         this.movieURL = movieURL;
@@ -17,7 +17,7 @@ export class movie {
         this.movieLength = movieLength;
         this.directorName = directorName;
         this.language = language;
-        this.type = type;
+        this.movieType = movieType;
         this.rating = rating;
     }
 }

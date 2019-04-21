@@ -23,8 +23,15 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+
 import {SignUpService} from "./Services/sign-up.service";
 
+import { CustomerReviewTemplateComponent } from './customer-review-template/customer-review-template.component';
+
+
+import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
+import { MovieSingleComponent } from './movie-single/movie-single.component';
+import { MovieSingle_Service } from './Services/moviesingle.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +46,10 @@ import {SignUpService} from "./Services/sign-up.service";
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    CustomerReviewTemplateComponent,
+    MovieShowSelectComponent,
+    MovieSingleComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +59,7 @@ import {SignUpService} from "./Services/sign-up.service";
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieService, SignUpService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService, SignUpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

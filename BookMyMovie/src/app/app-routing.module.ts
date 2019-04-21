@@ -7,6 +7,8 @@ import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
+
 import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
@@ -40,6 +42,11 @@ const routes: Routes = [
     component: ForgotpasswordComponent,
     data: { title: 'Forgot password' }
   },
+  {
+    path: 'customerreview',
+    component: CustomerReviewTemplateComponent,
+    data: { title: 'Forgot password' }
+  },
   { path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
@@ -48,8 +55,9 @@ const routes: Routes = [
     path: 'orderhistory',
     component: OrderHistoryComponent,
     data: { title: 'Order History ' }
-  },
-  { path: '**', component: PageNotFoundComponent }
+  }
+  // ,
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 
