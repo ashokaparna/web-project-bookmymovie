@@ -32,7 +32,7 @@ var Movies = new Schema({
         type: String,
         required: 'Language is a Mandatory field.'
     },
-    type: {
+    movieType: {
         type: String,
         required: 'Movie type is mandatory field..'
     },

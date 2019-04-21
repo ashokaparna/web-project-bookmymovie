@@ -1,8 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {loginRequest} from '../Models/user';
 import {LoginService} from '../Services/login.service';
-import {CookieService} from "ngx-cookie-service";
-import {Router} from "@angular/router";
+import {CookieService} from 'ngx-cookie-service';
+import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,22 +11,30 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username: string;
-  password: string;
   cookievalue = 'unknown';
   request: loginRequest = new loginRequest();
   loginService: LoginService;
+  public loginForm: FormGroup;
+  submitted = false;
   constructor(private lg: LoginService, private cookieService: CookieService, private router: Router) {
     this.loginService = lg;
   }
 // constructor(){}
   ngOnInit() {
+    this.loginForm = new FormGroup({
+      'username': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required)
+    });
   }
 
   /*Submit button click function. This will check if the entered elements are valid. If they are valid it will post the contact.*/
   authenticate() {
-    this.request.username = this.username;
-    this.request.password = this.password;
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.request.username = this.loginForm.get('username').value;
+    this.request.password = this.loginForm.get('password').value;
     this.loginService.login(this.request)
       .subscribe((result: any) => {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
@@ -35,6 +44,9 @@ export class LoginComponent implements OnInit {
     }, (error: any) => {
         console.log(error);
       });
+  }
 
+  forgotPassword(){
+    this.router.navigate(['/forgotpassword']);
   }
 }
