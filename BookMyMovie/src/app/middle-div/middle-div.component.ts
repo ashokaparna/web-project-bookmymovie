@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { movie } from '../Models/movie';
 import { MovieService } from '../Services/movie.service';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ export class MiddleDivComponent implements OnInit {
   list: Array<movie>;
   searchTerm: string;
   id: string;
-  constructor(private activatedroute: ActivatedRoute, public movieservice: MovieService) {
+  constructor(private activatedroute: ActivatedRoute, public movieservice: MovieService,public router: Router) {
     this.id = this.activatedroute.snapshot.params['id'];
     let movies$: Observable<Array<movie>> = movieservice.get_Movies();
     movies$.subscribe(movies => {
@@ -24,5 +24,8 @@ export class MiddleDivComponent implements OnInit {
 
     ngOnInit() {
   }
-
+  movieClick(movieId)
+  {
+  this.router.navigate(['/movie-single',movieId]);
+  }
 }

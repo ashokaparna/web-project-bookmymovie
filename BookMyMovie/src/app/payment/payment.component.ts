@@ -16,16 +16,16 @@ export class PaymentComponent implements OnInit {
 
   orderService: Order_Service;
   //dt = new Date("2016-05-18");
- //console.log(dateSendingToServer);
- 
-  model:any =  {
+  //console.log(dateSendingToServer);
+
+  model: any = {
     UserId: '21',
     TheaterName: 'ABC Cinema',
-    MovieName : 'x-men',
-    ShowTime :'12:00 PM',
-    NoOfSeats : 2,
-    TotalAmount : 1500,
-    CreationTime : '12:30PM'
+    MovieName: 'x-men',
+    ShowTime: '12:00 PM',
+    NoOfSeats: 2,
+    TotalAmount: 1500,
+    CreationTime: '12:30PM'
 
   };
 
@@ -42,7 +42,7 @@ export class PaymentComponent implements OnInit {
   downloadAsPDF() {
     html2canvas(document.getElementById('col-md-12')).then(function (canvas) {
       scale: 2;
-      dpi:144;
+      dpi: 144;
       var img = canvas.toDataURL("image/png");
       var doc = new jsPDF();
       doc.addImage(img, 'JPEG', 5, 20);

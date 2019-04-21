@@ -7,17 +7,31 @@ import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
+import { MovieSingleComponent } from './movie-single/movie-single.component';  
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
 
-import { OrderHistoryComponent } from './order-history/order-history.component';
-
 const routes: Routes = [
+  {
+    path: 'movie-single/:movieId',
+    component: MovieSingleComponent,
+    data: { title: 'Dashboard' }
+  },
   {
     path: 'seatselection',
     component: SeatSelectionComponent,
     data: { title: 'Dashboard' }
   },
   {
+
+    path: 'shows',
+    component: MovieShowSelectComponent,
+    data: { title: 'Dashboard' }
+  },
+  { 
+
     path: 'dashboard/:id',
     component: MiddleDivComponent,
     data: { title: 'Dashboard' }
@@ -43,6 +57,11 @@ const routes: Routes = [
     data: { title: 'Forgot password' }
   },
   {
+    path: 'resetpassword/:token',
+    component: ResetPasswordComponent,
+    data: { title: 'Reset password' }
+  },
+  {
     path: 'customerreview',
     component: CustomerReviewTemplateComponent,
     data: { title: 'Forgot password' }
@@ -55,9 +74,8 @@ const routes: Routes = [
     path: 'orderhistory',
     component: OrderHistoryComponent,
     data: { title: 'Order History ' }
-  }
-  // ,
-  // { path: '**', component: PageNotFoundComponent }
+  } ,
+   { path: '**', component: PageNotFoundComponent }
 ];
 
 

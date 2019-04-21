@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MovieSingle_Service } from '../Services/moviesingle.service';
 import { showTime } from '../Models/showtime';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { stringify } from '@angular/core/src/render3/util';
+import { movie } from '../Models/movie';
+import { MovieService } from '../Services/movie.service';
 
 
 
@@ -12,35 +16,68 @@ import { Observable } from 'rxjs';
 })
 export class MovieSingleComponent implements OnInit {
   model;
+  movie: movie;
   list_showtimes: Array<showTime>;
-  movieName: string = "Tarzan";
-  result:any[];
-  constructor(public moviesingle_service: MovieSingle_Service) {
+  selectedShowId: string ;
+  result: any[];
+  movieId: string;
+  theatreId: string;
 
-    let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getSinglemovie(this.movieName);
+  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router) {
+
+    this.movieId = this.ac.snapshot.params['movieId'];
+   
+    //get movie-single
+    let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
+    movies$.subscribe(movies => {
+      console.log(movies);
+      this.movie = movies;
+
+
+    });
+
+    let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getshowTimes(this.movieId);
     showtimes$.subscribe(showtimes => {
-      
-      {
-        var groups = new Set(showtimes.map(item => item.theatreName)) 
-        this.result = [];
-        groups.forEach(g => 
-          this.result.push({
-            name: g, 
-            values: showtimes.filter(i => i.theatreName === g)
-          }
-        ))
-      }
 
-      this.list_showtimes = showtimes;
+      {
+        console.log(showtimes);
+        var groups = new Set(showtimes.map(item => item.theatreId))
+        this.result = [];
+        groups.forEach(g =>
+          this.result.push({
+            name: g,
+            values: showtimes.filter(i => i.theatreId === g),
+
+          }
+          ))
+      }
+      console.log("groupd");
       console.log(this.result);
+      //this.list_showtimes = showtimes;
+      // console.log(this.result);
     });
 
   }
-  toArray(values: object) {
-    return Object.keys(values).map(key => values[key])
+
+ 
+  selectShowtime(showid,theatreid) {
+   // alert(showid + '//' + theatreid);
+    this.selectedShowId = showid;
+    this.theatreId = theatreid;
   }
 
   ngOnInit() {
+  }
+  confirm()
+  {
+    
+    if(this.selectedShowId  == undefined)
+    {
+     alert('please select showtime');
+     return;
+    }
+    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId}]);
+
   }
 
 }

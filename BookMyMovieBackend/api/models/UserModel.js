@@ -34,6 +34,12 @@ var User = new Schema({
     },
     profilePicUrl: {
         type: String
+    },
+    reset_password_token:{
+        type: String
+    },
+    reset_password_expires: {
+        type: String
     }
 
 });

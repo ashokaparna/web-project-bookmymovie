@@ -1,6 +1,6 @@
 export class showTime {
-    movieName: string;
-    theatreName: string;
+    movieId: string;
+    theatreId: string;
     showTime: string;
     seats: string;  
   }

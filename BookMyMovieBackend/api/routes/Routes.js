@@ -7,7 +7,8 @@ module.exports = function (app) {
     let showtimelist = require('../controllers/ShowTimeController');
     let reviewlist = require('../controllers/ReviewController');
     let signUp = require('../controllers/SignUpController');
-    var movieList = require('../controllers/MovieController');
+    let movieList = require('../controllers/MovieController');
+    let forgotPassword = require('../controllers/ForgotPasswordController')
 
     app.route('/users/:_id')
         .get(user.getProfile);
@@ -25,9 +26,9 @@ module.exports = function (app) {
      app.route('/theatre')        
         .post(theatrelist.create_theatre);
     app.route('/showtime')       
-        .get(showtimelist.list)
+        .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
-    app.route('/showtime/:movieName')       
+    app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
      app.route('/reviews')     
         .get(reviewlist.list_all_reviews)   
@@ -42,5 +43,9 @@ module.exports = function (app) {
     app.route('/movies/:movieId')
         .get(movieList.readMovie)
         .put(movieList.updateMovie)
+    app.route('/auth/forgot_password')
+        .put(forgotPassword.sendForgotPasswordEmail);
+    app.route('/auth/reset_password')
+        .put(forgotPassword.reset_password);
 };
 
