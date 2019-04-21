@@ -26,9 +26,9 @@ module.exports = function (app) {
      app.route('/theatre')        
         .post(theatrelist.create_theatre);
     app.route('/showtime')       
-        .get(showtimelist.list)
+        .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
-    app.route('/showtime/:movieName')       
+    app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
      app.route('/reviews')     
         .get(reviewlist.list_all_reviews)   

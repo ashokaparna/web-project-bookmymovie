@@ -17,7 +17,7 @@ exports.createMovies = function (req, res) {
     const resolve = (movie) => {
         res.status(200);
         res.json(movie);
-    };
+    }; 
     movieService.save(newmovie)
         .then(resolve)
         .catch(renderErrorResponse(res));
