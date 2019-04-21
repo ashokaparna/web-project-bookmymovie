@@ -23,8 +23,8 @@ export class MiddleDivComponent implements OnInit {
 
     ngOnInit() {
   }
-  movieClick(movieName)
+  movieClick(movieId)
   {
-  this.router.navigate(['/movie-single',movieName]);
+  this.router.navigate(['/movie-single',movieId]);
   }
 }

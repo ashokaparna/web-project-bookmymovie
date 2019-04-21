@@ -42,4 +42,7 @@ var Movies = new Schema({
     }
 });
 // exports model
-module.exports = mongoose.model('Movies', Movies);
+var movieModel = mongoose.model('Movies', Movies);
+
+module.exports = movieModel;
+module.exports = Movies

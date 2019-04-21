@@ -13,7 +13,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
   {
-    path: 'movie-single/:movieName',
+    path: 'movie-single/:movieId',
     component: MovieSingleComponent,
     data: { title: 'Dashboard' }
   },

@@ -18,38 +18,41 @@ export class MovieSingleComponent implements OnInit {
   model;
   movie: movie;
   list_showtimes: Array<showTime>;
-  movieName: string = "Tarzan";
+  movieName: string = "1@";
   result:any[];
-  movieN :string;
+  movieId :string;
   length:String;
   constructor(public moviesingle_service: MovieSingle_Service,public movieservice: MovieService, private ac:ActivatedRoute) {
 
-    this.movieN = this.ac.snapshot.params['movieName'];
-alert(this.movieN);
+    this.movieId = this.ac.snapshot.params['movieId'];
+alert(this.movieId);
     //get movie-single
-    let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieN);
+    let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
     movies$.subscribe(movies => {
-      this.movie = movies[0];
+      console.log(movies);
+      this.movie = movies;
     
-      console.log();
+     
     });
     
-    let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getSinglemovie(this.movieName);
+    let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getshowTimes(this.movieId);
     showtimes$.subscribe(showtimes => {
       
       {
-        var groups = new Set(showtimes.map(item => item.theatreName)) 
+        console.log(showtimes);
+        var groups = new Set(showtimes.map(item => item.theatreId)) 
         this.result = [];
         groups.forEach(g => 
           this.result.push({
             name: g, 
-            values: showtimes.filter(i => i.theatreName === g)
+            values: showtimes.filter(i => i.theatreId === g)
           }
         ))
       }
-
-      this.list_showtimes = showtimes;
+      console.log("groupd");
       console.log(this.result);
+      //this.list_showtimes = showtimes;
+     // console.log(this.result);
     });
 
   }

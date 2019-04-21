@@ -17,8 +17,8 @@ exports.save = function (movie) {
 };
 
 
-exports.get = function (moviename) {
-    const promise = Movies.find({movieName : moviename}).exec();
+exports.get = function (movieId) {
+    const promise = Movies.findById(movieId).exec();
     return promise;
 };
 

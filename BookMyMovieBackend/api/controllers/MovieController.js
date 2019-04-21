@@ -29,7 +29,7 @@ exports.readMovie = function (req, res) {
         res.status(200);
         res.json(movie);
     };
-    movieService.get(req.params.movieName)
+    movieService.get(req.params.movieId)
         .then(resolve)
         .catch(renderErrorResponse(res));
 };

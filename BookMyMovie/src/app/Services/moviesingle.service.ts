@@ -19,8 +19,9 @@ export class MovieSingle_Service
         this.orderDbURL = `${environment.serverBaseURL}${this.orderDbName}`;
     }
 
-    getSinglemovie(movieName: string): Observable<Array<showTime>> {      
-        return this.http.get<Array<showTime>>(`${this.orderDbURL}/${movieName}`);
+    getshowTimes(movieId: string): Observable<Array<showTime>> {     
+        console.log(`${this.orderDbURL}/${movieId}`); 
+        return this.http.get<Array<showTime>>(`${this.orderDbURL}/${movieId}`);
       }
 
 }
