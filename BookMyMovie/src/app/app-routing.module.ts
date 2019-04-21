@@ -7,7 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
-<<<<<<< HEAD
+
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 import { MovieSingleComponent } from './movie-single/movie-single.component';  
 import { OrderHistoryComponent } from './order-history/order-history.component';
