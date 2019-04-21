@@ -45,7 +45,7 @@ module.exports = function (app) {
         .put(movieList.updateMovie)
     app.route('/auth/forgot_password')
         .put(forgotPassword.sendForgotPasswordEmail);
-    // app.route('/auth/reset_password')
-    //     .post(forgotPassword.reset_password);
+    app.route('/auth/reset_password')
+        .put(forgotPassword.reset_password);
 };
 
