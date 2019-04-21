@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -23,6 +23,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import {SignUpService} from "./Services/sign-up.service";
 
 
 @NgModule({
@@ -45,9 +46,10 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieService],
+  providers: [Order_Service, LoginService, CookieService, MovieService, SignUpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

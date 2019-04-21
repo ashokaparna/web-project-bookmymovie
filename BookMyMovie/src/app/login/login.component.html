@@ -1,43 +1,47 @@
 <div ng-app="myApp" ng-controller="myController" class="container">
-  <form name="loginForm">
+  <form name="loginForm" [formGroup]="loginForm" (ngSubmit)="authenticate()">
     <div class="login-container">
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="username" name="username"  required class="form-control"
-                   [(ngModel)]="username">
+            <label>Username</label>
+            <input type="email" minlength="4" id="username" formControlName="username" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
 
-            <!--<div *ngIf="username.touched && !username.valid" class="error">Invalid email!</div>-->
-            <!--<div *ngIf="email.touched && email  ng-show="myForm.email.$error.required &amp;&amp; myForm.email.$touched" class="error">Required!</div>-->
+            <div *ngIf="submitted && f.username.errors" >
+              <div *ngIf="f.username.errors.required" class="error">Username is required</div>
+            </div>
+
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
             <label>Password</label>
-            <input type="password" name="pass" required class="form-control" [(ngModel)]="password">
-            <!--<div *ngIf="password.touched && !password.valid"  class="error">Required!</div>-->
+            <input type="password" formControlName="password" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <div *ngIf="submitted && f.password.errors" >
+              <div *ngIf="f.password.errors.required" class="error">Password is required</div>
+            </div>
           </div>
         </div>
-        <div>
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="form-check-input">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description small text-dark remember-me">Remember me on this computer</span>
-          </label>
-        </div>
+        <!--<div>-->
+          <!--<label class="custom-control custom-checkbox">-->
+            <!--<input type="checkbox" class="form-check-input">-->
+            <!--<span class="custom-control-indicator"></span>-->
+            <!--<span class="custom-control-description small text-dark remember-me">Remember me on this computer</span>-->
+          <!--</label>-->
+        <!--</div>-->
         <div class="col-md-12">
           <div class="form-group">
-            <!--<button ng-click="authenticate()" ng-disabled="myForm.$invalid" class="btn btn-success login">Login</button>-->
-            <button (click)="authenticate()"  class="btn btn-success login">Login</button>
+            <button class="btn btn-success login">Login</button>
             <div class="clearfix"></div>
           </div>
         </div>
       </div>
       <div class="row">
         <!--<div class="col-md-12">-->
-          <!--<div ng-show="showError" class="alert alert-danger">Wrong credentials!</div>-->
-          <!--<div ng-show="showSuccess" class="alert alert-success">Login Successful!</div>-->
+        <!--<div ng-show="showError" class="alert alert-danger">Wrong credentials!</div>-->
+        <!--<div ng-show="showSuccess" class="alert alert-success">Login Successful!</div>-->
         <!--</div>-->
       </div>
     </div>
