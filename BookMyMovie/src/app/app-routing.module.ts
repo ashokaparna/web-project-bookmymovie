@@ -8,19 +8,15 @@ import {SignupComponent} from "./signup/signup.component";
 import {ForgotpasswordComponent} from "./forgotpassword/forgotpassword.component";
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
-import { MovieSingleComponent } from './movie-single/movie-single.component';
-
-
-const routes: Routes = [
-  {
-    path: 'movie-single',
-    component: MovieSingleComponent,
-    data: { title: 'Dashboard' }
-  },
-  
+import { MovieSingleComponent } from './movie-single/movie-single.component';  
 import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
+  {
+    path: 'movie-single/:movieName',
+    component: MovieSingleComponent,
+    data: { title: 'Dashboard' }
+  },
   {
     path: 'seatselection',
     component: SeatSelectionComponent,
@@ -33,7 +29,7 @@ const routes: Routes = [
   },
   {
    
-    path: 'dashboard/:id',
+    path: 'dashboard',
     component: MiddleDivComponent,
     data: { title: 'Dashboard' }
   },

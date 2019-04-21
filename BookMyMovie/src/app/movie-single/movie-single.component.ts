@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MovieSingle_Service } from '../Services/moviesingle.service';
 import { showTime } from '../Models/showtime';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { stringify } from '@angular/core/src/render3/util';
+import { movie } from '../Models/movie';
+import { MovieService } from '../Services/movie.service';
 
 
 
@@ -12,11 +16,24 @@ import { Observable } from 'rxjs';
 })
 export class MovieSingleComponent implements OnInit {
   model;
+  movie: movie;
   list_showtimes: Array<showTime>;
   movieName: string = "Tarzan";
   result:any[];
-  constructor(public moviesingle_service: MovieSingle_Service) {
+  movieN :string;
+  length:String;
+  constructor(public moviesingle_service: MovieSingle_Service,public movieservice: MovieService, private ac:ActivatedRoute) {
 
+    this.movieN = this.ac.snapshot.params['movieName'];
+alert(this.movieN);
+    //get movie-single
+    let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieN);
+    movies$.subscribe(movies => {
+      this.movie = movies[0];
+    
+      console.log();
+    });
+    
     let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getSinglemovie(this.movieName);
     showtimes$.subscribe(showtimes => {
       

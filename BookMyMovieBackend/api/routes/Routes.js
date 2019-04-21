@@ -25,7 +25,7 @@ module.exports = function (app) {
      app.route('/theatre')        
         .post(theatrelist.create_theatre);
     app.route('/showtime')       
-        .get(showtimelist.list)
+        .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
     app.route('/showtime/:movieName')       
         .get(showtimelist.list_by_movie)
@@ -39,7 +39,7 @@ module.exports = function (app) {
     app.route('/movies')
         .get(movieList.listMovies)
         .post(movieList.createMovies);
-    app.route('/movies/:movieId')
+    app.route('/movies/:movieName')
         .get(movieList.readMovie)
         .put(movieList.updateMovie)
 };

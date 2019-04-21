@@ -298,7 +298,7 @@ h1 {
 }
 
 h2 {
-    color: #ff9800;
+   // color: #ff9800;
     text-transform: capitalize;
     margin-bottom: 25px;
     font-size: 1em;
@@ -410,10 +410,10 @@ h2.wthree {
     background-color: #fff;
 }
 
-.seats {
-    border: 1px solid red;
-    background: yellow;
-}
+// .seats {
+//     border: 1px solid red;
+//     background: yellow;
+// }
 
 .seatGap {
     width: 40px;
@@ -468,17 +468,22 @@ input[type=checkbox]:before {
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-    border: 3px solid #ff9800;
+    //border: 3px solid #ff9800;
     box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
     -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
     -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
     background-color: #ffffff;
 }
 
-input[type=checkbox]:checked:before {
-    background-color: Green;
-    font-size: 15px;
-}
+// input[type=checkbox]:checked:before {
+//     background-color: Green;
+//     font-size: 15px;
+// }
+
+// input[type=checkbox]:checked::after {
+//     background-color: red;
+//     font-size: 15px;
+// }
 
 .copy-wthree p {
     color: #fff;
