@@ -35,6 +35,8 @@ exports.orderList = function() {
  */
 exports.user_orders = function (userId) {
     const promise = Order.find({userid: userId}).exec();
+    console.log(promise);
     return promise
 };
+
 
