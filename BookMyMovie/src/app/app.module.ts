@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,6 +24,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 
+import {SignUpService} from "./Services/sign-up.service";
+
+import { CustomerReviewTemplateComponent } from './customer-review-template/customer-review-template.component';
+
+
+import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
+import { MovieSingleComponent } from './movie-single/movie-single.component';
+import { MovieSingle_Service } from './Services/moviesingle.service';
+import {ForgotPasswordService} from "./Services/forgot-password.service";
 
 @NgModule({
   declarations: [
@@ -38,16 +47,20 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    CustomerReviewTemplateComponent,
+    MovieShowSelectComponent,
+    MovieSingleComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService, SignUpService, ForgotPasswordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

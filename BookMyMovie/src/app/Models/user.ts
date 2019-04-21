@@ -10,7 +10,6 @@ export class User {
 }
 
 export class loginRequest {
-  //email: string;
-  Password: string;
-  UserName: string;
+  password: string;
+  username: string;
 }

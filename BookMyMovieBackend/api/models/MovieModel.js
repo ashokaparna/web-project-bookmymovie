@@ -32,7 +32,7 @@ var Movies = new Schema({
         type: String,
         required: 'Language is a Mandatory field.'
     },
-    type: {
+    movieType: {
         type: String,
         required: 'Movie type is mandatory field..'
     },
@@ -42,4 +42,7 @@ var Movies = new Schema({
     }
 });
 // exports model
-module.exports = mongoose.model('Movies', Movies);
+var movieModel = mongoose.model('Movies', Movies);
+
+module.exports = movieModel;
+module.exports = Movies

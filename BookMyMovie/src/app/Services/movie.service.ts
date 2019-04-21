@@ -17,6 +17,15 @@ export class MovieService {
   //this is to get the movies
   get_Movies(): Observable<Array<movie>> {
     return this.http.get<Array<movie>>(this.resourceURL);
+    
+  }
+  //get single movie
+  get_single_Movie(movieId:string): Observable<movie> {
+    this.idMovie = movieId
+    console.log(`${this.resourceURL}/${this.idMovie}`);
+    console.log(`${this.resourceURL}/${this.idMovie}`);
+    return this.http.get<movie>(`${this.resourceURL}/${this.idMovie}`);
+    
   }
 
 }

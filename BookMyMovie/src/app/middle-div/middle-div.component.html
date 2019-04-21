@@ -1,7 +1,7 @@
 <div class="container text-center">
     <h2>Movies</h2><br>
     <div *ngFor="let c of list">
-        <div class="col-sm-4">
+        <div class="col-sm-4" (click)="movieClick(c._id)">
             <span><a>{{c.movieName}}</a></span>
             <img src="../../assets/Images/img101.jpg" class="img-responsive" style="width:100%" alt="Image">
             <span><i class="em em-heart"></i></span>
@@ -9,7 +9,7 @@
             <span>{{c.movieLength}}</span> |
             <span>{{c.directorName}}</span> |
             <span>{{c.language}}</span> |
-            <span>{{c.type}}</span> |
+            <span>{{c.movieType}}</span> |
             <span>{{c.rating}}</span>
         </div>
     </div>
