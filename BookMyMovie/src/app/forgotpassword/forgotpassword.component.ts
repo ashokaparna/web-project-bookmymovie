@@ -17,9 +17,11 @@ export class ForgotpasswordComponent implements OnInit {
 
   ngOnInit() {
     this.forgotPassword = new FormGroup({
-      //'email': new FormControl(null, Validators.required)
+      'email': new FormControl(null, Validators.required)
     });
   }
+
+  get f() { return this.forgotPassword.controls; }
 
   sendEmail(){
     this.submitted = true;
@@ -27,7 +29,7 @@ export class ForgotpasswordComponent implements OnInit {
       return;
     }
     this.request.email = this.forgotPassword.get('email').value;
-    console.log()
+    console.log();
     this.forgotPasswordService.forgotPassword(this.request)
       .subscribe((result: any) => {
         alert("Please check your email for reset password link")
