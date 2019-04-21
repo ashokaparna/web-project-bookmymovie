@@ -20,28 +20,39 @@ exports.list = function (request, response) {
         .catch(renderErrorResponse(response));
 };
 exports.list_by_movie = function (request, response) {
-   
-    const resolve = (showtime) => {
-        response.status(200);
-        console.log(showtime);
-        response.json(showtime);
-    };
-    showtimeService.list_by_movieName(request.params.movieName)
-        .then(resolve)
+    ShowTime.aggregate([  
+        { $match: {movieId: mongoose.Types.ObjectId(request.params.movieId)}},
+        { '$lookup': { from: 'movies', localField: 'movieId', foreignField: '_id', as: 'movieRef'} },
+        { '$unwind': '$movieRef' },
+   //  {'$project': {"moviename":"$movieRef.movieName"}},
+        { '$lookup': { from: 'theatres', localField: 'theatreId', foreignField: '_id', as: 'theatreRef'} },
+        { '$unwind': '$theatreRef' }
+    ]).exec(function (err, docs){
+      response.json(docs);
+ 
+}); 
+    // const resolve = (showtime) => {
+    //     response.status(200);
+    //     console.log(showtime);
+    //     response.json(showtime);
+    // };
+    // showtimeService.list_by_movieName(request.params.movieId)
+    //     .then(resolve)
        
-        .catch(renderErrorResponse(response));
+    //     .catch(renderErrorResponse(response));
 };
 
-exports.list_all_showtime = function (request, response) {
-   
-    const resolve = (showtime) => {
-        console.log("hii" + showtime);
-        response.status(200);
-        response.json(showtime);
-    };
-    showtimeService.showtimeList({})
-        .then(resolve)
-        .catch(renderErrorResponse(response));
+exports.list_all_showtime = function (request, response) {   
+    ShowTime.aggregate([  
+        { '$lookup': { from: 'movies', localField: 'movieId', foreignField: '_id', as: 'movieRef'} },
+        { '$unwind': '$movieRef' },
+   //  {'$project': {"moviename":"$movieRef.movieName"}},
+        { '$lookup': { from: 'theatres', localField: 'theatreId', foreignField: '_id', as: 'theatreRef'} },
+        { '$unwind': '$theatreRef' }
+    ]).exec(function (err, docs){
+      response.json(docs);
+ 
+}); 
 };
 
 //code for post method
