@@ -32,6 +32,7 @@ import { CustomerReviewTemplateComponent } from './customer-review-template/cust
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { MovieSingle_Service } from './Services/moviesingle.service';
+import {ForgotPasswordService} from "./Services/forgot-password.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService, SignUpService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService, SignUpService, ForgotPasswordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,6 +20,13 @@ var mailOptions = {
   text: 'Congratulation on your order booking'
 };
 
+var fpMailOptions = {
+  from: 'bookmymovie13@gmail.com',
+  to: 'deeptinigamadmit@gmail.com',
+  subject: 'Reset password',
+  text: 'Congratulation on your order booking'
+};
+
 exports.email = function (newOrder) {
   console.log('Inside email-' + newOrder.OrderId);
   mailOptions.text = 'Theater Name: ' + newOrder.theatername + 
@@ -39,6 +46,18 @@ exports.email = function (newOrder) {
   });
 };
 
+exports.forgotPasswordEmail = function (email, link) {
+  console.log(link);
+  fpMailOptions.text = 'We are here to help. \n Please click on the link below to reset your password \n' + link;
+  fpMailOptions.to = email;
+  transporter.sendMail(fpMailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+};
 
 
 
@@ -46,4 +65,3 @@ exports.email = function (newOrder) {
 
 
 
-    
