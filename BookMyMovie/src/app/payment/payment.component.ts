@@ -4,6 +4,11 @@ import { Order_Service } from '../Services/order.service';
 import { order} from '../Models/order';
 import { Observable } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MovieService } from '../Services/movie.service';
+import { TheaterService } from '../Services/theater.service';
+import { movie } from '../Models/movie';
+
 // import * as jsPDF from 'jspdf';
 // import * as html2canvas from 'html2canvas';
 // import { getMaxListeners } from 'cluster';
@@ -27,12 +32,28 @@ export class PaymentComponent implements OnInit {
     totalamount : 40,
     creationtime : '12:30PM'
   };
+  
+  movie: movie;
+  theaterId: string;
+  movieId: string;
 
   @Output() add_pay_invoked = new EventEmitter();
 
-  constructor(orderService: Order_Service) {
-    this.orderService = orderService;
-  }
+  constructor(public theater_service: TheaterService,
+    public movieservice: MovieService, private ac: ActivatedRoute,
+    private router:Router) {
+
+   this.theaterId = this.ac.snapshot.params['theatreId'];
+   this.movieId = this.ac.snapshot.params['movieId'];
+
+   //get movie-single
+   let movie_d$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
+   movie_d$.subscribe(movie_d => {
+     console.log(movie_d);
+     this.movie = movie_d;
+   });
+ }
+ 
 
   ngOnInit() {
   }
@@ -62,10 +83,5 @@ export class PaymentComponent implements OnInit {
       });
     this.add_pay_invoked.emit();
   }
-
-  /* PlaceOrder(regForm)
-   {
-     console.log(regForm);
-   }*/
 
 }

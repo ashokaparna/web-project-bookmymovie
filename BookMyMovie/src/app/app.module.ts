@@ -18,6 +18,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import {LoginService} from "./Services/login.service";
 import {CookieService} from "ngx-cookie-service";
 import{MovieService} from './Services/movie.service';
+import{TheaterService} from './Services/theater.service';
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -62,7 +63,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService, SignUpService, ForgotPasswordService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , 
+    MovieService, SignUpService, ForgotPasswordService, TheaterService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
