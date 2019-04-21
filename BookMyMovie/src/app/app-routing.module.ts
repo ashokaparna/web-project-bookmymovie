@@ -10,6 +10,7 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
 import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,11 @@ const routes: Routes = [
     path: 'forgotpassword',
     component: ForgotpasswordComponent,
     data: { title: 'Forgot password' }
+  },
+  {
+    path: 'resetpassword/:token',
+    component: ResetPasswordComponent,
+    data: { title: 'Reset password' }
   },
   {
     path: 'customerreview',

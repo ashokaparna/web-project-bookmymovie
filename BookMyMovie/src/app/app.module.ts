@@ -33,6 +33,7 @@ import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.
 import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { MovieSingle_Service } from './Services/moviesingle.service';
 import {ForgotPasswordService} from "./Services/forgot-password.service";
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {ForgotPasswordService} from "./Services/forgot-password.service";
     OrderHistoryComponent,
     CustomerReviewTemplateComponent,
     MovieShowSelectComponent,
-    MovieSingleComponent
+    MovieSingleComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
