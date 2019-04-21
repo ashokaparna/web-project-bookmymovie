@@ -28,15 +28,15 @@ export class SignupComponent implements OnInit {
 
     });
   }
-
+  get f() { return this.signUpForm.controls; }
   signUp(){
     this.submitted = true;
+    debugger;
     console.log(this.signUpForm.get('firstname').value);
     debugger;
     if (this.signUpForm.invalid) {
       return;
     }
-    debugger;
     this.request.username = this.signUpForm.get('username').value;
     this.request.password = this.signUpForm.get('password').value;
     this.request.email = this.signUpForm.get('email').value;

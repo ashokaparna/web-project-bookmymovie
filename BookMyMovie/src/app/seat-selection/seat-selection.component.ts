@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 import { DOCUMENT } from '@angular/platform-browser';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-seat-selection',
@@ -9,14 +10,19 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class SeatSelectionComponent implements OnInit {
   ab: String;
-
   public seats = [];
   model: any = {};
-  bookedseats: string = "A5,A7";
+  bookedseats: string ;
+
+  movieId: string;
+  theatreId: string;
+  showId: string;
+  
+  amount:Number;
 
   @ViewChild("A5", { read: ElementRef }) tref: ElementRef;
 
-  constructor(@Inject(DOCUMENT) document1) {
+  constructor(public router:Router,public ac: ActivatedRoute) {
     //  this.A5.
   }
 
@@ -29,7 +35,8 @@ export class SeatSelectionComponent implements OnInit {
       a.setAttribute('disabled', 'disabled');
       a.style.removeProperty('background-color');
       a.style.setProperty('background-color', 'red');
-      console.log(a);
+      //console.log(a);
+      
     }
   }
 
@@ -44,17 +51,23 @@ export class SeatSelectionComponent implements OnInit {
       return;
     }
     this.seats.push(data);
+    this.amount = (Number(this.amount)) + (Number(20));
     this.model.seats = this.seats.toString();
     alert(this.seats);
     var a = document.getElementById(`${data}`);
    // a.setAttribute('disabled', 'disabled');
     //a.style.removeProperty('background-color');
     a.style.setProperty('border', '3px solid #ff9800');
-    console.log(a);
+    console.log(this.amount);
   }
   confirmandpay() {
+    alert();
 
-   
+   this.showId = this.ac.snapshot.params['showId'];
+   this.movieId = this.ac.snapshot.params['movieId'];
+   this.theatreId = this.ac.snapshot.params['theatreId'];
+   this.router.navigate(['/payment',{showId:this.showId,movieId:this.movieId,theatreId:this.theatreId,seats:this.seats,totalseat:this.seats.length}]);
+
     //TODO:
   }
 

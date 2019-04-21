@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  get f() { return this.loginForm.controls; }
+
   /*Submit button click function. This will check if the entered elements are valid. If they are valid it will post the contact.*/
   authenticate() {
     this.submitted = true;

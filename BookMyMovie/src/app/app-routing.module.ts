@@ -10,6 +10,7 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 import { MovieSingleComponent } from './movie-single/movie-single.component';  
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
 
 const routes: Routes = [
@@ -54,6 +55,11 @@ const routes: Routes = [
     path: 'forgotpassword',
     component: ForgotpasswordComponent,
     data: { title: 'Forgot password' }
+  },
+  {
+    path: 'resetpassword/:token',
+    component: ResetPasswordComponent,
+    data: { title: 'Reset password' }
   },
   {
     path: 'customerreview',
