@@ -88,7 +88,7 @@ export class SeatSelectionComponent implements OnInit {
     alert();
 
 
-    this.router.navigate(['/payment', { showId: this.showId, movieId: this.movieId, theatreId: this.theatreId, seats: this.seats, totalseat: this.seats.length }]);
+    this.router.navigate(['/payment', { showId: this.showId, movieId: this.movieId, theatreId: this.theatreId, seats: this.seats, totalseat: this.seats.length ,showtime:this.showtime}]);
 
     //TODO:
   }
