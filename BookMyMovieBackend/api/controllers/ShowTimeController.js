@@ -20,6 +20,7 @@ exports.list = function (request, response) {
         .catch(renderErrorResponse(response));
 };
 exports.list_by_movie = function (request, response) {
+    console.log(request.params.movieId);
     ShowTime.aggregate([  
         { $match: {movieId: mongoose.Types.ObjectId(request.params.movieId)}},
         { '$lookup': { from: 'movies', localField: 'movieId', foreignField: '_id', as: 'movieRef'} },

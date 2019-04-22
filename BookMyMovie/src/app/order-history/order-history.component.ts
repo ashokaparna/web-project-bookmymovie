@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 export class OrderHistoryComponent implements OnInit {
   list: Array<order>;
   model;
+  showtime:string;
+  theatername:string;
   order_d: order;
   constructor(public o_service: Order_Service) { 
     let orders$: Observable<Array<order>> = 
@@ -31,6 +33,9 @@ export class OrderHistoryComponent implements OnInit {
   {
 
     console.log(orderd);
+    this.showtime=orderd.movieRef.movieName;
+    this.theatername = orderd.theaterRef.theatreName;
+   // this.theatername=orderd. 
     console.log(order[0].theaterid);
 
   }

@@ -34,7 +34,7 @@ module.exports = function (app) {
         .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
 
-    app.route('/showtime/:showId')
+    app.route('/showtime/st/:showId')
         .get(showtimelist.show_detail);  
 
     app.route('/showtime/:movieId')       
