@@ -3,7 +3,7 @@
 
     <h2>Movies</h2><br>
     <div *ngFor="let l of list | filter : searchText">
-        <div class="col-sm-4">
+        <div class="col-sm-4" (click)="movieClick(l._id)">
             <span><a>{{l.movieName}}</a></span>
             <img src="../../assets/Images/img101.jpg" class="img-responsive" style="width:100%" alt="Image">
             <span><i class="em em-heart"></i></span>
