@@ -32,7 +32,7 @@ export class PaymentComponent implements OnInit {
   cookievalue = 'unknown';
   orderService: Order_Service;
   theaterService: TheaterService;
-  showTimeService: ShowTimeService;
+
   //dt = new Date("2016-05-18");
  //console.log(dateSendingToServer);
  
@@ -55,6 +55,8 @@ export class PaymentComponent implements OnInit {
   movieId: string;
   showId: string;
   seatdetails: string;
+  noofseats:number;
+  totalamt:number;
   
 
   
@@ -63,7 +65,7 @@ export class PaymentComponent implements OnInit {
 
   constructor(public theaterservice: TheaterService,
     public movieservice: MovieService, 
-    public showtimeservice:ShowTimeService,
+  
     private ac: ActivatedRoute,
     private cookieService: CookieService,
     private router:Router) {
@@ -71,9 +73,11 @@ export class PaymentComponent implements OnInit {
    this.theatreId = this.ac.snapshot.params['theatreId'];
    this.movieId = this.ac.snapshot.params['movieId'];
    this.showId = this.ac.snapshot.params['showId'];
+   this.showtime = this.ac.snapshot.params['showtime'];
+   this.noofseats = this.ac.snapshot.params['totalseat'];
    //this.
    this.seatdetails = this.ac.snapshot.params['seats'];
-   debugger;
+   //debugger;
    this.cookievalue = this.cookieService.get('UserDetails');
     console.log(JSON.parse(this.cookievalue));
    //get theater-detail
