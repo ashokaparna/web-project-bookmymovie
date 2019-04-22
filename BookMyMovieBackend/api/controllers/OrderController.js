@@ -90,8 +90,11 @@ exports.list_all_orders = function (request, response) {
 
 exports.get_orderfor_bookedseats =function(req,response)
 {
+    console.log(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date);
+
     const resolve = (u_orders) => {
         response.status(200);
+        console.log(u_orders);
         response.json(u_orders);
     };
     orderService.get_orderfor_bookedseats(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date)

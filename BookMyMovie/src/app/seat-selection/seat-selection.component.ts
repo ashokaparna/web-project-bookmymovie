@@ -20,6 +20,7 @@ export class SeatSelectionComponent implements OnInit {
   movieId: string;
   theatreId: string;
   showId: string;
+  showtime: string;
 
   amount: Number;
 
@@ -29,25 +30,38 @@ export class SeatSelectionComponent implements OnInit {
     this.showId = this.ac.snapshot.params['showId'];
     this.movieId = this.ac.snapshot.params['movieId'];
     this.theatreId = this.ac.snapshot.params['theatreId'];
+    this.showtime = this.ac.snapshot.params['showtime'];
 
-    let orders$: Observable<Array<order>> = o_service.order_booked_seats(this.theatreId,this.movieId,Date.now);
-    orders$.subscribe(orders => {
-      this.list = orders;
-    });
+  
   }
 
   ngOnInit() {
-    this.ab = "A5,A7,A2,A3";
+
+    let orders$: Observable<Array<order>> = this.o_service.order_booked_seats(this.theatreId,this.movieId,this.showtime,"");
+    orders$.subscribe(orders => {
+      this.list = orders;
+      console.log(this.list);
+        this.disableseats();
+    });
+   
+ 
+  }
+  disableseats() {
+    for (let j = 0; j < this.list.length; j++) {
+      console.log("Test");
+    this.ab = this.list[j].seatdetails;
+    console.log(this.ab);
     var splitted = this.ab.split(',');
     console.log(splitted);
-    for (var i = 0; i <= splitted.length; i++) {
+    for (let i = 0; i < splitted.length; i++) {
       var a = document.getElementById(`${splitted[i]}`);
       a.setAttribute('disabled', 'disabled');
-      a.style.removeProperty('background-color');
+      a.setAttribute('checked', 'true');
       a.style.setProperty('background-color', 'red');
       //console.log(a);
-
+      this.ab= "";
     }
+  }
   }
 
   addchk(data) {

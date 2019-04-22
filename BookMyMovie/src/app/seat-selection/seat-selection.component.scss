@@ -475,10 +475,10 @@ input[type=checkbox]:before {
     background-color: #ffffff;
 }
 
-// input[type=checkbox]:checked:before {
-//     background-color: Green;
-//     font-size: 15px;
-// }
+input[type=checkbox]:checked:before {
+    background-color: Green;
+    font-size: 15px;
+}
 
 // input[type=checkbox]:checked::after {
 //     background-color: red;
