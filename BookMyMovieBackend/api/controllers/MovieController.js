@@ -4,6 +4,7 @@ const movieService = require('../services/movieServices');
 exports.listMovies = function (req, res) {
     const resolve = (movies) => {
         res.status(200);
+       // console.log(movies);
         res.json(movies);
     };
     movieService.search({})
