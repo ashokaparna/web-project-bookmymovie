@@ -23,6 +23,7 @@ export class MovieSingleComponent implements OnInit {
   result: any[];
   movieId: string;
   theatreId: string;
+  showtime:string;
 
   minDate: NgbDate;
   maxDate: NgbDate;
@@ -65,10 +66,11 @@ export class MovieSingleComponent implements OnInit {
   }
 
  
-  selectShowtime(showid,theatreid) {
+  selectShowtime(showid,theatreid,showtime) {
    // alert(showid + '//' + theatreid);
     this.selectedShowId = showid;
     this.theatreId = theatreid;
+    this.showtime = showtime;
   }
 
   ngOnInit() {
@@ -85,7 +87,7 @@ export class MovieSingleComponent implements OnInit {
      alert('please select showtime');
      return;
     }
-    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId}]);
+    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
   }
 

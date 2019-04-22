@@ -35,8 +35,14 @@ exports.orderList = function() {
  */
 exports.user_orders = function (userId) {
     const promise = Order.find({userid: userId}).exec();
-    console.log(promise);
     return promise
 };
 
+exports.get_orderfor_bookedseats =function(tId,mId,showTime,date)
+{
+    console.log(tId,mId,showTime,date); 
+    const promise = Order.find({theaterid: tId,movieid: mId,showtime:showTime}).exec();
+    
+ return promise;
+}
 

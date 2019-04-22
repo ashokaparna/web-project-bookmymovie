@@ -2,7 +2,7 @@
   <div class="middle">
     <h3> <span class="label label-warning"> {{movie.movieName}}Trailer</span></h3>
 
-    <iframe class="video" src="https://www.youtube.com/embed/jzQq-avJuBc">
+    <iframe class="video" src="http://www.youtube.com/embed/jzQq-avJuBc">
     </iframe>
   </div>
   <div class="movie-details">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="time" *ngFor="let ca of c.values;">
-      <button type="button" value="{{ca._id}}" (click)="selectShowtime(ca._id,ca.theatreId)" class="btn1 btn-outline-danger">{{ca.showTime}}</button>
+      <button type="button" value="{{ca._id}}" (click)="selectShowtime(ca._id,ca.theatreId,ca.showTime)" class="btn1 btn-outline-danger">{{ca.showTime}}</button>
     </div>
   </div>
 
