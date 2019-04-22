@@ -29,6 +29,7 @@ exports.login = function (request, response) {
             response.json({
                 status: 200,
                 access_token: token,
+                user: res,
                 message: "User authenticated successfully"
 
             });
