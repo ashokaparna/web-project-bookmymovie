@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../Services/movie.service';
 import { TheaterService } from '../Services/theater.service';
 import { movie } from '../Models/movie';
+import { theater } from '../Models/theater';
 
 // import * as jsPDF from 'jspdf';
 // import * as html2canvas from 'html2canvas';
@@ -25,36 +26,48 @@ import { movie } from '../Models/movie';
 export class PaymentComponent implements OnInit {
 
   orderService: Order_Service;
+  theaterService: TheaterService;
   //dt = new Date("2016-05-18");
  //console.log(dateSendingToServer);
  
-  model:any =  {
-    userid: '5cbcc8af30903149581cddd3',
-    theaterid: '5cba1386317d8d3c1cd402af',
-    movieid : '5cbba19931c979060d6b0a45',
-    showtime :'12:00 PM',
-    seatdetails : 'A5,A6',
-    totalamount : 40,
-    creationtime : '12:30PM'
-  //console.log(dateSendingToServer);
+  // model:any =  {
+  //   userid: '5cbcc8af30903149581cddd3',
+  //   theaterid: '5cba1386317d8d3c1cd402af',
+  //   movieid : '5cbba19931c979060d6b0a45',
+  //   showtime :'12:00 PM',
+  //   seatdetails : 'A5,A6',
+  //   totalamount : 40,
+  //   creationtime : '12:30PM'
 
   
-  };
-  
+  // };
+  model;
   movie: movie;
-  theaterId: string;
+  theater: theater;
+
+  theatreId: string;
   movieId: string;
+  seatdetails: string;
 
   @Output() add_pay_invoked = new EventEmitter();
 
-  constructor(public theater_service: TheaterService,
+  constructor(public theaterservice: TheaterService,
     public movieservice: MovieService, private ac: ActivatedRoute,
     private router:Router) {
 
-   this.theaterId = this.ac.snapshot.params['theatreId'];
+   this.theatreId = this.ac.snapshot.params['theatreId'];
    this.movieId = this.ac.snapshot.params['movieId'];
+   this.seatdetails = this.ac.snapshot.params['seats']
 
-   //get movie-single
+   //get theater-detail
+   let theater_d$: Observable<theater> = theaterservice.viewTheaterDetail(this.theatreId);
+   theater_d$.subscribe(theater_d => {
+     //console.log("Thater Obj" + theater_d);
+     this.theater = theater_d;
+     console.log(theater_d);
+   });
+
+   //get movie-detail
    let movie_d$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
    movie_d$.subscribe(movie_d => {
      console.log(movie_d);
