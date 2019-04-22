@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { stringify } from '@angular/core/src/render3/util';
 import { movie } from '../Models/movie';
 import { MovieService } from '../Services/movie.service';
+import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -15,7 +16,7 @@ import { MovieService } from '../Services/movie.service';
   styleUrls: ['./movie-single.component.scss']
 })
 export class MovieSingleComponent implements OnInit {
-  model;
+  dateModel: NgbDate;
   movie: movie;
   list_showtimes: Array<showTime>;
   selectedShowId: string ;
@@ -23,10 +24,14 @@ export class MovieSingleComponent implements OnInit {
   movieId: string;
   theatreId: string;
 
-  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router) {
+  minDate: NgbDate;
+  maxDate: NgbDate;
+
+
+  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar) {
 
     this.movieId = this.ac.snapshot.params['movieId'];
-   
+
     //get movie-single
     let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
     movies$.subscribe(movies => {
@@ -67,6 +72,10 @@ export class MovieSingleComponent implements OnInit {
   }
 
   ngOnInit() {
+    const today = new Date();
+     this.maxDate = new NgbDate(today.getFullYear(), today.getMonth(), today.getDate() + 6);
+     this.minDate = this.dateModel=new NgbDate(today.getFullYear(), today.getMonth(), today.getDate());
+
   }
   confirm()
   {
@@ -81,6 +90,4 @@ export class MovieSingleComponent implements OnInit {
   }
 
 }
-export class NgbdDatepickerPopup {
-  model;
-}
+
