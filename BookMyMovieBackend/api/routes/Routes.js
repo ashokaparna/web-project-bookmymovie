@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.route('/users/:_id')
         .get(user.getProfile);
     app.route('/user')
-        .post(user.profile);
+        .put(user.profile);
     app.route('/signUp')
         .post(signUp.signUp);
     app.route('/login')
