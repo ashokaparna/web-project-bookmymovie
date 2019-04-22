@@ -90,3 +90,21 @@ exports.lists = function (request, response) {
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
+
+/**
+ * Returns a thater object in JSON.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.show_detail = function (request, response) {
+    const resolve = (show) => {
+        response.status(200);
+        response.json(show);
+    };
+    showtimeService.get_show(request.params.showId)
+        .then(resolve)
+    
+        .catch(renderErrorResponse(response));
+};
+

@@ -8,8 +8,12 @@ import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../Services/movie.service';
 import { TheaterService } from '../Services/theater.service';
+ 
+import { ShowTimeService } from '../Services/showtime.service';
+
 import { movie } from '../Models/movie';
 import { theater } from '../Models/theater';
+import { showTime } from '../Models/showtime';
 
 // import * as jsPDF from 'jspdf';
 // import * as html2canvas from 'html2canvas';
@@ -27,6 +31,7 @@ export class PaymentComponent implements OnInit {
 
   orderService: Order_Service;
   theaterService: TheaterService;
+  showTimeService: ShowTimeService;
   //dt = new Date("2016-05-18");
  //console.log(dateSendingToServer);
  
@@ -44,19 +49,23 @@ export class PaymentComponent implements OnInit {
   model;
   movie: movie;
   theater: theater;
-
+  showtime: showTime;
   theatreId: string;
   movieId: string;
+  showId: string;
   seatdetails: string;
 
   @Output() add_pay_invoked = new EventEmitter();
 
   constructor(public theaterservice: TheaterService,
-    public movieservice: MovieService, private ac: ActivatedRoute,
+    public movieservice: MovieService, 
+    public showtimeservice:ShowTimeService,
+    private ac: ActivatedRoute,
     private router:Router) {
 
    this.theatreId = this.ac.snapshot.params['theatreId'];
    this.movieId = this.ac.snapshot.params['movieId'];
+   //this.
    this.seatdetails = this.ac.snapshot.params['seats']
 
    //get theater-detail
@@ -104,6 +113,11 @@ export class PaymentComponent implements OnInit {
         //       alert( error);
       });
     this.add_pay_invoked.emit();
+  }
+
+  onClickSubmit()
+  {
+    
   }
 
 }

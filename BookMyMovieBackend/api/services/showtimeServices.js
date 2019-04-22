@@ -45,3 +45,10 @@ exports.save = function (show) {
     const promise = newshow.save();
     return promise;
 };
+
+exports.get_show = function (showId) {
+    const promise = ShowTime.findById(showId).exec();
+    return promise;
+};
+
+
