@@ -21,6 +21,9 @@ module.exports = function (app) {
     app.route('/orders')
         .get(orderlist.list_all_orders)
         .post(orderlist.create_order);
+        //added by Dharati on 04/21/2019
+    app.route('/orders/:theaterId/:movieId/:showTime/:date')
+        .get(orderlist.get_orderfor_bookedseats);
     app.route('/orders/:userId')
         .get(orderlist.user_orders)
      app.route('/theatre')        

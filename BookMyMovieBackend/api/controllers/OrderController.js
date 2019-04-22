@@ -70,3 +70,15 @@ exports.user_orders = function (request, response) {
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
+
+exports.get_orderfor_bookedseats =function(req,response)
+{
+    const resolve = (u_orders) => {
+        response.status(200);
+        response.json(u_orders);
+    };
+    orderService.get_orderfor_bookedseats(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+
+}
