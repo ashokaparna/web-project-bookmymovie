@@ -28,10 +28,15 @@ module.exports = function (app) {
         .post(theatrelist.create_theatre)
         .get(theatrelist.list_all_theaters);
     app.route('/theatres/:theaterId')
-        .get(theatrelist.theater_detail);    
+        .get(theatrelist.theater_detail);  
+          
     app.route('/showtime')       
         .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
+
+    app.route('/showtime/st/:showId')
+        .get(showtimelist.show_detail);  
+
     app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
      app.route('/reviews')     
