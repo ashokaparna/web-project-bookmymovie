@@ -39,9 +39,11 @@ export class LoginComponent implements OnInit {
     this.request.password = this.loginForm.get('password').value;
     this.loginService.login(this.request)
       .subscribe((result: any) => {
+        console.log(JSON.stringify(result));
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
         this.cookievalue = this.cookieService.get('UserDetails');
-        alert(result.message)
+        console.log(this.cookievalue);
+        alert(result.message);
         this.router.navigate(['/dashboard', 2]);
     }, (error: any) => {
         console.log(error);
