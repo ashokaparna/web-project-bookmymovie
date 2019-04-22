@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { stringify } from '@angular/core/src/render3/util';
 import { movie } from '../Models/movie';
 import { MovieService } from '../Services/movie.service';
+import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -15,18 +16,23 @@ import { MovieService } from '../Services/movie.service';
   styleUrls: ['./movie-single.component.scss']
 })
 export class MovieSingleComponent implements OnInit {
-  model;
+  dateModel: NgbDate;
   movie: movie;
   list_showtimes: Array<showTime>;
   selectedShowId: string ;
   result: any[];
   movieId: string;
   theatreId: string;
+  showtime:string;
 
-  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router) {
+  minDate: NgbDate;
+  maxDate: NgbDate;
+
+
+  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar) {
 
     this.movieId = this.ac.snapshot.params['movieId'];
-   
+
     //get movie-single
     let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
     movies$.subscribe(movies => {
@@ -60,13 +66,18 @@ export class MovieSingleComponent implements OnInit {
   }
 
  
-  selectShowtime(showid,theatreid) {
+  selectShowtime(showid,theatreid,showtime) {
    // alert(showid + '//' + theatreid);
     this.selectedShowId = showid;
     this.theatreId = theatreid;
+    this.showtime = showtime;
   }
 
   ngOnInit() {
+    const today = new Date();
+     this.maxDate = new NgbDate(today.getFullYear(), today.getMonth(), today.getDate() + 6);
+     this.minDate = this.dateModel=new NgbDate(today.getFullYear(), today.getMonth(), today.getDate());
+
   }
   confirm()
   {
@@ -76,11 +87,9 @@ export class MovieSingleComponent implements OnInit {
      alert('please select showtime');
      return;
     }
-    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId}]);
+    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
   }
 
 }
-export class NgbdDatepickerPopup {
-  model;
-}
+

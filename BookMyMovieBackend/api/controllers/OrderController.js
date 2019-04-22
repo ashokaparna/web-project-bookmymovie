@@ -78,6 +78,30 @@ exports.list_all_orders = function (request, response) {
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
  */
+// exports.user_orders = function (request, response) {
+//     const resolve = (u_orders) => {
+//         response.status(200);
+//         response.json(u_orders);
+//     };
+//     orderService.user_orders(request.params.userId)
+//         .then(resolve)
+//         .catch(renderErrorResponse(response));
+// };
+
+exports.get_orderfor_bookedseats =function(req,response)
+{
+    console.log(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date);
+
+    const resolve = (u_orders) => {
+        response.status(200);
+        console.log(u_orders);
+        response.json(u_orders);
+    };
+    orderService.get_orderfor_bookedseats(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+
+}
 
 
 
