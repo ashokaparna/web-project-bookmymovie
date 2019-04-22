@@ -31,7 +31,7 @@ exports.email = function (newOrder) {
   console.log('Inside email-' + newOrder.OrderId);
   mailOptions.text = 'Theater Name: ' + newOrder.theatername + 
   " Movie Name: " + newOrder.moviename + " Show Time: " 
-  + newOrder.showtime + " Total Seats: " + newOrder.noofseats + 
+  + newOrder.showtime + " Total Seats: " + newOrder.seatdetails + 
  " Total Amount: " + newOrder.totalamount + " Booking Time: " +
  newOrder.creationtime;
   console.log('Inside email-' + newOrder.email);
