@@ -6,8 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel-div.component.scss']
 })
 export class CarouselDivComponent implements OnInit {
-
-  constructor() { }
+items: Array<any>=[];
+  constructor() {
+    this.items = [
+      { name: 'assets/Images/img11.jpg' },
+      { name: 'assets/Images/img22.jpg' },
+      { name: 'assets/Images/img33.jpg' },
+      { name: 'assets/Images/img44.jpg' },
+      { name: 'assets/Images/img55.jpg' }
+    ]
+  }
 
   ngOnInit() {
   }

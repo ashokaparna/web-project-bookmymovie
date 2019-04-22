@@ -33,5 +33,7 @@
   </div>
 
   <button type="button" (click)="confirm()" class="btn btn-primary middle">Book Tickets</button>
+  <button type="button"  class="btn btn-primary middle" (click)="onClickPostReview()">Post Review</button>
 
 </div>
+<app-customer-review-template  *ngIf="isOn" (valueChange)="isOn= false"></app-customer-review-template>

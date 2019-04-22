@@ -18,15 +18,17 @@ export class MovieSingleComponent implements OnInit {
   model;
   movie: movie;
   list_showtimes: Array<showTime>;
-  selectedShowId: string ;
+  selectedShowId: string;
   result: any[];
   movieId: string;
   theatreId: string;
+  isOn: boolean = false;
 
-  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router) {
+  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute, private router: Router) {
 
     this.movieId = this.ac.snapshot.params['movieId'];
-   
+    this.isOn = false;
+
     //get movie-single
     let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
     movies$.subscribe(movies => {
@@ -59,24 +61,25 @@ export class MovieSingleComponent implements OnInit {
 
   }
 
- 
-  selectShowtime(showid,theatreid) {
-   // alert(showid + '//' + theatreid);
+
+  selectShowtime(showid, theatreid) {
+    // alert(showid + '//' + theatreid);
     this.selectedShowId = showid;
     this.theatreId = theatreid;
+  }
+  onClickPostReview() {
+    this.isOn = true;
   }
 
   ngOnInit() {
   }
-  confirm()
-  {
-    
-    if(this.selectedShowId  == undefined)
-    {
-     alert('please select showtime');
-     return;
+  confirm() {
+
+    if (this.selectedShowId == undefined) {
+      alert('please select showtime');
+      return;
     }
-    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId}]);
+    this.router.navigate(['/seatselection', { showId: this.selectedShowId, movieId: this.movieId, theatreId: this.theatreId }]);
 
   }
 

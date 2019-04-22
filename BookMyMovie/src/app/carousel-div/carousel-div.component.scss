@@ -1,14 +1,17 @@
-
-.carousel-inner img {
-  /* width: 100%; */
-  /* Set width to 100% */
-  margin: auto;
-  /* min-height: 200px; */
-}
-.item {
-  background-color: rgb(16, 72, 98);
+#left,
+#right {
+  height: 42px;
+  width: 30px;
 }
 
 .img-responsive {
   border-radius: 20px;
+}
+
+.items{
+  padding-left:190px;
+  padding-right:180px;
+  padding-top:10px;
+  padding-bottom:10px;
+ background-color: rgb(80,26,40);
 }

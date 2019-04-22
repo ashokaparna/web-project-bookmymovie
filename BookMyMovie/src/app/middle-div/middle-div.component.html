@@ -1,18 +1,18 @@
+<app-carousel-div></app-carousel-div>
+
 <div class="container text-center">
     <input type="text" [(ngModel)]="searchText" class="searchTextBox" placeholder="Search By Movie Name...">
 
-    <h2>Movies</h2><br>
     <div *ngFor="let l of list | filter : searchText">
         <div class="col-sm-4">
-            <span><a>{{l.movieName}}</a></span>
-            <img src="../../assets/Images/img101.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <span class="releaseDate">Release Date: {{l.movieReleaseDate}}</span> 
+            <img src="../../assets/Images/{{l.movieImage}}" class="img-responsive" alt="Image">
             <span><i class="em em-heart"></i></span>
-            <span>{{l.movieReleaseDate}}</span> |
-            <span>{{l.movieLength}}</span> |
-            <span>{{l.directorName}}</span> |
-            <span>{{l.language}}</span> |
-            <span>{{l.movieType}}</span> |
-            <span>{{l.rating}}</span>
+            <span class="movieName"><a>{{l.movieName}}</a></span><br>
+            <span class="light-text">{{l.movieLength}} | </span>
+            <span class="light-text">{{l.language}} | </span>
+            <span class="light-text">{{l.movieType}} | </span>
+            <span class="light-text">{{l.rating}}</span>
         </div>
     </div>
 </div>
