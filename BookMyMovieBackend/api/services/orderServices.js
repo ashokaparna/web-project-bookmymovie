@@ -40,8 +40,8 @@ exports.user_orders = function (userId) {
 
 exports.get_orderfor_bookedseats =function(tId,mId,showTime,date)
 {
-    console.log(tId,mId,showTime,date);
+    console.log(tId,mId,showTime,date); 
     const promise = Order.find({theaterid: tId,movieid: mId}).exec();
-    return promise;
+ return promise;
 }
 

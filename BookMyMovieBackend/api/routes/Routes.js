@@ -25,9 +25,13 @@ module.exports = function (app) {
     app.route('/orders/:theaterId/:movieId/:showTime/:date')
         .get(orderlist.get_orderfor_bookedseats);
     app.route('/orders/:userId')
-        .get(orderlist.user_orders)
-     app.route('/theatre')        
-        .post(theatrelist.create_theatre);
+        .get(orderlist.user_orders);
+
+    app.route('/theatres')        
+        .post(theatrelist.create_theatre)
+        .get(theatrelist.list_all_theaters);
+    app.route('/theatres/:theaterId')
+        .get(theatrelist.theater_detail);    
     app.route('/showtime')       
         .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);

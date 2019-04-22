@@ -27,3 +27,38 @@ exports.create_theatre = function(req, res) {
     }
     return errorCallback;
 };
+
+
+
+/* Returns a list of orders in JSON
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.list_all_theaters = function (request, response) {
+    response.header('Access-Control-Allow-Origin' , '*' );
+    const resolve = (theatres) => {
+        response.status(200);
+        response.json(theatres);
+    };
+    theatreService.theaterList({})
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+};
+
+/**
+ * Returns a thater object in JSON.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.theater_detail = function (request, response) {
+    const resolve = (theater) => {
+        response.status(200);
+        response.json(theater);
+    };
+    theatreService.get(request.params.theaterId)
+        .then(resolve)
+       // .then(console.log(request.params.theaterId))
+        .catch(renderErrorResponse(response));
+};
