@@ -1,15 +1,18 @@
 <div class="container text-center">
+    <input type="text" [(ngModel)]="searchText" class="searchTextBox" placeholder="Search By Movie Name...">
+
     <h2>Movies</h2><br>
-    <div *ngFor="let c of list">
-        <div class="col-sm-4" (click)="movieClick(c._id)">
-            <span><a>{{c.movieName}}</a></span>
+    <div *ngFor="let l of list | filter : searchText">
+        <div class="col-sm-4" (click)="movieClick(l._id)">
+            <span><a>{{l.movieName}}</a></span>
             <img src="../../assets/Images/img101.jpg" class="img-responsive" style="width:100%" alt="Image">
             <span><i class="em em-heart"></i></span>
-            <span>{{c.movieReleaseDate}}</span> |
-            <span>{{c.movieLength}}</span> |
-            <span>{{c.directorName}}</span> |
-            <span>{{c.language}}</span> |
-            <span>{{c.movieType}}</span> |
-            <span>{{c.rating}}</span>
+            <span>{{l.movieReleaseDate}}</span> |
+            <span>{{l.movieLength}}</span> |
+            <span>{{l.directorName}}</span> |
+            <span>{{l.language}}</span> |
+            <span>{{l.movieType}}</span> |
+            <span>{{l.rating}}</span>
         </div>
     </div>
+</div>

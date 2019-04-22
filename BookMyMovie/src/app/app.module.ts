@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FilterPipe} from './middle-div/filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +19,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import {LoginService} from "./Services/login.service";
 import {CookieService} from "ngx-cookie-service";
 import{MovieService} from './Services/movie.service';
+import{TheaterService} from './Services/theater.service';
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -53,6 +55,7 @@ import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bo
     CustomerReviewTemplateComponent,
     MovieShowSelectComponent,
     MovieSingleComponent,
+    FilterPipe,
     ResetPasswordComponent
   ],
   imports: [
@@ -66,7 +69,8 @@ import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bo
     NgbPaginationModule,
     NgbAlertModule,
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , MovieService, SignUpService, ForgotPasswordService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , 
+    MovieService, SignUpService, ForgotPasswordService, TheaterService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

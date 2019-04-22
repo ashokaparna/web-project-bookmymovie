@@ -22,12 +22,21 @@ module.exports = function (app) {
         .get(orderlist.list_all_orders)
         .post(orderlist.create_order);
     app.route('/orders/:userId')
-        .get(orderlist.user_orders)
-     app.route('/theatre')        
-        .post(theatrelist.create_theatre);
+        .get(orderlist.user_orders);
+
+    app.route('/theatres')        
+        .post(theatrelist.create_theatre)
+        .get(theatrelist.list_all_theaters);
+    app.route('/theatres/:theaterId')
+        .get(theatrelist.theater_detail);  
+          
     app.route('/showtime')       
         .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
+
+    app.route('/showtime/st/:showId')
+        .get(showtimelist.show_detail);  
+
     app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
      app.route('/reviews')     

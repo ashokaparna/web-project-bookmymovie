@@ -44,4 +44,12 @@ h1 {
     font-size: 40px;
    }
    
+   h3 {
+    @extend %font-shared;
+    color: whitesmoke;
+     margin-top: 20px;
+     font-size: 40px;
+    }
+    
+ 
    

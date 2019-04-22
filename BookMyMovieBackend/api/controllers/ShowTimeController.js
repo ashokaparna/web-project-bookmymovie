@@ -20,6 +20,7 @@ exports.list = function (request, response) {
         .catch(renderErrorResponse(response));
 };
 exports.list_by_movie = function (request, response) {
+    console.log(request.params.movieId);
     ShowTime.aggregate([  
         { $match: {movieId: mongoose.Types.ObjectId(request.params.movieId)}},
         { '$lookup': { from: 'movies', localField: 'movieId', foreignField: '_id', as: 'movieRef'} },
@@ -90,3 +91,21 @@ exports.lists = function (request, response) {
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
+
+/**
+ * Returns a thater object in JSON.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.show_detail = function (request, response) {
+    const resolve = (show) => {
+        response.status(200);
+        response.json(show);
+    };
+    showtimeService.get_show(request.params.showId)
+        .then(resolve)
+    
+        .catch(renderErrorResponse(response));
+};
+
