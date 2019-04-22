@@ -14,7 +14,12 @@ export class OrderHistoryComponent implements OnInit {
   model;
   showtime:string;
   theatername:string;
+  moviename:string;
+  seatdetails:string;
+  totalamount:string;
+  bookingtime:string;
   order_d: order;
+
   constructor(public o_service: Order_Service) { 
     let orders$: Observable<Array<order>> = 
     o_service.viewUserOrders('5cbcc89130903149581cddd2');
@@ -33,8 +38,12 @@ export class OrderHistoryComponent implements OnInit {
   {
 
     console.log(orderd);
-    this.showtime=orderd.movieRef.movieName;
+    this.showtime=orderd.showtime;
+    this.moviename=orderd.movieRef.movieName
     this.theatername = orderd.theaterRef.theatreName;
+    this.seatdetails = orderd.seatdetails;
+    this.totalamount = orderd.totalamount;
+    this.bookingtime = orderd.creationtime;
    // this.theatername=orderd. 
     console.log(order[0].theaterid);
 

@@ -8,8 +8,8 @@ import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../Services/movie.service';
 import { TheaterService } from '../Services/theater.service';
- 
 import { ShowTimeService } from '../Services/showtime.service';
+import {CookieService} from 'ngx-cookie-service';
 
 import { movie } from '../Models/movie';
 import { theater } from '../Models/theater';
@@ -28,7 +28,8 @@ import { showTime } from '../Models/showtime';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-
+  
+  cookievalue = 'unknown';
   orderService: Order_Service;
   theaterService: TheaterService;
   showTimeService: ShowTimeService;
@@ -54,6 +55,9 @@ export class PaymentComponent implements OnInit {
   movieId: string;
   showId: string;
   seatdetails: string;
+  
+
+  
 
   @Output() add_pay_invoked = new EventEmitter();
 
@@ -61,13 +65,17 @@ export class PaymentComponent implements OnInit {
     public movieservice: MovieService, 
     public showtimeservice:ShowTimeService,
     private ac: ActivatedRoute,
+    private cookieService: CookieService,
     private router:Router) {
 
    this.theatreId = this.ac.snapshot.params['theatreId'];
    this.movieId = this.ac.snapshot.params['movieId'];
+   this.showId = this.ac.snapshot.params['showId'];
    //this.
-   this.seatdetails = this.ac.snapshot.params['seats']
-
+   this.seatdetails = this.ac.snapshot.params['seats'];
+   debugger;
+   this.cookievalue = this.cookieService.get('UserDetails');
+    console.log(JSON.parse(this.cookievalue));
    //get theater-detail
    let theater_d$: Observable<theater> = theaterservice.viewTheaterDetail(this.theatreId);
    theater_d$.subscribe(theater_d => {
@@ -82,6 +90,14 @@ export class PaymentComponent implements OnInit {
      console.log(movie_d);
      this.movie = movie_d;
    });
+
+    // //get show-detail
+    // let showtime_d$: Observable<showTime> = showtimeservice.viewShowTimeDetail(this.showId);
+    // showtime_d$.subscribe(showtime_d=> {
+    //   console.log(showtime_d);
+    //   this.showtime = showtime_d;
+    //   console.log(this.showtime);
+    // });
  }
  
 
