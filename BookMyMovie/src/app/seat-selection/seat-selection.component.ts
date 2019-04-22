@@ -27,7 +27,7 @@ export class SeatSelectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ab = "A5,A7,A2,A3";
+    this.ab = "A5,A7,A2,A3"; 
     var splitted = this.ab.split(',');
     console.log(splitted);
     for (var i = 0; i <= splitted.length; i++) {
