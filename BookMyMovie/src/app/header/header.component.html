@@ -27,47 +27,18 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a [routerLink]="['/login']">Log In</a></li>
         <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
-        <li><a href="#">
+        <li><a >
             <nav role='navigation'>
-              <div id="menuToggle">
+              <div id="menuToggle" >
 
                 <!-- checkbox used as click so as to use the :checked selector on it. -->
 
-                <input type="checkbox" />
+                <span class="openbtn" (click)="openNav()">&#9776;</span> 
 
-                <!-- actual hamburger bars -->
-                <span></span>
-                <span></span>
-                <span></span>
+               
 
                 <!-- menu that opens after clicking on hamburger -->
-                <ul id="menu">
-                  <a href="#">
-                    Sign In
-                  </a><a href="#">
-                    / Sign Up
-                  </a> <br><br>
-                  <a href="#">
-                    Quick pay
-                  </a> <br><br>
-
-                  <a href="#">
-                    Booking History
-                  </a> <br><br>
-
-                  <a href="#">
-                    Book A Smile
-                  </a> <br><br>
-
-                  <a href="#">
-                    About Us
-                  </a> <br><br>
-
-                  <a href="#">
-                    Settings
-                  </a> <br><br>
-
-                </ul>
+               
               </div>
             </nav>
           </a></li>
@@ -75,3 +46,10 @@
     </div>
   </div>
 </nav>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a href="#"><i class="fa fa-fw fa-home"></i>About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
