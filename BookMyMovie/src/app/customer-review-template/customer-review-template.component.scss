@@ -1,3 +1,5 @@
+
+@import "./../../scss/variable";
 .col-12.col-md-9 {
   border: 0.5px solid black;
   border-radius: 12px;
@@ -24,12 +26,12 @@ h1 {
 // style for the rating widget
 .rating {
   margin-top: 15px;
-  border: none;
+  border: $none;
   float: left;
 }
 
 .rating > input {
-  display: none;
+  display: $none;
 }
 .rating > label:before {
   margin: 5px;

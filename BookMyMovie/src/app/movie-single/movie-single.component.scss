@@ -1,10 +1,12 @@
+@import "./../../scss/variable";
+
 .video {
   width: 800px;
   height: 450px;
 }
 .maindiv,.middlepart {
-  margin: 2%;
-  padding: 2%;
+  margin: $margin-padding;
+  padding: $margin-padding;
 }
 .maindiv,.main{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -19,7 +21,7 @@
   margin-bottom: 0.8em;
   font-size: 1.2em;
   font-weight: 600;
-  color: #dc3545;
+  color: $button-background-colors;
 }
 .uppar {
   display: block;
@@ -49,8 +51,8 @@
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   cursor: pointer;
-  background-image: none;
-  border: 1px solid #dc3545;
+  background-image: $none;
+  border: 1px solid $button-background-colors;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -62,7 +64,7 @@
     .starring,ul,li
   {
     margin: 10px;
-    list-style: none; 
+    list-style: $none; 
   }
 }
 .movie-meta li, .starring li {
@@ -107,5 +109,5 @@ button.calendar, button.calendar:active {
 }
 .button
 {
-  margin: 1%;
+  margin: $margin-padding;
 }

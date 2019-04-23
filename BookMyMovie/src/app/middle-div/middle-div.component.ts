@@ -19,7 +19,6 @@ export class MiddleDivComponent implements OnInit {
     this.id = this.activatedroute.snapshot.params['id'];
     let movies$: Observable<Array<movie>> = movieservice.get_Movies();
     movies$.subscribe(movies => {
-     // console.log(movies);
       this.list = movies;
     });
   }

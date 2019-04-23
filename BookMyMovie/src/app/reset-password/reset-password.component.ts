@@ -37,7 +37,6 @@ export class ResetPasswordComponent implements OnInit {
     console.log();
     this.forgotPasswordService.resetPassword(this.request)
       .subscribe((result: any) => {
-        alert(result.message);
 
       }, (error: any) => {
         console.log(error);

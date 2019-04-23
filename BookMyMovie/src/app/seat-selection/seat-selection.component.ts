@@ -28,16 +28,17 @@ export class SeatSelectionComponent implements OnInit {
   uncheck: string;
   cookievalue: string = "unknown";
   amount: Number;
-  pUrl :paymentUrl = new paymentUrl();
+  pUrl: paymentUrl = new paymentUrl();
 
   @ViewChild("A5", { read: ElementRef }) tref: ElementRef;
 
   constructor(public router: Router,
-     public ac: ActivatedRoute, 
-     public o_service: Order_Service, 
-     public cookieservice: CookieService,
-     private dataservice : DataService) {
+    public ac: ActivatedRoute,
+    public o_service: Order_Service,
+    public cookieservice: CookieService,
+    private dataservice: DataService) {
 
+      // fetching parameters from url
     this.showId = this.ac.snapshot.params['showId'];
     this.movieId = this.ac.snapshot.params['movieId'];
     this.theatreId = this.ac.snapshot.params['theatreId'];
@@ -48,42 +49,36 @@ export class SeatSelectionComponent implements OnInit {
   }
 
   ngOnInit() {
+    //get data for showtime
 
     let orders$: Observable<Array<order>> = this.o_service.order_booked_seats(this.theatreId, this.movieId, this.showtime, this.date);
+  
     orders$.subscribe(orders => {
       this.list = orders;
-      console.log(this.list);
       this.disableseats();
     });
 
 
   }
+  //Function for disabling seats
   disableseats() {
     for (let j = 0; j < this.list.length; j++) {
-      console.log("Test");
       this.ab = this.list[j].seatdetails;
-      console.log(this.ab);
       var splitted = this.ab.split(',');
-      console.log(splitted);
       for (let i = 0; i < splitted.length; i++) {
         var a = document.getElementById(`${splitted[i]}`);
         a.setAttribute('disabled', 'disabled');
         a.setAttribute('checked', 'true');
-        // a.style.setProperty('background-color', 'red');
-        //console.log(a);
         this.ab = "";
       }
     }
   }
 
+  //check if user has entered data
   addchk(data) {
-    alert(data);
     if (this.model.Numseats == undefined) {
       alert('Enter Username and number of seats');
       this.uncheck = data;
-      // let na = document.getElementById(`${data}`);
-      // na.setAttribute('checked', 'false');
-      alert('func1');
       return;
     }
     if (this.seats.length.toString() == this.model.Numseats) {
@@ -95,18 +90,15 @@ export class SeatSelectionComponent implements OnInit {
     this.seats.push(data);
     this.amount = (Number(this.amount)) + (Number(20));
     this.model.seats = this.seats.toString();
-    alert(this.seats);
     var a = document.getElementById(`${data}`);
-    // a.setAttribute('disabled', 'disabled');
-    //a.style.removeProperty('background-color');
     a.style.setProperty('border', '3px solid #ff9800');
-    console.log(this.amount);
   }
+
+  //function for payment after seat selection
   confirmandpay() {
-  
+
     this.cookievalue = this.cookieservice.get('UserDetails');
     if (this.cookievalue == '') {
-      alert('no cookie');
       this.pUrl.showId = this.showId;
       this.pUrl.movieId = this.movieId;
       this.pUrl.theatreId = this.theatreId;
@@ -115,28 +107,17 @@ export class SeatSelectionComponent implements OnInit {
       this.pUrl.showtime = this.showtime;
       this.pUrl.date = this.date;
       this.dataservice.setpUrl(this.pUrl);
-      
-      this.router.navigate(['/login']);
 
-     
-      //this.cookieservice.set('seatUrl', );
+      this.router.navigate(['/login']);
     }
     else {
 
       this.router.navigate(['/payment', { showId: this.showId, movieId: this.movieId, theatreId: this.theatreId, seats: this.seats, totalseat: this.seats.length, showtime: this.showtime, date: this.date }]);
     }
-    //TODO:
+    
   }
 
-  onChange(isChecked: boolean) {
-    alert('func2');
-    // let na = document.getElementById(`${this.uncheck}`);
-    // na.setAttribute('checked', 'false');
-    // alert('after setting attr.');
 
-    // return false;
-
-  }
 
 
 }

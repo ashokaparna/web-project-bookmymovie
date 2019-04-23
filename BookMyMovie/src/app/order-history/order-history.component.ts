@@ -25,7 +25,6 @@ export class OrderHistoryComponent implements OnInit {
     o_service.viewUserOrders('5cbcc89130903149581cddd2');
     orders$.subscribe(orders => {
       this.list = orders;
-      console.log(this.list);
     });
 
   }
@@ -43,8 +42,5 @@ export class OrderHistoryComponent implements OnInit {
     this.seatdetails = orderd.seatdetails;
     this.totalamount = orderd.totalamount;
     this.bookingtime = orderd.creationtime;
-   // this.theatername=orderd. 
-    console.log(order[0].theaterid);
-
   }
 }

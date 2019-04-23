@@ -10,7 +10,7 @@ export class DataService {
   private pUrl: paymentUrl;
   private userId: String;
   private IsSignup: boolean = true;
-  public isDisplayname: string = "Log In";
+  public isDisplayname: string = "Login";
 
   constructor() { }
 

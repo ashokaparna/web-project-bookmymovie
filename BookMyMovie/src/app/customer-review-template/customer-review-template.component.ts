@@ -32,7 +32,7 @@ export class CustomerReviewTemplateComponent implements OnInit {
     let newreview$: Observable<review_List> = this.reviewService.create_Review(this.model);
     newreview$.subscribe(
       success => {
-        alert("success");
+      
         this.add_invoked.emit();
       },
       error => {
