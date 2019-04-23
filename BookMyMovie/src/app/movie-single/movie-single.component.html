@@ -1,72 +1,95 @@
-<div class="uppar">
-  <div class="middle">
-    <h3> <span class="label label-warning"> {{movie.movieName}}Trailer</span></h3>
+<div class="maindiv">
+  <div class="videomiddle">
+    <h3> <span class="label label-warning"> {{movie.movieName}} Trailer</span></h3>
 
     <iframe class="video" src="http://www.youtube.com/embed/jzQq-avJuBc">
     </iframe>
   </div>
-  <div class="movie-details">
-    <ul class="movie-meta">
-      <li><strong>Rating:</strong>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span> {{movie.rating}}
-      </li>
-      <li><strong>Length:</strong> {{movie.movieLength}}</li>
-      <li><strong>Language:</strong> {{movie.language}}</li>
-      <li><strong>Directed By:</strong> {{movie.directorName}}</li>
-      <li><strong>Premiere:</strong>{{movie.movieReleaseDate}}</li>
-      <li><strong>Category:</strong> {{movie.movieType}}</li>
-    </ul>
+  <div class="card">
+    <p class="title">{{movie.movieName}}</p>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><strong><strong>Rating:</strong></strong></td>
+          <td> <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span></td>
+        </tr>
+        <tr>
+          <td><strong>Length:</strong></td>
+          <td> {{movie.movieLength}}</td>
+        </tr>
+        <tr>
+          <td><strong>Language:</strong></td>
+          <td> {{movie.language}}</td>
+        </tr>
+        <tr>
+          <td><strong>Directed By:</strong></td>
+          <td> {{movie.directorName}}</td>
+        </tr>
+        <tr>
+          <td><strong>Premiere:</strong></td>
+          <td> {{movie.movieReleaseDate}}</td>
+        </tr>
+        <tr>
+          <td><strong>Category:</strong></td>
+          <td> {{movie.movieType}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
-<div class="movie-date-selection">
-  <div class="date-picker">
-    <form class="form-inline">
-      <div class="form-group">
-        <div class="input-group">
-          <input class="form-control" placeholder="yyyy-mm-dd"
-                 name="dp" [(ngModel)]="dateModel" ngbDatepicker #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate" >
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+
+  <div class="middlepart">
+    <div class="movie-date-selection">
+      <div class="date-picker">
+        <form class="form-inline">
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="dateModel" ngbDatepicker
+                #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+            </div>
           </div>
+        </form>
+      </div>
+
+     
+      <div *ngFor="let c of result" class="main">
+        <div class="location">
+          {{c.name}}
+        </div>
+
+        <div class="time" *ngFor="let ca of c.values;">
+          <button type="button" value="{{ca._id}}" (click)="selectShowtime(ca._id,ca.theatreId,ca.showTime)"
+            class="btn1 btn-outline-danger">{{ca.showTime}}</button>
         </div>
       </div>
-    </form>
-  </div>
 
-  <pre>Model: {{ dateModel | json}}</pre>
+      <button type="button" (click)="confirm()" class="button btn btn-primary middle">Book Tickets</button>
+      <button type="button" class="btn btn-primary middle button" (click)="onClickPostReview()">Post Review</button>
 
-  <div *ngFor="let c of result" class="main">
-    <div class="location">
-      {{c.name}}
     </div>
-
-    <div class="time" *ngFor="let ca of c.values;">
-      <button type="button" value="{{ca._id}}" (click)="selectShowtime(ca._id,ca.theatreId,ca.showTime)" class="btn1 btn-outline-danger">{{ca.showTime}}</button>
-    </div>
+    <app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn"
+      (valueChange)="changevalue()">
+    </app-customer-review-template>
+    <table>
+      <thead>
+        <th>User ID </th>
+        <th>Movie Name </th>
+        <th>Description </th>
+        <th>Date</th>
+      </thead>
+      <tbody>
+        <tr class="reviewTable" *ngFor="let part of list">
+          <!-- <td>{{parentData}}</td> -->
+          <td>{{part.userid}}</td>
+          <td>{{part.mname}}</td>
+          <td>{{part.desc}}</td>
+          <td>{{part.date}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <button type="button" (click)="confirm()" class="btn btn-primary middle">Book Tickets</button>
-  <button type="button" class="btn btn-primary middle" (click)="onClickPostReview()">Post Review</button>
-
 </div>
-<app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn" (valueChange)="changevalue()">
-</app-customer-review-template>
-<table>
-  <thead>
-    <th>User ID </th>
-    <th>Movie Name </th>
-    <th>Description </th>
-    <th>Date</th>
-  </thead>
-  <tbody>
-    <tr class="reviewTable" *ngFor="let part of list">
-      <!-- <td>{{parentData}}</td> -->
-      <td>{{part.userid}}</td>
-      <td>{{part.mname}}</td>
-      <td>{{part.desc}}</td>
-      <td>{{part.date}}</td>
-    </tr>
-  </tbody>
-</table>

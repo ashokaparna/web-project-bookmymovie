@@ -8,6 +8,8 @@ import { paymentUrl } from '../Models/paymentUrl';
 export class DataService {
 private pUrl:  paymentUrl;
 private userId: String;
+private IsSignup :boolean =true;
+public isDisplayname:string = "Log In";
   constructor() { }
   setUserId(id: String){
     this.userId = id;
@@ -20,5 +22,21 @@ private userId: String;
   }
   getpUrl(){
     return this.pUrl;
+  }
+  setisDisplayname(value:string )
+  {
+    this.isDisplayname = value;
+  }
+  getisDisplayname()
+  {
+    return this.isDisplayname;
+  }
+  setIsSignup(value:boolean)
+  {
+    this.IsSignup = value;
+  }
+  getIsSignup()
+  {
+    return this.IsSignup;
   }
 }
