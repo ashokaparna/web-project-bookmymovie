@@ -4,6 +4,8 @@ import {LoginService} from '../Services/login.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { DataService } from '../Services/data.service';
+import { paymentUrl } from '../Models/paymentUrl';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
   loginService: LoginService;
   public loginForm: FormGroup;
   submitted = false;
-  constructor(private lg: LoginService, private cookieService: CookieService, private router: Router) {
+  pUrl :paymentUrl = new paymentUrl();
+  constructor(private lg: LoginService, private cookieService: CookieService, private router: Router,private dataservice :DataService) {
     this.loginService = lg;
   }
 // constructor(){}
@@ -42,10 +45,22 @@ export class LoginComponent implements OnInit {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
         console.log( JSON.stringify(result));
         this.cookievalue = this.cookieService.get('UserDetails');
-        console.log(this.cookievalue)
-        alert(result.message)
 
-        this.router.navigate(['/dashboard', 2]);
+        alert(result.message)
+        debugger;
+        this.pUrl = this.dataservice.getpUrl();
+        if(this.pUrl.movieId == '')
+        {
+          this.router.navigate(['/dashboard']);
+        }
+        else
+        {
+         // this.dataservice.setpUrl().movieId == ''
+         this.router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
+   
+
+        }
+        
     }, (error: any) => {
         console.log(error);
       });

@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+cors = require('cors');
 //require express framework
 function main () {
     var express = require('express'),
         app = express(),
         //to execute on port 3000
-        port = process.env.PORT || 3800,
+        port = process.env.PORT || 3000,
 
         mongoose = require('mongoose'),
         bodyParser = require('body-parser');
@@ -23,6 +23,7 @@ function main () {
     app.use(bodyParser.json());
 
 //importing contact routes
+app.use(cors());
     var routes = require('./api/routes/Routes');
     routes(app); //register the route
 
