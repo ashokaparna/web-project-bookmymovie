@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { stringify } from '@angular/core/src/render3/util';
 import { movie } from '../Models/movie';
 import { MovieService } from '../Services/movie.service';
+import { Review_Service } from '../Services/review.service';
+import { review } from '../Models/review';
 import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -19,7 +21,7 @@ export class MovieSingleComponent implements OnInit {
   dateModel: NgbDate;
   movie: movie;
   list_showtimes: Array<showTime>;
-  selectedShowId: string ;
+  selectedShowId: string;
   result: any[];
   movieId: string;
   theatreId: string;
@@ -27,17 +29,22 @@ export class MovieSingleComponent implements OnInit {
 
   minDate: NgbDate;
   maxDate: NgbDate;
+  isOn: boolean = false;
+  list: Array<review>;
+  public movieName: String;
+  public movieIdentifier: string;
 
-
-  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar) {
+ constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar,public reviewService: Review_Service) {
 
     this.movieId = this.ac.snapshot.params['movieId'];
-
+    this.isOn = false;
     //get movie-single
     let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
     movies$.subscribe(movies => {
       console.log(movies);
       this.movie = movies;
+      this.movieName = this.movie.movieName;
+      this.movieIdentifier = this.movieId;
 
 
     });
@@ -62,6 +69,12 @@ export class MovieSingleComponent implements OnInit {
       //this.list_showtimes = showtimes;
       // console.log(this.result);
     });
+    
+    //get reviews
+    let reviews$: Observable<Array<review>> = reviewService.getReviewsForMovie(this.movieId);
+    reviews$.subscribe(reviews => {
+      this.list = reviews;
+    });
 
   }
 
@@ -72,6 +85,9 @@ export class MovieSingleComponent implements OnInit {
     this.theatreId = theatreid;
     this.showtime = showtime;
   }
+  onClickPostReview() {
+    this.isOn = true;
+  }
 
   ngOnInit() {
     const today = new Date();
@@ -79,16 +95,19 @@ export class MovieSingleComponent implements OnInit {
      this.minDate = this.dateModel=new NgbDate(today.getFullYear(), today.getMonth(), today.getDate());
 
   }
-  confirm()
-  {
-    
-    if(this.selectedShowId  == undefined)
-    {
-     alert('please select showtime');
-     return;
+  confirm() {
+
+    if (this.selectedShowId == undefined) {
+      alert('please select showtime');
+      return;
     }
     this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
+  }
+  changevalue()
+  {
+    alert('coming')
+   this.isOn = true;
   }
 
 }
