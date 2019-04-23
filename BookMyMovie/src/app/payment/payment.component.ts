@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit {
 
   orderService: Order_Service;
   theaterService: TheaterService;
-  showTimeService: ShowTimeService;
+ // showTimeService: ShowTimeService;
   //dt = new Date("2016-05-18");
  //console.log(dateSendingToServer);
  
@@ -59,7 +59,7 @@ export class PaymentComponent implements OnInit {
 
   constructor(public theaterservice: TheaterService,
     public movieservice: MovieService, 
-    public showtimeservice:ShowTimeService,
+  
     private ac: ActivatedRoute,
     private router:Router) {
 
