@@ -85,7 +85,7 @@ export class MovieSingleComponent implements OnInit {
   }
   confirm()
   {
-    let date = new Date(`${this.dateModel.month}-${this.dateModel.day}-${this.dateModel.year}`.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+    let date = (`${this.dateModel.month}-${this.dateModel.day}-${this.dateModel.year}`);
   
     if(this.selectedShowId  == undefined)
     {

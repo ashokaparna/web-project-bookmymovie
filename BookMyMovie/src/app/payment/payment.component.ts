@@ -16,11 +16,8 @@ import { theater } from '../Models/theater';
 import { showTime } from '../Models/showtime';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-// import * as jsPDF from 'jspdf';
-// import * as html2canvas from 'html2canvas';
-
-// import * as jsPDF from 'jspdf';
-// import * as html2canvas from 'html2canvas';
+import * as jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
 
 // import { getMaxListeners } from 'cluster';
 @Component({
@@ -35,22 +32,6 @@ export class PaymentComponent implements OnInit {
   theaterService: TheaterService;
   public paymentForm: FormGroup;
   submitted = false;
-
-  //dt = new Date("2016-05-18");
- //console.log(dateSendingToServer);
- 
-  // model:any = {
-  //   userid : '5cbcc89130903149581cddd2',
-  //   theaterid : '5cba1386317d8d3c1cd402af',
-  //   movieid : '5cbcfc7c8e8b162b619b1519',
-  //   showtime :'12:00PM',
-  //   seatdetails : 'A9',
-  //   totalamount : 400,
-  //   creationtime : '11-11-2019',
-  //   email: 'deepibm2012@gmail.com'
-
-  //    };
-  //model;
   model:any =  {};
 
   movie: movie;
@@ -69,6 +50,7 @@ export class PaymentComponent implements OnInit {
   fullname:string;
   email:string;
   userid:string;
+  creationtime:string;
 
 
  
@@ -86,6 +68,7 @@ export class PaymentComponent implements OnInit {
    this.showId = this.ac.snapshot.params['showId'];
    this.showtime = this.ac.snapshot.params['showtime'];
    this.noofseats = this.ac.snapshot.params['totalseat'];
+   this.creationtime = this.ac.snapshot.params['date'];
    
    //this.
    this.seatdetails = this.ac.snapshot.params['seats'];
@@ -127,15 +110,15 @@ export class PaymentComponent implements OnInit {
    // calculating the total amount of the order
     this.totalamt = (this.noofseats * this.ticketprice) + this.handlingfees;
     this.model.totalamount = this.totalamt;
-    this.model.creationtime = Date.now();
-      this.model.email = this.email;
-
+    this.model.creationtime = this.creationtime;
+    this.model.email = this.email;
+  //console.log(this.model.email);
  }
  
  ngOnInit() {
     
   this.paymentForm = new FormGroup({
-  // 'username': new FormControl(null, Validators.required),
+   'username': new FormControl(null, Validators.required),
   
   });
 }
@@ -166,15 +149,15 @@ export class PaymentComponent implements OnInit {
   }
 
 
-  // downloadAsPDF() {
-  //   html2canvas(document.getElementById('col-md-12')).then(function (canvas) {
-  //     scale: 2;
-  //     dpi: 144;
-  //     var img = canvas.toDataURL("image/png");
-  //     var doc = new jsPDF();
-  //     doc.addImage(img, 'JPEG', 5, 20);
-  //     doc.save('movieBookingSummary.pdf');
-  //   });
-  // }
+  downloadAsPDF() {
+    html2canvas(document.getElementById('col-md-12')).then(function (canvas) {
+      scale: 2;
+      dpi: 144;
+      var img = canvas.toDataURL("image/png");
+      var doc = new jsPDF();
+      doc.addImage(img, 'JPEG', 5, 20);
+      doc.save('movieBookingSummary.pdf');
+    });
+  }
 
 }

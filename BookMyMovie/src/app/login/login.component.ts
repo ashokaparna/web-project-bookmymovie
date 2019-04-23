@@ -47,9 +47,9 @@ export class LoginComponent implements OnInit {
         this.cookievalue = this.cookieService.get('UserDetails');
 
         alert(result.message)
-        debugger;
+     //   debugger;
         this.pUrl = this.dataservice.getpUrl();
-        if(this.pUrl.movieId == '')
+        if(this.pUrl == undefined)
         {
           this.router.navigate(['/dashboard']);
         }

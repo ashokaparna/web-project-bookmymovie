@@ -25,8 +25,8 @@ export class CustomerReviewTemplateComponent implements OnInit {
   onClickAddReview() {
     console.log()
     this.add_invoked.emit();
-    this.model.userid = JSON.parse(this.cookieService.get('UserDetails')).user._id;
-    this.model.movieid = this.movieId;
+    // this.model.userid = JSON.parse(this.cookieService.get('UserDetails')).user._id;
+    // this.model.movieid = this.movieId;
     let newreview$: Observable<review_List> = this.reviewService.create_Review(this.model);
     newreview$.subscribe(
       success => { alert("success") },
