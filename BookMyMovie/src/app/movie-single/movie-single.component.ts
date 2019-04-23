@@ -109,10 +109,12 @@ export class MovieSingleComponent implements OnInit {
     this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
   }
+
   changevalue()
   {
-    alert('coming')
-   this.isOn = true;
+    alert('coming');
+   this.isOn = false;
+   this.getReviewList();
   }
 
 }
