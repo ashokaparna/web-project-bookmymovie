@@ -3,10 +3,7 @@
 <script type="text/javascript"></script>
 <script></script>
 <div class="mainc">
-<<<<<<< HEAD
-  
-=======
->>>>>>> 0fa3c7dad2196c373b61f33bfb2c7dc19270dc3b
+
     <div class="mainc_b">
 
         <div class="container-fluid py-3 bg-dark card ">
@@ -36,6 +33,8 @@
                                 </div>
                                 <div class="form-group has-success">
                                     <label for="cc-name" class="control-label mb-1">Name on card</label>
+                                     <!-- customer name  has to be grater than three characters, only alphabetic characters are 
+                                    allowed -->
                                     <input ngModel name="ccname"  #ccname="ngModel" id="cc-name" type="text"
                                         class="form-control cc-name" minlength="3" maxlength=30 pattern="^[a-zA-Z\s]+$"
                                         required [(ngModel)]= "username" >
@@ -60,12 +59,14 @@
                                     <div class="controls">
                                         <div class="row">
                                             <div class="col-md-3">
+                                                 <!-- first set of card number  is required, has to be minimum length 4 and 
+                                                must be numeric -->
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="First four digits" required="" ngModel
                                                     name="ccnum1" #ccnum1="ngModel" [(ngModel)]= "cardnum1" >
 
                                                 <div class="alert alert-danger" *ngIf="ccnum1.touched && !ccnum1.valid"> 
-                                                <!-- <div class="alert alert-danger" *ngIf="submitted && !ccnum1.valid"> -->
+                                               
                                                     <div *ngIf="ccnum1.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -80,15 +81,14 @@
 
                                             </div>
                                             <div class="col-md-3">
-
-                                                <input type="text" class="form-control" minlength="4" maxlength="4"
+                                             <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="Second four digits" required="" ngModel
                                                     name="ccnum2" #ccnum2="ngModel" [(ngModel)]= "cardnum2" >
-
+                                                <!-- second set of card number  is required, has to be minimum length 4 and 
+                                                must be numeric -->
                                                 <div class="alert alert-danger" *ngIf="ccnum2.touched && !ccnum2.valid" >
 
-                                                 
-                                                    <div *ngIf="ccnum2.errors.required">
+                                                  <div *ngIf="ccnum2.errors.required">
                                                         Can't be left empty.
                                                     </div>
                                                     <div *ngIf="ccnum2.errors.minlength">
@@ -104,9 +104,9 @@
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="Third four digits" required="" ngModel
                                                     name="ccnum3" #ccnum3="ngModel" [(ngModel)]= "cardnum3" >
-
+                                                <!-- third set of card number  is required, has to be minimum length 4 and 
+                                                must be numeric -->
                                                 <div class="alert alert-danger" *ngIf="ccnum3.touched && !ccnum3.valid"> 
-                                                        <!-- <div class="alert alert-danger" *ngIf="submitted && !ccnum3.valid" [(ngModel)]="form1.ccnum3"> -->
                                                     <div *ngIf="ccnum3.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -121,13 +121,14 @@
 
                                             </div>
                                             <div class="col-md-3">
+                                                <!-- last set of card number  is required, has to be minimum length 4 and 
+                                                must be numeric -->
 
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="Second four digits" required="" ngModel
                                                     name="ccnum4" #ccnum4="ngModel" [(ngModel)]= "cardnum4" >
 
-                                                <!-- <div class="alert alert-danger" *ngIf="ccnum4.touched && !ccnum4.valid"> -->
-                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum4.valid" >
+                                                <div class="alert alert-danger" *ngIf="ccnum4.touched && !ccnum4.valid" >
                                                     <div *ngIf="ccnum4.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -196,7 +197,8 @@
                                     <div class="col-4">
                                         <label for="x_card_code" class="control-label mb-1">Security code</label>
                                         <div class="input-group">
-
+                                             <!-- security code is required, has to be minimum length 3 and 
+                                                must be numeric -->
                                             <input type="text" class="form-control" minlength="3" maxlength="3"
                                                 pattern="[0-9]*" title="CVV" required="" ngModel name="ccv"
                                                 #cvv="ngModel" [(ngModel)]= "cvvcode" >
@@ -225,7 +227,6 @@
                                 <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                                     <i class="fa fa-lock fa-lg"></i>&nbsp;
                                     <span id="payment-button-amount" (click)="onClickPlaceOrder">Pay ${{totalamt}}.00</span>
-                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
                                 </button>
                             </div>
                             </form>                           
@@ -240,15 +241,7 @@
 
     <!-- Order Summary Side Panel -->
     <div class="mainc_c">
-        <!-- movieName: String;
-        movieImage: String;
-        movieURL: String;
-        movieReleaseDate: String;
-        movieLength: String;
-        directorName: String;
-        language: String;
-        movieType: String;
-        rating: String; -->
+      
         <div class="col-md-12 order-md-2 mb-4" id="col-md-12">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Movie Booking Summary</span>
@@ -305,7 +298,7 @@
                                     <strong>${{(noofseats * ticketprice) + handlingfees}}</strong>
                                 </li>
                             </ul>
-                            <button (click)="downloadAsPDF()" class="downloadPDF"> Download M Ticket</button>
+                            <button id="download" *ngIf="isDownloadEnabled" (click)="downloadAsPDF()" class="downloadPDF" > Download M Ticket</button>
 
                         </div>
                            </div>
@@ -319,9 +312,6 @@
     © Bigtree Entertainment Pvt. Ltd. Privacy Policy | Contact Us
 
 </span>
-
-
-
 
 <br>
 <br>

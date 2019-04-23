@@ -59,6 +59,7 @@ export class PaymentComponent implements OnInit {
   userid:string;
   creationtime:string;
   ccname:string;
+  isDownloadEnabled:boolean = false;
 
 
  
@@ -78,7 +79,6 @@ export class PaymentComponent implements OnInit {
    this.noofseats = this.ac.snapshot.params['totalseat'];
    this.creationtime = this.ac.snapshot.params['date'];
    
-   //this.
    this.seatdetails = this.ac.snapshot.params['seats'];
    //debugger;
    this.cookievalue = this.cookieService.get('UserDetails');
@@ -88,7 +88,6 @@ export class PaymentComponent implements OnInit {
    this.lastname = JSON.parse(this.cookievalue).user.lastname;
    this.userid = JSON.parse(this.cookievalue).user._id;
    this.fullname = this.firstname + ' ' + this.lastname;
-  
   
    //get theater-detail
    let theater_d$: Observable<theater> = theaterservice.viewTheaterDetail(this.theatreId);
@@ -122,52 +121,52 @@ export class PaymentComponent implements OnInit {
     
 }
 
-
-  
-  
+/*THe below function perform all the input validations and call the 
+orderService.createOrder rest api to save the order in the database */
   onClickPlaceOrder() {
-  debugger;
    
     if(this.username === "" || this.username === null || this.username === undefined)
     {
-      alert("please provide name");
+      alert("Please provide name.");
       return;
     }
     
     if(this.cardnum1 === "" || this.cardnum1 === null || this.cardnum1 === undefined)
     {
-      alert("please card complete num");
+      alert("Please card complete num.");
       return;
     }
 
     if(this.cardnum2 === "" || this.cardnum2 === null || this.cardnum2 === undefined)
     {
-      alert("please card complete num");
+      alert("Please card complete num.");
       return;
     }
 
     if(this.cardnum3 === "" || this.cardnum3 === null || this.cardnum3 === undefined)
     {
-      alert("please card complete num");
+      alert("Please card complete num.");
       return;
     }
     if(this.cardnum4 === "" || this.cardnum4 === null || this.cardnum4 === undefined)
     {
-      alert("please card complete num");
+      alert("Please card complete num.");
       return;
     }
   
     if(this.cvvcode === "" || this.cvvcode === null || this.cvvcode === undefined)
     {
-      alert("please card security code");
+      alert("Please card security code.");
       return;
     }
     
-    alert("inside order ");
-    console.log(this.model);
+    alert("Order is being placed.");
+    //console.log(this.model);
     let neworder$: Observable<order> = this.orderService.createOrder(this.model);
     neworder$.subscribe(
-      success => { alert("order success") },
+      success => { alert("Order placed successfully.")
+        this.isDownloadEnabled = true;
+     },
       error => {
         console.log(error);
       });

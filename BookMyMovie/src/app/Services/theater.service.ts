@@ -22,7 +22,7 @@ idURL: string;
     this.theaterDbURL = `${environment.serverBaseURL}${this.theaterDbName}`;
   }
 
-  
+  //get theater details based on the theater id 
 
   viewTheaterDetail(_id: string): Observable<theater> {
     this.idURL = `${_id}`;
