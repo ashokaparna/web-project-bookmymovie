@@ -31,7 +31,6 @@ export class ReviewListComponent implements OnInit {
   }
 
   deleteReview(reviewId) {
-    debugger;
     this.reviewService.deleteReview(reviewId)
       .subscribe(reviews => {
         this.getReviewList();

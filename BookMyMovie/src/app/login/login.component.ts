@@ -12,8 +12,8 @@ import { paymentUrl } from '../Models/paymentUrl';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
-  @Output() loginEmitter = new EventEmitter();
   cookievalue = 'unknown';
   request: loginRequest = new loginRequest();
   loginService: LoginService;
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(private lg: LoginService, private cookieService: CookieService, private router: Router,private dataservice :DataService) {
     this.loginService = lg;
   }
-// constructor(){}
+
   ngOnInit() {
     this.loginForm = new FormGroup({
       'username': new FormControl(null, Validators.required),
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   get f() { return this.loginForm.controls; }
 
-  /*Submit button click function. This will check if the entered elements are valid. If they are valid it will post the contact.*/
+  /*Authenticate user. This will check if the entered elements are valid. If the elements are valid then login api is called*/
   authenticate() {
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -44,26 +44,17 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.request)
       .subscribe((result: any) => {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
-        console.log( JSON.stringify(result));
         this.cookievalue = this.cookieService.get('UserDetails');
-
-        alert(result.message)
-        
+        alert(result.message);
         this.dataservice.setisDisplayname(`Welcome, ${JSON.parse(this.cookievalue).user.firstname}      ${JSON.parse(this.cookievalue).user.lastname}`);
-        //this.loginEmitter.emit();
         this.dataservice.setIsSignup(false);
-
-    
         this.pUrl = this.dataservice.getpUrl();
         if(this.pUrl == undefined )        {
           this.router.navigate(['/dashboard']);
         }
-        else
-        {
-         // this.dataservice.setpUrl().movieId == ''
-         this.router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
-   
-
+        else {
+         this
+           .router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
         }
         
     }, (error: any) => {
@@ -71,6 +62,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  /*Navigate to forgot password page*/
   forgotPassword(){
     this.router.navigate(['/forgotpassword']);
   }
