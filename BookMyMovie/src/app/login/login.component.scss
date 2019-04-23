@@ -1,3 +1,4 @@
+@import "./../../scss/variable.scss";
 .login-container{
   max-width: 400px;
   margin: 60px auto 0;
@@ -9,7 +10,7 @@
 
 .login{
   color: white;
-  background-color: darkred;
+  background-color: $button-background-color;
   width: 100%;
   margin-top: 10px;
 }
