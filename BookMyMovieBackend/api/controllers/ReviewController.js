@@ -3,59 +3,59 @@
 const reviewService = require('../services/reviewServices');
 
 //code for post method
-exports.create_review = function(req, res) {  
+exports.create_review = function (req, res) {
     console.log("inside create review");
     const newReview = Object.assign({}, req.body);
     console.log(newReview);
     const resolve = (review) => {
-      res.status(200);
-      res.json(review);
-        
-   };
-   reviewService.save(newReview)
-        .then(resolve) 
-        .catch(renderErrorResponse(res));
-  };
+        res.status(200);
+        res.json(review);
 
-      // error function
-      let renderErrorResponse = (response) => {
-        const errorCallback = (error) => {
-            if (error) {
-                response.status(500);
-                response.json({
-                    message: error.message
-                });
-            }
-        }
-        return errorCallback;
     };
+    reviewService.save(newReview)
+        .then(resolve)
+        .catch(renderErrorResponse(res));
+};
 
- 
+// error function
+let renderErrorResponse = (response) => {
+    const errorCallback = (error) => {
+        if (error) {
+            response.status(500);
+            response.json({
+                message: error.message
+            });
+        }
+    }
+    return errorCallback;
+};
+
+
 //     /**
 //     * Returns a contact object in JSON.
 //     *
 //     * @param {request} {HTTP request object}
 //     * @param {response} {HTTP response object}
 //     */
-   exports.user_reviews = function (request, response) {
-       const resolve = (u_reviews) => {
-           response.status(200);
-           response.json(u_reviews);
-       };
-       reviewService.user_reviews(request.params.userId)
-           .then(resolve)
-           .then(console.log("user id " + request.params.userId))
-           .catch(renderErrorResponse(response));
-   };
+exports.user_reviews = function (request, response) {
+    const resolve = (u_reviews) => {
+        response.status(200);
+        response.json(u_reviews);
+    };
+    reviewService.user_reviews(request.params.userId)
+        .then(resolve)
+        .then(console.log("user id " + request.params.userId))
+        .catch(renderErrorResponse(response));
+};
 
-       /**
- * Returns a list of orders in JSON
- *
- * @param {request} {HTTP request object}
- * @param {response} {HTTP response object}
- */
+/**
+* Returns a list of orders in JSON
+*
+* @param {request} {HTTP request object}
+* @param {response} {HTTP response object}
+*/
 exports.list_all_reviews = function (request, response) {
-    response.header('Access-Control-Allow-Origin' , '*' );
+    response.header('Access-Control-Allow-Origin', '*');
     const resolve = (reviews) => {
         response.status(200);
         response.json(reviews);
@@ -65,6 +65,19 @@ exports.list_all_reviews = function (request, response) {
         .catch(renderErrorResponse(response));
 };
 
+
+
+exports.list_reviews_each_movie = function (request, response) {
+    response.header('Access-Control-Allow-Origin', '*');
+    const resolve = (reviews) => {
+        response.status(200);
+        response.json(reviews);
+    };
+    //using movieid to fetch reviews of a particular review
+    reviewService.listOfMovieReview(request.params._id)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
+};
 
 /**
  * Deletes a review object.
@@ -83,7 +96,6 @@ exports.delete = function (request, response) {
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
-   
 
 
-   
+

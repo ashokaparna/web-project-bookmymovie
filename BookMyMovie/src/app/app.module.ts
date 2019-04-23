@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselDivComponent } from './carousel-div/carousel-div.component';
 import { MiddleDivComponent } from './middle-div/middle-div.component';
 import { Order_Service } from './Services/order.service';
+import { Review_Service } from './Services/review.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
@@ -66,7 +67,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ReactiveFormsModule,
     Ng2CarouselamosModule,
   ],
-  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service, MovieService, SignUpService, ForgotPasswordService],
+  providers: [Order_Service, Review_Service, LoginService, CookieService, MovieSingle_Service, MovieService, SignUpService, ForgotPasswordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

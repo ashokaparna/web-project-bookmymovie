@@ -4,19 +4,15 @@
   <div class="row justify-content-center">
 
     <div class="col-12 col-md-9">
-        <h4><b>Write a Review :</b></h4><br><br>
+      <h4><b>Write a Review for Movie {{parentData}}</b></h4><br><br>
       <form class="form-row">
-          <div class="form-group input-group-sm col-12 col-sm-6 col-lg">
-              <label for="negotiate-name">Movie Name</label>
-              <input type="text" class="form-control" id="negotiate-name">
-            </div>
         <div class="form-group input-group-sm col-12 col-sm-6 col-lg">
-          <label for="negotiate-name">Name</label>
-          <input type="text" class="form-control" id="negotiate-name">
+          <label for="negotiate-name">Name :</label>
+          <input type="text" class="form-control" id="negotiate-name" name="mname" [(ngModel)]="model.mname">
         </div>
         <div class="form-group input-group-sm col-12 col-sm-6 col-lg">
-          <label for="negotiate-email">E-mail</label>
-          <input type="email" class="form-control" id="negotiate-email">
+          <label for="negotiate-email">Date :</label>
+          <input type="email" class="form-control" id="negotiate-email" name="date" [(ngModel)]="model.date">
         </div>
         <fieldset class="rating">
           <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
@@ -41,12 +37,12 @@
             title="Sucks big time - 0.5 stars"></label>
         </fieldset>
         <div class="form-group input-group-sm col-12">
-          <label for="negotiate-comments">Comments</label>
-          <textarea class="form-control" rows="2" id="negotiate-comments"></textarea>
+          <label for="negotiate-comments">Comments :</label>
+          <textarea class="form-control" rows="2" id="negotiate-comments" name="desc" [(ngModel)]="model.desc"></textarea>
         </div>
 
         <div class="form-group col-auto ml-auto">
-          <button type="submit" class="btn btn-primary"  (click)="onClickAddReview()">Add Review</button>
+          <button type="submit" class="btn btn-primary" (click)="onClickAddReview()">Add Review</button>
         </div>
       </form>
     </div>
