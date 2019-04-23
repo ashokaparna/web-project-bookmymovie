@@ -227,6 +227,7 @@
                                     </button>
                                 </div>
                             </form>
+                           
                         </div>
                     </div>
                 </div>
@@ -247,7 +248,7 @@
         language: String;
         movieType: String;
         rating: String; -->
-        <div class="col-md-12 order-md-2 mb-4">
+        <div class="col-md-12 order-md-2 mb-4" id="col-md-12">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Movie Booking Summary</span>
             </h4>
@@ -305,6 +306,7 @@
                             </ul>
                            
                         </div>
+                        <button (click)="downloadAsPDF()" class="downloadPDF"> Download as Pdf</button>
     </div>
 </div>
 <span>

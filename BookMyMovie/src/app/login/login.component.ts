@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         alert(result.message)
         debugger;
         this.pUrl = this.dataservice.getpUrl();
-        if(this.pUrl.movieId == '')
+        if(this.pUrl == undefined)
         {
           this.router.navigate(['/dashboard']);
         }
