@@ -40,6 +40,7 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
 import { ForgotPasswordService } from "./Services/forgot-password.service";
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bootstrap";
+import { DatePipe } from '@angular/common';
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {UserProfileService} from "./Services/user-profile";
 
@@ -78,7 +79,7 @@ import {UserProfileService} from "./Services/user-profile";
   ],
   providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , 
     MovieService, SignUpService, ForgotPasswordService, TheaterService ,
-    ShowTimeService, UserProfileService,Review_Service],
+    ShowTimeService, UserProfileService,Review_Service,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

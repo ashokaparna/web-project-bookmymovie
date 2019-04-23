@@ -32,7 +32,7 @@ export class PaymentComponent implements OnInit {
   cookievalue = 'unknown';
  // orderService: Order_Service;
   theaterService: TheaterService;
-
+ // showTimeService: ShowTimeService;
   //dt = new Date("2016-05-18");
  //console.log(dateSendingToServer);
  
