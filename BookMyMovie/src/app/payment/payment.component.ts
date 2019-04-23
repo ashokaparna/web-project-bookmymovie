@@ -31,8 +31,15 @@ export class PaymentComponent implements OnInit {
  // orderService: Order_Service;
   theaterService: TheaterService;
   public paymentForm: FormGroup;
-  submitted = false;
+  //submitted = false;
+  username: string;
+  cardnum1:string;
+  cardnum2:string;
+  cardnum3:string;
+  cardnum4:string;
+  cvvcode:string;
   model:any =  {};
+  form1:any = {};
 
   movie: movie;
   theater: theater;
@@ -51,6 +58,7 @@ export class PaymentComponent implements OnInit {
   email:string;
   userid:string;
   creationtime:string;
+  ccname:string;
 
 
  
@@ -80,16 +88,11 @@ export class PaymentComponent implements OnInit {
    this.lastname = JSON.parse(this.cookievalue).user.lastname;
    this.userid = JSON.parse(this.cookievalue).user._id;
    this.fullname = this.firstname + ' ' + this.lastname;
-    // console.log(JSON.parse(this.cookievalue));
-    // console.log(this.email);
-    // console.log(this.fullname);
-    // console.log(this.userid);
-   
+  
   
    //get theater-detail
    let theater_d$: Observable<theater> = theaterservice.viewTheaterDetail(this.theatreId);
    theater_d$.subscribe(theater_d => {
-     //console.log("Thater Obj" + theater_d);
      this.theater = theater_d;
   //   console.log(theater_d);
    });
@@ -112,23 +115,51 @@ export class PaymentComponent implements OnInit {
     this.model.totalamount = this.totalamt;
     this.model.creationtime = this.creationtime;
     this.model.email = this.email;
-  //console.log(this.model.email);
+   
  }
  
  ngOnInit() {
     
-  this.paymentForm = new FormGroup({
-   'username': new FormControl(null, Validators.required),
-  
-  });
 }
 
 
   
   
   onClickPlaceOrder() {
-    this.submitted = true;
-    if (this.paymentForm.invalid) {
+  debugger;
+   
+    if(this.username === "" || this.username === null || this.username === undefined)
+    {
+      alert("please provide name");
+      return;
+    }
+    
+    if(this.cardnum1 === "" || this.cardnum1 === null || this.cardnum1 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+
+    if(this.cardnum2 === "" || this.cardnum2 === null || this.cardnum2 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+
+    if(this.cardnum3 === "" || this.cardnum3 === null || this.cardnum3 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+    if(this.cardnum4 === "" || this.cardnum4 === null || this.cardnum4 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+  
+    if(this.cvvcode === "" || this.cvvcode === null || this.cvvcode === undefined)
+    {
+      alert("please card security code");
       return;
     }
     
@@ -138,16 +169,10 @@ export class PaymentComponent implements OnInit {
     neworder$.subscribe(
       success => { alert("order success") },
       error => {
-        //       alert( error);
+        console.log(error);
       });
     this.add_pay_invoked.emit();
   }
-
-  onClickSubmit()
-  {
-    
-  }
-
 
   downloadAsPDF() {
     html2canvas(document.getElementById('col-md-12')).then(function (canvas) {

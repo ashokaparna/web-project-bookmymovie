@@ -3,19 +3,6 @@
 <script type="text/javascript"></script>
 <script></script>
 <div class="mainc">
-    <div class="mainc_a">
-
-
-        <h4 class="d-flex  align-items-center  justify-content-between mb-3">
-
-            <p class="text-muted">Congratulation {{fullname}}</p>
-            <br><br>
-            <!-- <p class="text-muted">Your Entertainment is one step away :)</p> -->
-
-        </h4>
-        <p class="text-muted">Your Entertainment is one step away</p>
-
-    </div>
     <div class="mainc_b">
 
         <div class="container-fluid py-3 bg-dark ">
@@ -40,17 +27,17 @@
                                 <div class="form-group">
                                     <label for="cc-payment" class="control-label mb-1">Payment amount</label>
                                     <input id="cc-payment" name="cc-payment" type="text" class="form-control"
-                                        aria-required="true" aria-invalid="false" required value=${{totalamt}}.00>
+                                        aria-required="true" aria-invalid="false" required value=${{totalamt}}.00 [disabled]="true" > 
                                     <span class="invalid-feedback">Enter the payment amount</span>
                                 </div>
                                 <div class="form-group has-success">
                                     <label for="cc-name" class="control-label mb-1">Name on card</label>
-                                    <input ngModel name="ccname" #ccname="ngModel" id="cc-name" type="text"
+                                    <input ngModel name="ccname"  #ccname="ngModel" id="cc-name" type="text"
                                         class="form-control cc-name" minlength="3" maxlength=30 pattern="^[a-zA-Z\s]+$"
-                                        require >
+                                        required [(ngModel)]= "username" >
 
-                                    <div class="alert alert-danger" *ngIf="submitted && !ccname.valid ">
-                                   <!-- <div class="alert alert-danger" *ngIf="ccname.touched && !ccname.valid "> -->
+                                   
+                                   <div class="alert alert-danger" *ngIf="ccname.touched && !ccname.valid "> 
                                         <div *ngIf="ccname.errors.required">
                                             Name is mandatory & must match as given on card.
                                         </div>
@@ -71,10 +58,10 @@
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="First four digits" required="" ngModel
-                                                    name="ccnum1" #ccnum1="ngModel">
+                                                    name="ccnum1" #ccnum1="ngModel" [(ngModel)]= "cardnum1" >
 
-                                                <!-- <div class="alert alert-danger" *ngIf="ccnum1.touched && !ccnum1.valid"> -->
-                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum1.valid">
+                                                <div class="alert alert-danger" *ngIf="ccnum1.touched && !ccnum1.valid"> 
+                                                <!-- <div class="alert alert-danger" *ngIf="submitted && !ccnum1.valid"> -->
                                                     <div *ngIf="ccnum1.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -92,11 +79,11 @@
 
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="Second four digits" required="" ngModel
-                                                    name="ccnum2" #ccnum2="ngModel">
+                                                    name="ccnum2" #ccnum2="ngModel" [(ngModel)]= "cardnum2" >
 
-                                                <!-- <div class="alert alert-danger" *ngIf="ccnum2.touched && !ccnum2.valid"> -->
+                                                <div class="alert alert-danger" *ngIf="ccnum2.touched && !ccnum2.valid" >
 
-                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum2.valid">    
+                                                 
                                                     <div *ngIf="ccnum2.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -112,10 +99,10 @@
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="Third four digits" required="" ngModel
-                                                    name="ccnum3" #ccnum3="ngModel">
+                                                    name="ccnum3" #ccnum3="ngModel" [(ngModel)]= "cardnum3" >
 
-                                                <!-- <div class="alert alert-danger" *ngIf="ccnum3.touched && !ccnum3.valid"> -->
-                                                        <div class="alert alert-danger" *ngIf="submitted && !ccnum3.valid">
+                                                <div class="alert alert-danger" *ngIf="ccnum3.touched && !ccnum3.valid"> 
+                                                        <!-- <div class="alert alert-danger" *ngIf="submitted && !ccnum3.valid" [(ngModel)]="form1.ccnum3"> -->
                                                     <div *ngIf="ccnum3.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -133,10 +120,10 @@
 
                                                 <input type="text" class="form-control" minlength="4" maxlength="4"
                                                     pattern="[0-9]*" title="Second four digits" required="" ngModel
-                                                    name="ccnum4" #ccnum4="ngModel">
+                                                    name="ccnum4" #ccnum4="ngModel" [(ngModel)]= "cardnum4" >
 
                                                 <!-- <div class="alert alert-danger" *ngIf="ccnum4.touched && !ccnum4.valid"> -->
-                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum4.valid">
+                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum4.valid" >
                                                     <div *ngIf="ccnum4.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -208,7 +195,7 @@
 
                                             <input type="text" class="form-control" minlength="3" maxlength="3"
                                                 pattern="[0-9]*" title="CVV" required="" ngModel name="ccv"
-                                                #cvv="ngModel">
+                                                #cvv="ngModel" [(ngModel)]= "cvvcode" >
 
                                             <!-- <div class="alert alert-danger" *ngIf="cvv.touched && !cvv.valid"> -->
                                                     <div class="alert alert-danger" *ngIf="submitted && !cvv.valid">

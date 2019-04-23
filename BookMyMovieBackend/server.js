@@ -6,7 +6,7 @@ function main () {
     var express = require('express'),
         app = express(),
         //to execute on port 3000
-        port = process.env.PORT || 3900,
+        port = process.env.PORT || 4000,
 
         mongoose = require('mongoose'),
         bodyParser = require('body-parser');
