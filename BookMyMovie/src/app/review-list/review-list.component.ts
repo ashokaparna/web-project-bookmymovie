@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Review_Service} from "../Services/review.service";
 
 @Component({
   selector: 'app-review-list',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private reviewService:  Review_Service) {
+
+  }
 
   ngOnInit() {
+  }
+
+  getReviewListOfAUser(){
+
+  }
+
+  deleteReview(){
+    this.reviewService.deleteReviews
   }
 
 }
