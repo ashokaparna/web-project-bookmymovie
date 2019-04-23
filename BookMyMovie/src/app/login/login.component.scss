@@ -1,4 +1,5 @@
 @import "./../../scss/variable.scss";
+/*The whole login page container*/
 .login-container{
   max-width: 400px;
   margin: 60px auto 0;
@@ -8,6 +9,7 @@
   margin-bottom: 40px;
 }
 
+/*Login button styles*/
 .login{
   color: white;
   background-color: $button-background-color;
@@ -15,21 +17,18 @@
   margin-top: 10px;
 }
 
-.remember-me{
-  border: 1px gray;
-  padding-left: 20px;
-}
-
+/*Error styles*/
 .error{
   color: tomato;
   font-size: 12px;
   padding-top: 4px;
 }
 
+/*Link styles*/
 .forgotPass{
   padding-left: 80px;
-
 }
+
 .signup{
   padding-left: 40px;
 }

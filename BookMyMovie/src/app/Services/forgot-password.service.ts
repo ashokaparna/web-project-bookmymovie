@@ -11,7 +11,6 @@ export class ForgotPasswordService{
   fpResourceURL: string;
   rpUrl: string;
   rpResourceUrl: string;
-
   /**
    * Constructor.
    */
@@ -23,15 +22,21 @@ export class ForgotPasswordService{
   }
 
   /**
-   * Sign up
+   *  Forgot password
    *
-   * @param  {SignupRequest} signUpRequest: SignupRequest {signUpRequest with username, password, email, phoneno, firstname, lastname}
+   * @param  {ForgotPasswordRequest} forgotPasswordRequest: ForgotPasswordRequest {forgotPasswordRequest with email}
    * @return {Observable<User>} {Observable for saved user object}
    */
   forgotPassword(forgotPasswordRequest: ForgotPasswordRequest): Observable<User> {
     return this.http.put<User>(this.fpResourceURL, forgotPasswordRequest);
   }
 
+  /**
+   *  Reset password
+   *
+   * @param  {ResetPasswordRequest} resetPasswordRequest: ResetPasswordRequest {resetPasswordRequest with password, reset password token}
+   * @return {Observable<User>} {Observable for saved user object}
+   */
   resetPassword(resetPasswordRequest: ResetPasswordRequest): Observable<User> {
     return this.http.put<User>(this.rpResourceUrl, resetPasswordRequest);
   }

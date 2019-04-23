@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {loginRequest} from "../Models/user";
 import {ForgotPasswordRequest} from "../Models/forgot-password-request";
 import {ForgotPasswordService} from "../Services/forgot-password.service";
 
@@ -10,7 +9,9 @@ import {ForgotPasswordService} from "../Services/forgot-password.service";
   styleUrls: ['./forgotpassword.component.scss']
 })
 export class ForgotpasswordComponent implements OnInit {
+  //Initializing forgot password required
   request: ForgotPasswordRequest = new ForgotPasswordRequest();
+
   public forgotPassword: FormGroup;
   submitted = false;
   constructor(private forgotPasswordService: ForgotPasswordService) { }
@@ -23,13 +24,13 @@ export class ForgotpasswordComponent implements OnInit {
 
   get f() { return this.forgotPassword.controls; }
 
+  //Forgot password api calling method
   sendEmail(){
     this.submitted = true;
     if (this.forgotPassword.invalid) {
       return;
     }
     this.request.email = this.forgotPassword.get('email').value;
-    console.log();
     this.forgotPasswordService.forgotPassword(this.request)
       .subscribe((result: any) => {
         alert("Please check your email for reset password link")

@@ -31,8 +31,11 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  /*Get all the user profile controls*/
   get f() { return this.userProfileForm.controls; }
 
+  /*Submit user details. Request contains email and phone number*/
   submitUserDetails(){
     this.submitted = true;
     if (this.userProfileForm.invalid) {
@@ -47,6 +50,7 @@ export class UserProfileComponent implements OnInit {
         this.user.phoneNo  = this.userProfileForm.get('phoneNo').value;
         result = JSON.parse(this.cookieService.get('UserDetails'));
          result.user = this.user;
+        /*Store the new values in cookie*/
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
         alert(result.message);
         if(result.status == 200){
