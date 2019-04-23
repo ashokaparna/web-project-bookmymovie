@@ -31,8 +31,8 @@
           </div>
         </div>
       </div>
-      <a class= "forgotPass" href="http://localhost:4500/forgotpassword" (click)="forgotPassword()">Forgot password?</a><br>
-      <span class="signup">Don't have an account? <a href="http://localhost:4500/signup"> Sign Up</a></span>
+      <a class= "forgotPass"  (click)="forgotPassword()" [routerLink]="['/forgotpassword']">Forgot password?</a><br>
+      <span class="signup">Don't have an account? <a [routerLink]="['/signup']" > Sign Up</a></span>
     </div>
   </form>
 

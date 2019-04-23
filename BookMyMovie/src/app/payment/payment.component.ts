@@ -14,9 +14,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { movie } from '../Models/movie';
 import { theater } from '../Models/theater';
 import { showTime } from '../Models/showtime';
-
-// import * as jsPDF from 'jspdf';
-// import * as html2canvas from 'html2canvas';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
@@ -32,23 +30,16 @@ export class PaymentComponent implements OnInit {
   cookievalue = 'unknown';
  // orderService: Order_Service;
   theaterService: TheaterService;
- // showTimeService: ShowTimeService;
-  //dt = new Date("2016-05-18");
- //console.log(dateSendingToServer);
- 
-  // model:any = {
-  //   userid : '5cbcc89130903149581cddd2',
-  //   theaterid : '5cba1386317d8d3c1cd402af',
-  //   movieid : '5cbcfc7c8e8b162b619b1519',
-  //   showtime :'12:00PM',
-  //   seatdetails : 'A9',
-  //   totalamount : 400,
-  //   creationtime : '11-11-2019',
-  //   email: 'deepibm2012@gmail.com'
-
-  //    };
-  //model;
+  public paymentForm: FormGroup;
+  //submitted = false;
+  username: string;
+  cardnum1:string;
+  cardnum2:string;
+  cardnum3:string;
+  cardnum4:string;
+  cvvcode:string;
   model:any =  {};
+  form1:any = {};
 
   movie: movie;
   theater: theater;
@@ -60,12 +51,15 @@ export class PaymentComponent implements OnInit {
   noofseats:number;
   totalamt:number;
   ticketprice = 30;
-  handlingfees = 5;
+  handlingfees = 7;
   firstname:string;
   lastname:string;
   fullname:string;
   email:string;
   userid:string;
+  creationtime:string;
+  ccname:string;
+
 
  
   @Output() add_pay_invoked = new EventEmitter();
@@ -82,6 +76,7 @@ export class PaymentComponent implements OnInit {
    this.showId = this.ac.snapshot.params['showId'];
    this.showtime = this.ac.snapshot.params['showtime'];
    this.noofseats = this.ac.snapshot.params['totalseat'];
+   this.creationtime = this.ac.snapshot.params['date'];
    
    //this.
    this.seatdetails = this.ac.snapshot.params['seats'];
@@ -93,16 +88,11 @@ export class PaymentComponent implements OnInit {
    this.lastname = JSON.parse(this.cookievalue).user.lastname;
    this.userid = JSON.parse(this.cookievalue).user._id;
    this.fullname = this.firstname + ' ' + this.lastname;
-    // console.log(JSON.parse(this.cookievalue));
-    // console.log(this.email);
-    // console.log(this.fullname);
-    // console.log(this.userid);
-   
+  
   
    //get theater-detail
    let theater_d$: Observable<theater> = theaterservice.viewTheaterDetail(this.theatreId);
    theater_d$.subscribe(theater_d => {
-     //console.log("Thater Obj" + theater_d);
      this.theater = theater_d;
   //   console.log(theater_d);
    });
@@ -122,41 +112,67 @@ export class PaymentComponent implements OnInit {
     this.model.seatdetails = this.seatdetails;
    // calculating the total amount of the order
     this.totalamt = (this.noofseats * this.ticketprice) + this.handlingfees;
-  //   ticketprice = 30;
-  // handlingfees = 5;
     this.model.totalamount = this.totalamt;
-    this.model.creationtime = '11-11-2019';
-      this.model.email = this.email;
-   console.log(this.model);
+    this.model.creationtime = this.creationtime;
+    this.model.email = this.email;
+   
  }
  
+ ngOnInit() {
+    
+}
 
-  ngOnInit() {
-  }
 
   
+  
   onClickPlaceOrder() {
+  debugger;
+   
+    if(this.username === "" || this.username === null || this.username === undefined)
+    {
+      alert("please provide name");
+      return;
+    }
+    
+    if(this.cardnum1 === "" || this.cardnum1 === null || this.cardnum1 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+
+    if(this.cardnum2 === "" || this.cardnum2 === null || this.cardnum2 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+
+    if(this.cardnum3 === "" || this.cardnum3 === null || this.cardnum3 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+    if(this.cardnum4 === "" || this.cardnum4 === null || this.cardnum4 === undefined)
+    {
+      alert("please card complete num");
+      return;
+    }
+  
+    if(this.cvvcode === "" || this.cvvcode === null || this.cvvcode === undefined)
+    {
+      alert("please card security code");
+      return;
+    }
+    
     alert("inside order ");
-    //let dt = new DatePipe('en-US').transform(this.model.creationtime, 'dd/MM/yyyy');
-    //   this.model.CreatedAt = dt;
     console.log(this.model);
     let neworder$: Observable<order> = this.orderService.createOrder(this.model);
-
-    //console.log(dt);
-   //  console.log( this.model.CreatedAt);
     neworder$.subscribe(
       success => { alert("order success") },
       error => {
-        //       alert( error);
+        console.log(error);
       });
     this.add_pay_invoked.emit();
   }
-
-  onClickSubmit()
-  {
-    
-  }
-
 
   downloadAsPDF() {
     html2canvas(document.getElementById('col-md-12')).then(function (canvas) {
@@ -168,5 +184,8 @@ export class PaymentComponent implements OnInit {
       doc.save('movieBookingSummary.pdf');
     });
   }
+
+
+
 
 }

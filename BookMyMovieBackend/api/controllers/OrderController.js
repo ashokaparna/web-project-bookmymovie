@@ -61,6 +61,7 @@ exports.create_order = function(req, res) {
  * @param {response} {HTTP response object}
  */
 exports.list_all_orders = function (request, response) {
+    console.log('orders');
     response.header('Access-Control-Allow-Origin' , '*' );
     const resolve = (orders) => {
         response.status(200);

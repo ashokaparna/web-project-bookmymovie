@@ -14,7 +14,6 @@ import { Order_Service } from './Services/order.service';
 import { Review_Service } from './Services/review.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
@@ -23,17 +22,11 @@ import {CookieService} from "ngx-cookie-service";
 import{MovieService} from './Services/movie.service';
 import{TheaterService} from './Services/theater.service';
 import{ShowTimeService} from './Services/showtime.service';
-
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
-
 import { SignUpService } from "./Services/sign-up.service";
-
 import { CustomerReviewTemplateComponent } from './customer-review-template/customer-review-template.component';
-
-
 import { MovieShowSelectComponent } from './movie-show-select/movie-show-select.component';
 import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { MovieSingle_Service } from './Services/moviesingle.service';
