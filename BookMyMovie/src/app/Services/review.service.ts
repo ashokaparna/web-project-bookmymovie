@@ -33,7 +33,6 @@ export class Review_Service {
   }
 
   create_Review(review: review_List): Observable<review_List> {
-    alert(review);
     console.log(review);
     let newreview: review_List;
     newreview = review ? review : new review_List(review.userid, review.movieid, review.mname, review.date, review.desc);
