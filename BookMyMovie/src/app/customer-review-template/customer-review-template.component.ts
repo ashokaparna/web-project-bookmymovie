@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { review, review_List } from '../Models/review';
 import { Review_Service } from '../Services/review.service';
 import { Observable } from 'rxjs';
+import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -14,20 +16,24 @@ export class CustomerReviewTemplateComponent implements OnInit {
   reviewService: Review_Service;
   model: any = {};
   @Input() parentData: string;
+  @Input()movieId: string;
   @Output() add_invoked = new EventEmitter();
-  constructor(reviewService: Review_Service) {
+  constructor(reviewService: Review_Service, private cookieService: CookieService) {
     this.reviewService = reviewService;
 
   }
   onClickAddReview() {
+    console.log()
+    this.add_invoked.emit();
+    this.model.userid = JSON.parse(this.cookieService.get('UserDetails')).user._id;
+    this.model.movieid = this.movieId;
     let newreview$: Observable<review_List> = this.reviewService.create_Review(this.model);
     newreview$.subscribe(
       success => { alert("success") },
       error => {
-
       }
     );
-    this.add_invoked.emit();
+   
   }
 
 

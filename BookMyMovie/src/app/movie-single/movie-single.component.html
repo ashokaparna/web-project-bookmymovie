@@ -51,7 +51,7 @@
   <button type="button" class="btn btn-primary middle" (click)="onClickPostReview()">Post Review</button>
 
 </div>
-<app-customer-review-template [parentData]="movieName" *ngIf="isOn" (valueChange)="isOn= false">
+<app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn" (valueChange)="changevalue()">
 </app-customer-review-template>
 <table>
   <thead>

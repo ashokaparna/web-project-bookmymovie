@@ -32,6 +32,7 @@ export class MovieSingleComponent implements OnInit {
   isOn: boolean = false;
   list: Array<review>;
   public movieName: String;
+  public movieIdentifier: string;
 
  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar,public reviewService: Review_Service) {
 
@@ -43,6 +44,7 @@ export class MovieSingleComponent implements OnInit {
       console.log(movies);
       this.movie = movies;
       this.movieName = this.movie.movieName;
+      this.movieIdentifier = this.movieId;
 
 
     });
@@ -101,6 +103,11 @@ export class MovieSingleComponent implements OnInit {
     }
     this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
+  }
+  changevalue()
+  {
+    alert('coming')
+   this.isOn = true;
   }
 
 }
