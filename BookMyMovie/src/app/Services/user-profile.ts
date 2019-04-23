@@ -40,10 +40,9 @@ export class UserProfileService{
   /**
    * User profile
    *
-   * @param  {SignupRequest} signUpRequest: SignupRequest {signUpRequest with username, password, email, phoneno, firstname, lastname}
+   * @param  {UserProfileRequest} userProfileRequest: UserProfileRequest {userProfileRequest with email, phoneno}
    * @return {Observable<User>} {Observable for saved user object}
    */
-
 
   updateUserDetails(userProfileRequest: UserProfileRequest, token: string): Observable<User> {
     let httpHeaders = new HttpHeaders()

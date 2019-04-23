@@ -1,3 +1,4 @@
+/*User model*/
 export class User {
   _id: string;
   firstname: string;
@@ -9,6 +10,7 @@ export class User {
 
 }
 
+/*Login request model*/
 export class loginRequest {
   password: string;
   username: string;

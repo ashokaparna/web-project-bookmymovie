@@ -21,8 +21,9 @@ var ReviewSchema = new Schema({
         required: 'kindly enter desc.'
     },
     date: {
-        type: String,
-        required: 'kindly enter date.'
+        type: Date,
+        required: 'Date is a mandatory field',
+        default: Date.now,
     },
 
 });

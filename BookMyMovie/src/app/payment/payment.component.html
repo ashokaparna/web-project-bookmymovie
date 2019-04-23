@@ -1,7 +1,6 @@
 <script type="textr/javascript" src="jspdf.min.js"></script>
 <script type="text/javascript" src="html2canvas.js"></script>
 <script type="text/javascript"></script>
-<script></script>
 <div class="mainc">
 
     <div class="mainc_b">
@@ -298,9 +297,10 @@
                                     <strong>${{(noofseats * ticketprice) + handlingfees}}</strong>
                                 </li>
                             </ul>
-                            <button id="download" *ngIf="isDownloadEnabled" (click)="downloadAsPDF()" class="downloadPDF" > Download M Ticket</button>
 
                         </div>
+                        <button id="download" *ngIf="isDownloadEnabled" (click)="downloadAsPDF()" class="downloadPDF" > Download M Ticket</button>
+
                            </div>
 </div>
 <span class="note">

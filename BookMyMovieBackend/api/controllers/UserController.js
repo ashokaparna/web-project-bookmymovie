@@ -1,6 +1,12 @@
 const profileService = require('../services/userServices');
 const jwt = require("jsonwebtoken");
 let config = require('../../config');
+/**
+ * Returns access token and user details after updating profile
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.profile = function (request, response) {
     let token = request.headers['authorization'];
     const resolve = (res) => {
@@ -62,7 +68,12 @@ let renderErrorResponse = (response) => {
     return errorCallback;
 };
 
-
+/**
+ * Returns profile details
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.getProfile = function (request, response) {
     let token = request.headers['authorization'];
     const resolve = (res) => {

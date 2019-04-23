@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../Models/user";
 import {UserProfileService} from "../Services/user-profile";
 import {CookieService} from "ngx-cookie-service";
-import {SignupRequest} from "../Models/signup-request";
 import {UserProfileRequest} from "../Models/user-profile-request";
 
 @Component({
@@ -31,11 +30,12 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
 
-
   }
 
+  /*Get all the user profile controls*/
   get f() { return this.userProfileForm.controls; }
 
+  /*Submit user details. Request contains email and phone number*/
   submitUserDetails(){
     this.submitted = true;
     if (this.userProfileForm.invalid) {
@@ -46,6 +46,11 @@ export class UserProfileComponent implements OnInit {
     this.request.phoneNo = this.userProfileForm.get('phoneNo').value;
     this.userService.updateUserDetails(this.request, JSON.parse(this.cookieService.get('UserDetails')).access_token)
       .subscribe((result: any) => {
+        this.user.email = this.userProfileForm.get('email').value;
+        this.user.phoneNo  = this.userProfileForm.get('phoneNo').value;
+        result = JSON.parse(this.cookieService.get('UserDetails'));
+         result.user = this.user;
+        /*Store the new values in cookie*/
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
         alert(result.message);
         if(result.status == 200){

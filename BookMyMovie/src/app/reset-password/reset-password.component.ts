@@ -27,6 +27,7 @@ export class ResetPasswordComponent implements OnInit {
   }
   get f() { return this.resetPassword.controls; }
 
+  /*Check validations and call reset password api*/
   submitNewPassword(){
     this.submitted = true;
     if (this.resetPassword.invalid) {
@@ -34,7 +35,6 @@ export class ResetPasswordComponent implements OnInit {
     }
     this.request.password = this.resetPassword.get('password').value;
     this.request.token = this.token;
-    console.log();
     this.forgotPasswordService.resetPassword(this.request)
       .subscribe((result: any) => {
         alert(result.message);

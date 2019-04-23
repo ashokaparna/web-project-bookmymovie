@@ -4,6 +4,8 @@ import {SignupRequest} from '../Models/signup-request';
 import {SignUpService} from '../Services/sign-up.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
+import {paymentUrl} from "../Models/paymentUrl";
+import {DataService} from "../Services/data.service";
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +17,8 @@ export class SignupComponent implements OnInit {
   public signUpForm: FormGroup;
   submitted = false;
   request: SignupRequest = new SignupRequest();
-  constructor(private  signUpService: SignUpService, private cookieService: CookieService, private router: Router) { }
+  pUrl :paymentUrl = new paymentUrl();
+  constructor(private  signUpService: SignUpService, private cookieService: CookieService, private router: Router, private dataservice :DataService) { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -28,7 +31,11 @@ export class SignupComponent implements OnInit {
 
     });
   }
+
+  /*Get all the sign up controls*/
   get f() { return this.signUpForm.controls; }
+
+  /*Sign up button action. Check validations and call signup api*/
   signUp(){
     this.submitted = true;
     if (this.signUpForm.invalid) {
@@ -44,6 +51,14 @@ export class SignupComponent implements OnInit {
       .subscribe((result: any) => {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
         alert(result.message);
+        /*Navigate to the correct page according to payment url value*/
+        this.pUrl = this.dataservice.getpUrl();
+        if(this.pUrl == undefined) {
+          this.router.navigate(['/dashboard']);
+        }
+        else {
+          this.router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
+        }
         this.router.navigate(['/dashboard', 2]);
       }, (error: any) => {
         console.log(error);
