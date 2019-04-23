@@ -70,36 +70,12 @@
       <button type="button" (click)="confirm()" class="button btn btn-primary middle">Book Tickets</button>
       <button type="button" class="btn btn-primary middle button" (click)="onClickPostReview()">Post Review</button>
 
-<<<<<<< HEAD
     <div class="time" *ngFor="let ca of c.values;">
       <button type="button" value="{{ca._id}}" (click)="selectShowtime(ca._id,ca.theatreId,ca.showTime)"
         class="btn1 btn-outline-danger">{{ca.showTime}}</button>
-=======
->>>>>>> f6ebb2aef25628b01036035301e62b901b545c93
     </div>
-    <app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn"
-      (valueChange)="changevalue()">
-    </app-customer-review-template>
-    <table>
-      <thead>
-        <th>User ID </th>
-        <th>Movie Name </th>
-        <th>Description </th>
-        <th>Date</th>
-      </thead>
-      <tbody>
-        <tr class="reviewTable" *ngFor="let part of list">
-          <!-- <td>{{parentData}}</td> -->
-          <td>{{part.userid}}</td>
-          <td>{{part.mname}}</td>
-          <td>{{part.desc}}</td>
-          <td>{{part.date}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<<<<<<< HEAD
+    
+  <!-- This is the form content that gets loaded when the user clicks on Post Showtime -->
 <app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn" (add_invoked)="changevalue()">
 </app-customer-review-template>
 <table class="content-table">
@@ -118,5 +94,3 @@
     </tr>
   </tbody>
 </table>
-=======
->>>>>>> f6ebb2aef25628b01036035301e62b901b545c93
