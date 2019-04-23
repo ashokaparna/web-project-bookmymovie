@@ -48,7 +48,7 @@ module.exports = function (app) {
     app.route('/reviews/:userId')
         .get(reviewlist.user_reviews)
 
-    app.route('/reviews/:movieId')
+    app.route('/movie-reviews/:movieId')
         .get(reviewlist.list_reviews_each_movie)
 
     app.route('/reviews/:reviewId')

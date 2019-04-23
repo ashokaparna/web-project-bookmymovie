@@ -45,8 +45,6 @@ export class MovieSingleComponent implements OnInit {
       this.movie = movies;
       this.movieName = this.movie.movieName;
       this.movieIdentifier = this.movieId;
-
-
     });
 
     let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getshowTimes(this.movieId);
@@ -109,10 +107,12 @@ export class MovieSingleComponent implements OnInit {
     this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
   }
+
   changevalue()
   {
-    alert('coming')
-   this.isOn = true;
+    alert('coming');
+   this.isOn = false;
+   this.getReviewList();
   }
 
 }
