@@ -127,7 +127,7 @@ export class PaymentComponent implements OnInit {
    // calculating the total amount of the order
     this.totalamt = (this.noofseats * this.ticketprice) + this.handlingfees;
     this.model.totalamount = this.totalamt;
-    this.model.creationtime = '11-11-2019';
+    this.model.creationtime = Date.now();
       this.model.email = this.email;
 
  }
