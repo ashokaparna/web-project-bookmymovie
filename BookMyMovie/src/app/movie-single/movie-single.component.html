@@ -70,6 +70,12 @@
       <button type="button" (click)="confirm()" class="button btn btn-primary middle">Book Tickets</button>
       <button type="button" class="btn btn-primary middle button" (click)="onClickPostReview()">Post Review</button>
 
+<<<<<<< HEAD
+    <div class="time" *ngFor="let ca of c.values;">
+      <button type="button" value="{{ca._id}}" (click)="selectShowtime(ca._id,ca.theatreId,ca.showTime)"
+        class="btn1 btn-outline-danger">{{ca.showTime}}</button>
+=======
+>>>>>>> f6ebb2aef25628b01036035301e62b901b545c93
     </div>
     <app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn"
       (valueChange)="changevalue()">
@@ -93,3 +99,24 @@
     </table>
   </div>
 </div>
+<<<<<<< HEAD
+<app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn" (add_invoked)="changevalue()">
+</app-customer-review-template>
+<table class="content-table">
+  <thead><tr>
+    <th>Movie Name </th>
+    <th class="desc">User Reviews </th>
+    <th>Date</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr class="reviewTable" *ngFor="let part of list">
+      <!-- <td>{{parentData}}</td> -->
+      <td>{{part.mname}}</td>
+      <td >{{part.desc}}</td>
+      <td>{{part.date}}</td>
+    </tr>
+  </tbody>
+</table>
+=======
+>>>>>>> f6ebb2aef25628b01036035301e62b901b545c93

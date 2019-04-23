@@ -10,8 +10,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .reviewTable {
-    border: 1px solid black;
-    
+  border: 1px solid black;
 }
 .movie-date-selection div div.location {
   width: 100%;
@@ -56,26 +55,28 @@
   line-height: 1.42857143;
   border-radius: 4px;
 }
-.movie-meta
-{
-    margin: 50px;
-    .starring,ul,li
-  {
+.movie-meta {
+  margin: 50px;
+  .starring,
+  ul,
+  li {
     margin: 10px;
-    list-style: none; 
+    list-style: none;
   }
 }
-.movie-meta li, .starring li {
+.movie-meta li,
+.starring li {
   margin-bottom: 10px;
 }
 .checked {
   color: orange;
 }
-button.calendar, button.calendar:active {
+button.calendar,
+button.calendar:active {
   width: 64px;
   height: 34px;
   border: 1px solid gray;
-  background-image: url('../../assets/images/calendar.png')!important;
+  background-image: url("../../assets/images/calendar.png") !important;
   background-repeat: no-repeat;
   background-size: 18px;
   background-position: center;
@@ -87,10 +88,48 @@ button.calendar, button.calendar:active {
   padding: 0 !important;
 }
 
-
-.date-picker{
+.date-picker {
   width: 100px;
 }
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+}
+
+.content-table thead tr {
+  background-color:rgb(220, 53, 69);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+.desc {
+  width: 300px;
+}
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(220, 53, 69);
+}
+
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;

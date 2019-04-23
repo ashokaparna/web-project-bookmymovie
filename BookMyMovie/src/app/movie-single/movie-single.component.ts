@@ -110,7 +110,6 @@ export class MovieSingleComponent implements OnInit {
 
   changevalue()
   {
-    alert('coming');
    this.isOn = false;
    this.getReviewList();
   }
