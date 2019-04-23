@@ -48,5 +48,25 @@
   </div>
 
   <button type="button" (click)="confirm()" class="btn btn-primary middle">Book Tickets</button>
+  <button type="button" class="btn btn-primary middle" (click)="onClickPostReview()">Post Review</button>
 
 </div>
+<app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn" (valueChange)="changevalue()">
+</app-customer-review-template>
+<table>
+  <thead>
+    <th>User ID </th>
+    <th>Movie Name </th>
+    <th>Description </th>
+    <th>Date</th>
+  </thead>
+  <tbody>
+    <tr class="reviewTable" *ngFor="let part of list">
+      <!-- <td>{{parentData}}</td> -->
+      <td>{{part.userid}}</td>
+      <td>{{part.mname}}</td>
+      <td>{{part.desc}}</td>
+      <td>{{part.date}}</td>
+    </tr>
+  </tbody>
+</table>

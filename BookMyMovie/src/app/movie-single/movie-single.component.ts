@@ -7,6 +7,9 @@ import { stringify } from '@angular/core/src/render3/util';
 import { movie } from '../Models/movie';
 import { MovieService } from '../Services/movie.service';
 import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
+import { ValueTransformer } from '@angular/compiler/src/util';
+import { SelectorMatcher } from '@angular/compiler';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -29,7 +32,7 @@ export class MovieSingleComponent implements OnInit {
   maxDate: NgbDate;
 
 
-  constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar) {
+  constructor(private datePipe: DatePipe,public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar) {
 
     this.movieId = this.ac.snapshot.params['movieId'];
 
@@ -47,12 +50,13 @@ export class MovieSingleComponent implements OnInit {
 
       {
         console.log(showtimes);
-        var groups = new Set(showtimes.map(item => item.theatreId))
+        var groups = new Set(showtimes.map(item => item['theatreRef'].theatreName))
         this.result = [];
         groups.forEach(g =>
           this.result.push({
             name: g,
-            values: showtimes.filter(i => i.theatreId === g),
+            values: showtimes.filter(i => i['theatreRef'].theatreName === g)
+          
 
           }
           ))
@@ -81,13 +85,14 @@ export class MovieSingleComponent implements OnInit {
   }
   confirm()
   {
-    
+    let date = new Date(`${this.dateModel.month}-${this.dateModel.day}-${this.dateModel.year}`.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+  
     if(this.selectedShowId  == undefined)
     {
      alert('please select showtime');
      return;
     }
-    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
+    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:date}]);
 
   }
 

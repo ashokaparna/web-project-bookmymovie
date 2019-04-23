@@ -42,13 +42,17 @@ module.exports = function (app) {
 
     app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
-     app.route('/reviews')     
-        .get(reviewlist.list_all_reviews)   
+    app.route('/reviews')
+        .get(reviewlist.list_all_reviews)
         .post(reviewlist.create_review);
     app.route('/reviews/:userId')
-        .get(reviewlist.user_reviews) 
-     app.route('/reviews/:reviewId')
-         .delete(reviewlist.delete) 
+        .get(reviewlist.user_reviews)
+
+    app.route('/reviews/:movieId')
+        .get(reviewlist.list_reviews_each_movie)
+
+    app.route('/reviews/:reviewId')
+        .delete(reviewlist.delete)
     app.route('/movies')
         .get(movieList.listMovies)
         .post(movieList.createMovies);

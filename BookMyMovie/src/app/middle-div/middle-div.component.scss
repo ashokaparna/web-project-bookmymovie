@@ -1,15 +1,38 @@
 //providing radius to the images on dashboard
 .img-responsive {
   border-radius: 15px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.releaseDate {
+  position: absolute;
+  color: white;
+  background-color: grey;
+  left: 22px;
+  top: 15px;
+  font-size: 11px;
+  padding-left: 4px;
+  padding-right:4px;
+}
+
+.movieName {
+  font-size: 16px;
+}
+
+.col-sm-4 {
+  margin-bottom: 15px;
+}
+
+.light-text {
+  color: rgb(153, 153, 153);
 }
 .searchTextBox {
   border-radius: 8px;
-  padding:7px;
+  padding: 7px;
   width: 500px;
   margin-top: 15px;
-  background-color: beige;
+  background-color: rgb(244, 243, 241);
 }
 body {
   background: url("http://i.hizliresim.com/v4Qykv.png") no-repeat center center fixed;
