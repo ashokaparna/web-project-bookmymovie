@@ -35,7 +35,7 @@ export class OrderHistoryComponent implements OnInit {
     o_service.viewUserOrders(this.userid);
     orders$.subscribe(orders => {
       this.list = orders;
-      console.log(this.list);
+  //    console.log(this.list);
     });
 
   }

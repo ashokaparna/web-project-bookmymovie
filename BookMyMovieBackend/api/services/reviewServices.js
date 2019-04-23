@@ -1,4 +1,3 @@
-
 'use strict';
 
 let mongoose = require('mongoose');
@@ -7,11 +6,11 @@ require('../models/ReviewModel');
 let Review = mongoose.model('Reviews');
 // save review method
 exports.save = function (review) {
-    console.log("inside review");
+   // console.log("inside review");
     const newreview = new Review(review);
-    console.log("before order review");
+  //  console.log("before order review");
     const promise = newreview.save();
-    console.log(promise);
+  //  console.log(promise);
     return promise;
 };
 
@@ -27,7 +26,7 @@ exports.reviewList = function () {
 
 
 exports.listOfMovieReview = function (movieId) {
-    console.log(movieId, "verifying");
+ //   console.log(movieId, "verifying");
     const promise = Review.find({ movieid: movieId }).exec();
     return promise;
 }
@@ -39,11 +38,10 @@ exports.listOfMovieReview = function (movieId) {
  * @param {string} userId {Id of the User object which has made movie booking orders}
  */
 exports.user_reviews = function (userId) {
-    console.log('finding' - userId)
+//   console.log('finding' - userId)
     const promise = Review.find({ userid: userId }).exec();
     return promise
 };
-
 
 /**
  * Deletes the contact object matching the id.

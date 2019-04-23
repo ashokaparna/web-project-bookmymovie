@@ -27,17 +27,13 @@ var fpMailOptions = {
   text: 'Congratulation on your order booking'
 };
 
-
+// Sent order success mail to user 
 exports.email = function (newOrder) {
-  console.log(newOrder);
-  mailOptions.text = 'Theater Name: ' + newOrder.theatername + 
-  " Movie Name: " + newOrder.movieName + " Show Time: " 
+  mailOptions.text = 'Your order details ' + "Show Time: " 
   + newOrder.showtime + " Total Seats: " + newOrder.seatdetails + 
  " Total Amount: " + newOrder.totalamount + " Booking Time: " +
  newOrder.creationtime;
-  console.log('Inside email-' + newOrder.email);
   mailOptions.to = newOrder.email;
-  //mailOptions.to =  "deepibm2012@gmail.com";
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);
@@ -46,7 +42,7 @@ exports.email = function (newOrder) {
     }
   });
 };
-
+// Sent password reset mail to user
 exports.forgotPasswordEmail = function (email, link) {
   console.log(link);
   console.log(email);

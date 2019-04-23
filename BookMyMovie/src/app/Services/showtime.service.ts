@@ -21,7 +21,7 @@ idURL: string;
     this.showtimeDbURL = `${environment.serverBaseURL}${this.showtimeDbURL}`;
   }
 
-  
+
 
   viewTheaterDetail(_id: string): Observable<showTime> {
     this.idURL = `${_id}`;
