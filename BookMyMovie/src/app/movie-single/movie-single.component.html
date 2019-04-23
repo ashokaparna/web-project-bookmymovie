@@ -7,6 +7,7 @@
   </div>
   <div class="card">
     <p class="title">{{movie.movieName}}</p>
+    <!-- Show movie Data in card -->
     <table class="table">
       <tbody>
         <tr>
@@ -38,7 +39,7 @@
       </tbody>
     </table>
   </div>
-
+  <!-- datepicker -->
   <div class="middlepart">
     <div class="movie-date-selection">
       <div class="date-picker">
@@ -55,7 +56,7 @@
         </form>
       </div>
 
-     
+      <!-- display Showtime -->
       <div *ngFor="let c of result" class="main">
         <div class="location">
           {{c.name}}
@@ -71,6 +72,7 @@
       <button type="button" class="btn btn-primary middle button" (click)="onClickPostReview()">Post Review</button>
 
     </div>
+    <!-- list of user reviews -->
     <app-customer-review-template [parentData]="movieName" [movieId]="movieId" *ngIf="isOn"
       (valueChange)="changevalue()">
     </app-customer-review-template>
@@ -83,7 +85,6 @@
       </thead>
       <tbody>
         <tr class="reviewTable" *ngFor="let part of list">
-          <!-- <td>{{parentData}}</td> -->
           <td>{{part.userid}}</td>
           <td>{{part.mname}}</td>
           <td>{{part.desc}}</td>

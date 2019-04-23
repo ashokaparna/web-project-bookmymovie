@@ -52,12 +52,12 @@ export class MovieSingleComponent implements OnInit {
 
       {
         console.log(showtimes);
-        var groups = new Set(showtimes.map(item => item.theatreId))
+        var groups = new Set(showtimes.map(item => item['theatreRef'].theatreName))
         this.result = [];
         groups.forEach(g =>
           this.result.push({
             name: g,
-            values: showtimes.filter(i => i.theatreId === g),
+            values: showtimes.filter(i => i['theatreRef'].theatreName === g)
 
           }
           ))

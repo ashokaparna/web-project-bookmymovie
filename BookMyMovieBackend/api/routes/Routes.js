@@ -21,25 +21,26 @@ module.exports = function (app) {
     app.route('/orders')
         .get(orderlist.list_all_orders)
         .post(orderlist.create_order);
-        //added by Dharati on 04/21/2019
+        //added by Dharati on 04/21/2019        
     app.route('/orders/:theaterId/:movieId/:showTime/:date')
+        // get data from order table based on booked seats
         .get(orderlist.get_orderfor_bookedseats);
     app.route('/orders/:userId')
         .get(orderlist.user_orders);
-
-    app.route('/theatres')        
+    app.route('/theatres') 
+        // create theater       
         .post(theatrelist.create_theatre)
+        // fetch all theater 
         .get(theatrelist.list_all_theaters);
     app.route('/theatres/:theaterId')
-        .get(theatrelist.theater_detail);  
-          
-    app.route('/showtime')       
+        .get(theatrelist.theater_detail);            
+    app.route('/showtime') 
+        //fetch all show time      
         .get(showtimelist.list_all_showtime)
+        // create showtime
         .post(showtimelist.create_showtime);
-
     app.route('/showtimes/st/:showId')
-        .get(showtimelist.show_detail);  
-
+        .get(showtimelist.show_detail); 
     app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
     app.route('/reviews')
@@ -47,10 +48,8 @@ module.exports = function (app) {
         .post(reviewlist.create_review);
     app.route('/reviews/:userId')
         .get(reviewlist.user_reviews)
-
     app.route('/movie-reviews/:movieId')
         .get(reviewlist.list_reviews_each_movie)
-
     app.route('/reviews/:reviewId')
         .delete(reviewlist.delete)
     app.route('/movies')

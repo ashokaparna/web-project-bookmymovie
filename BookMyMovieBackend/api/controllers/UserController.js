@@ -4,13 +4,13 @@ let config = require('../../config');
 exports.profile = function (request, response) {
     let token = request.headers['authorization'];
     const resolve = (res) => {
-        if(res !== null){
+        if (res !== null) {
             response.json({
                 status: 200,
                 message: "User details updated successfully",
                 user: res
             });
-        }else{
+        } else {
             response.json({
                 status: 401,
                 message: 'User id needed'
@@ -30,19 +30,19 @@ exports.profile = function (request, response) {
                     message: 'Token is not valid'
                 });
             } else {
-                if(!request.body.phoneNo){
+                if (!request.body.phoneNo) {
                     return response.json({
                         status: 400,
                         message: 'Error in request, Please check the request'
                     });
-                }else{
+                } else {
                     profileService.updateUser(request.body)
                         .then(resolve)
                         .catch(renderErrorResponse(response));
                 }
             }
         });
-    }else {
+    } else {
         return response.json({
             status: 401,
             message: 'Auth token is not supplied'
@@ -66,13 +66,13 @@ let renderErrorResponse = (response) => {
 exports.getProfile = function (request, response) {
     let token = request.headers['authorization'];
     const resolve = (res) => {
-        if(res !== null){
+        if (res !== null) {
             response.json({
                 status: 200,
                 message: "User details fetched successfully",
                 user: res
             });
-        }else{
+        } else {
             response.json({
                 status: 401,
                 message: 'User id needed'
@@ -92,13 +92,13 @@ exports.getProfile = function (request, response) {
                     message: 'Token is not valid'
                 });
             } else {
-                    profileService.getUserDetails(request.params._id)
-                        .then(resolve)
-                        .catch(renderErrorResponse(response));
-                }
+                profileService.getUserDetails(request.params._id)
+                    .then(resolve)
+                    .catch(renderErrorResponse(response));
+            }
 
         });
-    }else {
+    } else {
         return response.json({
             status: 401,
             message: 'Auth token is not supplied'

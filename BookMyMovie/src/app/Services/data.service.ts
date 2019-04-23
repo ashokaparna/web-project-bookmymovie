@@ -6,37 +6,44 @@ import { paymentUrl } from '../Models/paymentUrl';
 })
 
 export class DataService {
-private pUrl:  paymentUrl;
-private userId: String;
-private IsSignup :boolean =true;
-public isDisplayname:string = "Log In";
+
+  private pUrl: paymentUrl;
+  private userId: String;
+  private IsSignup: boolean = true;
+  public isDisplayname: string = "Log In";
+
   constructor() { }
-  setUserId(id: String){
+
+  // setting property for userid
+  setUserId(id: String) {
     this.userId = id;
   }
-  getUserId(){
+  //get for userid
+  getUserId() {
     return this.userId;
   }
-  setpUrl(pUrl: paymentUrl){
+  //set property
+  setpUrl(pUrl: paymentUrl) {
     this.pUrl = pUrl;
   }
-  getpUrl(){
+  //get pUrl string
+  getpUrl() {
     return this.pUrl;
   }
-  setisDisplayname(value:string )
-  {
+  //set  display name in header
+  setisDisplayname(value: string) {
     this.isDisplayname = value;
   }
-  getisDisplayname()
-  {
+  //get  display name in header
+  getisDisplayname() {
     return this.isDisplayname;
   }
-  setIsSignup(value:boolean)
-  {
+  //set signup boolean
+  setIsSignup(value: boolean) {
     this.IsSignup = value;
   }
-  getIsSignup()
-  {
+  //get  signup 
+  getIsSignup() {
     return this.IsSignup;
   }
 }

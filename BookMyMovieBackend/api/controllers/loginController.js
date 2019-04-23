@@ -11,9 +11,9 @@ let config = require('../../config');
  * @param {response} {HTTP response object}
  */
 exports.login = function (request, response) {
-    response.header('Access-Control-Allow-Origin' , '*' );
+    response.header('Access-Control-Allow-Origin', '*');
     console.log(request.body);
-    if (!request.body.username || !request.body.password){
+    if (!request.body.username || !request.body.password) {
         response.json({
             status: 400,
             message: 'Authentication failed! Please check the request'
@@ -22,9 +22,9 @@ exports.login = function (request, response) {
     }
     const token = jwt.sign({
         username: request.body.username
-    }, Buffer.from(config.secret).toString('base64'), {expiresIn: "24 hours"});
+    }, Buffer.from(config.secret).toString('base64'), { expiresIn: "24 hours" });
     const resolve = (res) => {
-        if(res !== null){
+        if (res !== null) {
             response.status(200);
             response.json({
                 status: 200,
@@ -33,7 +33,7 @@ exports.login = function (request, response) {
                 message: "User authenticated successfully"
 
             });
-        }else{
+        } else {
             response.json({
                 status: 403,
                 message: "Incorrect username or password"

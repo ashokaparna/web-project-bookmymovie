@@ -12,7 +12,7 @@ exports.create_theatre = function(req, res) {
         res.json(theatre);
     };
     theatreService.save(newtheatre)
-        .then(resolve).then(console.log("resolved"))
+        .then(resolve)
         .catch(renderErrorResponse(res));
   };
   // error function
@@ -27,9 +27,6 @@ exports.create_theatre = function(req, res) {
     }
     return errorCallback;
 };
-
-
-
 /* Returns a list of orders in JSON
  *
  * @param {request} {HTTP request object}
@@ -45,7 +42,6 @@ exports.list_all_theaters = function (request, response) {
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
-
 /**
  * Returns a thater object in JSON.
  *
@@ -59,6 +55,5 @@ exports.theater_detail = function (request, response) {
     };
     theatreService.get(request.params.theaterId)
         .then(resolve)
-       // .then(console.log(request.params.theaterId))
         .catch(renderErrorResponse(response));
 };
