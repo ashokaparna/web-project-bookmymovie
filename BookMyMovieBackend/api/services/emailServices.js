@@ -49,6 +49,7 @@ exports.email = function (newOrder) {
 
 exports.forgotPasswordEmail = function (email, link) {
   console.log(link);
+  console.log(email);
   fpMailOptions.text = 'We are here to help. \n Please click on the link below to reset your password \n' + link;
   fpMailOptions.to = email;
   transporter.sendMail(fpMailOptions, function(error, info){

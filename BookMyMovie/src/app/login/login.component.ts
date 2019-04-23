@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private lg: LoginService, private cookieService: CookieService, private router: Router,private dataservice :DataService) {
     this.loginService = lg;
   }
-// constructor(){}
+
   ngOnInit() {
     this.loginForm = new FormGroup({
       'username': new FormControl(null, Validators.required),
@@ -45,20 +45,13 @@ export class LoginComponent implements OnInit {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
         console.log( JSON.stringify(result));
         this.cookievalue = this.cookieService.get('UserDetails');
-
         alert(result.message)
-        debugger;
         this.pUrl = this.dataservice.getpUrl();
-        if(this.pUrl == undefined)
-        {
+        if(this.pUrl == undefined) {
           this.router.navigate(['/dashboard']);
         }
-        else
-        {
-         // this.dataservice.setpUrl().movieId == ''
+        else {
          this.router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
-   
-
         }
         
     }, (error: any) => {
