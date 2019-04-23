@@ -45,8 +45,6 @@ export class MovieSingleComponent implements OnInit {
       this.movie = movies;
       this.movieName = this.movie.movieName;
       this.movieIdentifier = this.movieId;
-
-
     });
 
     let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getshowTimes(this.movieId);

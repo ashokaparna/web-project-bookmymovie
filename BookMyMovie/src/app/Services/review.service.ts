@@ -47,4 +47,9 @@ export class Review_Service {
   getReviewsForUser(userId: string): Observable<Array<review>> {
     return this.http.get<Array<review>>(`${environment.serverBaseURL}${this.reviewDbName}/${userId}`);
   }
+
+  deleteReview(reviewId: string): Observable<review> {
+    this.reviewId = reviewId;
+    return this.http.delete<review>(`${this.reviewDbURL}/${this.reviewId}`);
+  }
 }

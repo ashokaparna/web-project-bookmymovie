@@ -13,6 +13,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {ReviewListComponent} from "./review-list/review-list.component";
 
 const routes: Routes = [
   {
@@ -80,6 +81,11 @@ const routes: Routes = [
     path: 'user-profile',
     component: UserProfileComponent,
     data: { title: 'User Profile' }
+  } ,
+  {
+    path: 'user-review-list',
+    component: ReviewListComponent,
+    data: { title: 'User Review List' }
   } ,
    { path: '**', component: PageNotFoundComponent }
 ];
