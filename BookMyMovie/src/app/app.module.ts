@@ -40,6 +40,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bootstrap";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {UserProfileService} from "./Services/user-profile";
+import { ReviewListComponent } from './review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {UserProfileService} from "./Services/user-profile";
     MovieSingleComponent,
     FilterPipe,
     ResetPasswordComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ReviewListComponent
   ],
   imports: [
     BrowserModule,
