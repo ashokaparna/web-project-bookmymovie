@@ -60,7 +60,7 @@ export class PaymentComponent implements OnInit {
   noofseats:number;
   totalamt:number;
   ticketprice = 30;
-  handlingfees = 5;
+  handlingfees = 7;
   firstname:string;
   lastname:string;
   fullname:string;
@@ -122,12 +122,10 @@ export class PaymentComponent implements OnInit {
     this.model.seatdetails = this.seatdetails;
    // calculating the total amount of the order
     this.totalamt = (this.noofseats * this.ticketprice) + this.handlingfees;
-  //   ticketprice = 30;
-  // handlingfees = 5;
     this.model.totalamount = this.totalamt;
     this.model.creationtime = '11-11-2019';
       this.model.email = this.email;
-   console.log(this.model);
+
  }
  
 
@@ -137,13 +135,8 @@ export class PaymentComponent implements OnInit {
   
   onClickPlaceOrder() {
     alert("inside order ");
-    //let dt = new DatePipe('en-US').transform(this.model.creationtime, 'dd/MM/yyyy');
-    //   this.model.CreatedAt = dt;
     console.log(this.model);
     let neworder$: Observable<order> = this.orderService.createOrder(this.model);
-
-    //console.log(dt);
-   //  console.log( this.model.CreatedAt);
     neworder$.subscribe(
       success => { alert("order success") },
       error => {

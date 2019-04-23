@@ -1,14 +1,14 @@
-$grid__bp-md: 1200;
+$grid__bp-md: 1500;
 
 .mainc {
   display: grid;
   max-width: $grid__bp-md * 1px;
   grid-template-columns: 30% auto 30%;
   margin: 0 auto;
-  background-color: whitesmoke;
+  background-color: rgb(218, 211, 211);
   //   grid-auto-rows: minmax(150px, auto);
   grid-auto-rows: minmax(80px, auto);
-  grid-gap: 8px;
+  grid-gap: 3px;
 }
 
 .input-group-append {
@@ -24,7 +24,7 @@ $grid__bp-md: 1200;
 .mainc_a {
   grid-column: 1 / 3;
   grid-row: 1 / 2;
-  background-color: rgb(214, 231, 214);
+  background-color: rgb(31, 27, 34);
 }
 
 .mainc_b {
@@ -92,3 +92,18 @@ $grid__bp-md: 1200;
 .table > tbody > tr > .highrow {
   border-top: 3px solid;
 }
+
+%font-shared
+{
+ font-family: sans-serif;
+ text-align: center;
+ text-shadow: 5px 5px 5px black;
+}
+
+h3 {
+  @extend %font-shared;
+  color: whitesmoke;
+   margin-top: 20px;
+   font-size: 40px;
+  }
+  

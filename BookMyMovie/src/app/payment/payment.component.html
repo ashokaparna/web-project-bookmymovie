@@ -8,9 +8,12 @@
 
         <h4 class="d-flex  align-items-center  justify-content-between mb-3">
 
-            <span class="text-muted">Entertainment is one step away :)</span>
+            <p class="text-muted">Congratulation {{fullname}}</p>
+            <br><br>
+            <!-- <p class="text-muted">Your Entertainment is one step away :)</p> -->
 
         </h4>
+        <p class="text-muted">Your Entertainment is one step away :)</p>
 
     </div>
     <div class="mainc_b">
@@ -37,7 +40,7 @@
                                 <div class="form-group">
                                     <label for="cc-payment" class="control-label mb-1">Payment amount</label>
                                     <input id="cc-payment" name="cc-payment" type="text" class="form-control"
-                                        aria-required="true" aria-invalid="false" required value="100.00">
+                                        aria-required="true" aria-invalid="false" required value=${{totalamt}}.00>
                                     <span class="invalid-feedback">Enter the payment amount</span>
                                 </div>
                                 <div class="form-group has-success">
