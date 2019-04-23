@@ -26,7 +26,6 @@ export class OrderHistoryComponent implements OnInit {
     orders$.subscribe(orders => {
       this.list = orders;
       console.log(this.list);
-     // console.log(this.list[0].);
     });
 
   }
