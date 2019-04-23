@@ -1,12 +1,10 @@
-$body-color: #212529;
-$yellow: #ffc107;
-
 .col-12.col-md-9 {
   border: 0.5px solid black;
-  border-radius:12px;
-  margin:30px;
-  padding:30px;
+  border-radius: 12px;
+  margin: 30px;
+  padding: 30px;
 }
+
 //importing the font awesome css file
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
@@ -23,8 +21,7 @@ h1 {
   margin: 10px;
 }
 
-/****** Style Star Rating Widget *****/
-
+// style for the rating widget
 .rating {
   margin-top: 15px;
   border: none;
@@ -53,7 +50,6 @@ h1 {
 }
 
 // CSS to highlight stars on hover
-
 .rating > input:checked ~ label, //to show gold star when clicked
 .rating:not(:checked) > label:hover,//hove to the current star
 .rating:not(:checked) > label:hover ~ label {

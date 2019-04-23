@@ -10,13 +10,16 @@ export class Review_Service {
   reviewDbURL: string;
   reviewId: String;
   movieId: string;
+  movieReviewUrl: string;
 
   /**
      * Constructor.
      */
   constructor(private http: HttpClient) {
+
     this.reviewDbName = 'reviews';
     this.reviewDbURL = `${environment.serverBaseURL}${this.reviewDbName}`;
+    this.movieReviewUrl = environment.serverBaseURL + 'movie-reviews'
   }
 
   get_Reviews(): Observable<Array<review>> {
@@ -38,7 +41,15 @@ export class Review_Service {
   }
 
   getReviewsForMovie(movieid: string): Observable<Array<review>> {
-    return this.http.get<Array<review>>(`${environment.serverBaseURL}${this.reviewDbName}/${movieid}`);
+    return this.http.get<Array<review>>(`${this.movieReviewUrl}/${movieid}`);
   }
 
+  getReviewsForUser(userId: string): Observable<Array<review>> {
+    return this.http.get<Array<review>>(`${environment.serverBaseURL}${this.reviewDbName}/${userId}`);
+  }
+
+  deleteReview(reviewId: string): Observable<review> {
+    this.reviewId = reviewId;
+    return this.http.delete<review>(`${this.reviewDbURL}/${this.reviewId}`);
+  }
 }

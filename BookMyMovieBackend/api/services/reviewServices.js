@@ -26,8 +26,9 @@ exports.reviewList = function () {
 }
 
 
-exports.listOfMovieReview = function (_id) {
-    const promise = Review.findById({ movieid: _id }).exec();
+exports.listOfMovieReview = function (movieId) {
+    console.log(movieId, "verifying");
+    const promise = Review.find({ movieid: movieId }).exec();
     return promise;
 }
 
