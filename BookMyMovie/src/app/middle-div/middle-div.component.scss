@@ -8,7 +8,7 @@
 .releaseDate {
   position: absolute;
   color: white;
-  background-color: grey;
+  background-color: black;
   left: 22px;
   top: 15px;
   font-size: 11px;
@@ -17,7 +17,7 @@
 }
 
 .movieName {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .col-sm-4 {
@@ -32,7 +32,7 @@
   padding: 7px;
   width: 500px;
   margin-top: 15px;
-  background-color: rgb(244, 243, 241);
+  //background-color: rgb(244, 243, 241);
 }
 body {
   background: url("http://i.hizliresim.com/v4Qykv.png") no-repeat center center fixed;
@@ -96,4 +96,15 @@ form > .button {
 
 form > .button:hover {
   background-color: rgba(0, 150, 136, 0.8);
+}
+.em, .em-svg {
+  height: 1.0em;
+  width: 1.0em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
