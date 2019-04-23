@@ -184,8 +184,4 @@ export class PaymentComponent implements OnInit {
       doc.save('movieBookingSummary.pdf');
     });
   }
-
-
-
-
 }

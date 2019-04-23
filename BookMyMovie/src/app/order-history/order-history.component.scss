@@ -1,20 +1,14 @@
 $grid__bp-md: 1200;
 .mainc {
-
- //height: 1500px;
-// width: 1000px;
 display:grid;
 max-width: $grid__bp-md * 1px;
 grid-template-columns: 30% auto 30%;
-//margin: 0 auto;
 background-color:rgb(14, 13, 13);
-//   grid-auto-rows: minmax(150px, auto);
 grid-auto-rows: minmax(80px, auto);
 grid-gap: 8px;
 }
 
-
-    
+ 
     .mainc_b
     {
     grid-column: 1 / 3;
