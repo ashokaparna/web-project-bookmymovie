@@ -14,6 +14,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { movie } from '../Models/movie';
 import { theater } from '../Models/theater';
 import { showTime } from '../Models/showtime';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 // import * as jsPDF from 'jspdf';
 // import * as html2canvas from 'html2canvas';
@@ -32,6 +33,8 @@ export class PaymentComponent implements OnInit {
   cookievalue = 'unknown';
  // orderService: Order_Service;
   theaterService: TheaterService;
+  public paymentForm: FormGroup;
+  submitted = false;
 
   //dt = new Date("2016-05-18");
  //console.log(dateSendingToServer);
@@ -66,6 +69,7 @@ export class PaymentComponent implements OnInit {
   fullname:string;
   email:string;
   userid:string;
+
 
  
   @Output() add_pay_invoked = new EventEmitter();
@@ -128,12 +132,23 @@ export class PaymentComponent implements OnInit {
 
  }
  
+ ngOnInit() {
+    
+  this.paymentForm = new FormGroup({
+  // 'username': new FormControl(null, Validators.required),
+  
+  });
+}
 
-  ngOnInit() {
-  }
 
   
+  
   onClickPlaceOrder() {
+    this.submitted = true;
+    if (this.paymentForm.invalid) {
+      return;
+    }
+    
     alert("inside order ");
     console.log(this.model);
     let neworder$: Observable<order> = this.orderService.createOrder(this.model);

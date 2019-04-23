@@ -49,7 +49,8 @@
                                         class="form-control cc-name" minlength="3" maxlength=30 pattern="^[a-zA-Z\s]+$"
                                         required>
 
-                                    <div class="alert alert-danger" *ngIf="ccname.touched && !ccname.valid">
+                                    <div class="alert alert-danger" *ngIf="submitted && !ccname.valid ">
+                                   <!-- <div class="alert alert-danger" *ngIf="ccname.touched && !ccname.valid "> -->
                                         <div *ngIf="ccname.errors.required">
                                             Name is mandatory & must match as given on card.
                                         </div>
@@ -72,7 +73,8 @@
                                                     pattern="[0-9]*" title="First four digits" required="" ngModel
                                                     name="ccnum1" #ccnum1="ngModel">
 
-                                                <div class="alert alert-danger" *ngIf="ccnum1.touched && !ccnum1.valid">
+                                                <!-- <div class="alert alert-danger" *ngIf="ccnum1.touched && !ccnum1.valid"> -->
+                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum1.valid">
                                                     <div *ngIf="ccnum1.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -92,7 +94,9 @@
                                                     pattern="[0-9]*" title="Second four digits" required="" ngModel
                                                     name="ccnum2" #ccnum2="ngModel">
 
-                                                <div class="alert alert-danger" *ngIf="ccnum2.touched && !ccnum2.valid">
+                                                <!-- <div class="alert alert-danger" *ngIf="ccnum2.touched && !ccnum2.valid"> -->
+
+                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum2.valid">    
                                                     <div *ngIf="ccnum2.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -110,7 +114,8 @@
                                                     pattern="[0-9]*" title="Third four digits" required="" ngModel
                                                     name="ccnum3" #ccnum3="ngModel">
 
-                                                <div class="alert alert-danger" *ngIf="ccnum3.touched && !ccnum3.valid">
+                                                <!-- <div class="alert alert-danger" *ngIf="ccnum3.touched && !ccnum3.valid"> -->
+                                                        <div class="alert alert-danger" *ngIf="submitted && !ccnum3.valid">
                                                     <div *ngIf="ccnum3.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -130,7 +135,8 @@
                                                     pattern="[0-9]*" title="Second four digits" required="" ngModel
                                                     name="ccnum4" #ccnum4="ngModel">
 
-                                                <div class="alert alert-danger" *ngIf="ccnum4.touched && !ccnum4.valid">
+                                                <!-- <div class="alert alert-danger" *ngIf="ccnum4.touched && !ccnum4.valid"> -->
+                                                <div class="alert alert-danger" *ngIf="submitted && !ccnum4.valid">
                                                     <div *ngIf="ccnum4.errors.required">
                                                         Can't be left empty.
                                                     </div>
@@ -203,7 +209,8 @@
                                                 pattern="[0-9]*" title="CVV" required="" ngModel name="ccv"
                                                 #cvv="ngModel">
 
-                                            <div class="alert alert-danger" *ngIf="cvv.touched && !cvv.valid">
+                                            <!-- <div class="alert alert-danger" *ngIf="cvv.touched && !cvv.valid"> -->
+                                                    <div class="alert alert-danger" *ngIf="submitted && !cvv.valid">
                                                 <div *ngIf="cvv.errors.required">
                                                     Can't be left empty.
                                                 </div>
@@ -223,13 +230,14 @@
                                 </div>
 
                                 <div>
-                                    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                        <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                        <span id="payment-button-amount" (click)="onClickPlaceOrder">Pay ${{totalamt}}.00</span>
-                                        <span id="payment-button-sending" style="display:none;">Sending…</span>
-                                    </button>
-                                </div>
+                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                    <span id="payment-button-amount" (click)="onClickPlaceOrder">Pay ${{totalamt}}.00</span>
+                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                </button>
+                            </div>
                             </form>
+                           
                         </div>
                     </div>
                 </div>
