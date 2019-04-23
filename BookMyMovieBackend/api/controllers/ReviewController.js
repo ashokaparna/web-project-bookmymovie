@@ -71,9 +71,11 @@ exports.list_reviews_each_movie = function (request, response) {
     response.header('Access-Control-Allow-Origin', '*');
     const resolve = (reviews) => {
         response.status(200);
+        console.log(reviews);
         response.json(reviews);
     };
     //using movieid to fetch reviews of a particular review
+    console.log(request.params._id);
     reviewService.listOfMovieReview(request.params._id)
         .then(resolve)
         .catch(renderErrorResponse(response));

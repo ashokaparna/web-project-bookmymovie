@@ -71,13 +71,17 @@ export class MovieSingleComponent implements OnInit {
     });
     
     //get reviews
-    let reviews$: Observable<Array<review>> = reviewService.getReviewsForMovie(this.movieId);
-    reviews$.subscribe(reviews => {
-      this.list = reviews;
-    });
+   this.getReviewList();
 
   }
 
+  getReviewList(){
+    let reviews$: Observable<Array<review>> = this.reviewService.getReviewsForMovie(this.movieId);
+    reviews$.subscribe(reviews => {
+      debugger;
+      this.list = reviews;
+    });
+  }
  
   selectShowtime(showid,theatreid,showtime) {
    // alert(showid + '//' + theatreid);
@@ -87,6 +91,7 @@ export class MovieSingleComponent implements OnInit {
   }
   onClickPostReview() {
     this.isOn = true;
+    this.getReviewList();
   }
 
   ngOnInit() {

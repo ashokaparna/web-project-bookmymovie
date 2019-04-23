@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselDivComponent implements OnInit {
 items: Array<any>=[];
   constructor() {
+    // array of image items that gets rendered in the carousel
     this.items = [
       { name: 'assets/Images/img11.jpg' },
       { name: 'assets/Images/img22.jpg' },
