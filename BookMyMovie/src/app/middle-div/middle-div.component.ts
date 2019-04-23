@@ -15,9 +15,11 @@ export class MiddleDivComponent implements OnInit {
   searchTerm: string;
   id: string;
   constructor(private activatedroute: ActivatedRoute, public movieservice: MovieService,public router: Router) {
+   
     this.id = this.activatedroute.snapshot.params['id'];
     let movies$: Observable<Array<movie>> = movieservice.get_Movies();
     movies$.subscribe(movies => {
+     // console.log(movies);
       this.list = movies;
     });
   }

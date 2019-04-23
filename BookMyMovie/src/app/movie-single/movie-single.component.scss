@@ -2,10 +2,13 @@
   width: 800px;
   height: 450px;
 }
-.middle {
+.maindiv,.middlepart {
   margin: 2%;
+  padding: 2%;
 }
-
+.maindiv,.main{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 .reviewTable {
   border: 1px solid black;
 }
@@ -78,6 +81,7 @@ button.calendar:active {
   background-size: 18px;
   background-position: center;
   padding-left: 10px;
+  
 }
 
 .ngb-dp-arrow-btn {
@@ -125,3 +129,22 @@ button.calendar:active {
   border-bottom: 2px solid rgb(220, 53, 69);
 }
 
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+ // margin: auto;
+  text-align: center;
+  font-family: arial;
+  
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.button
+{
+  margin: 1%;
+}

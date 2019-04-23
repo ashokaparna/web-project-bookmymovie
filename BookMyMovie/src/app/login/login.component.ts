@@ -13,6 +13,7 @@ import { paymentUrl } from '../Models/paymentUrl';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @Output() loginEmitter = new EventEmitter();
   cookievalue = 'unknown';
   request: loginRequest = new loginRequest();
   loginService: LoginService;
@@ -47,10 +48,14 @@ export class LoginComponent implements OnInit {
         this.cookievalue = this.cookieService.get('UserDetails');
 
         alert(result.message)
-        debugger;
+        
+        this.dataservice.setisDisplayname(`Welcome, ${JSON.parse(this.cookievalue).user.firstname}      ${JSON.parse(this.cookievalue).user.lastname}`);
+        //this.loginEmitter.emit();
+        this.dataservice.setIsSignup(false);
+
+    
         this.pUrl = this.dataservice.getpUrl();
-        if(this.pUrl == undefined)
-        {
+        if(this.pUrl == undefined )        {
           this.router.navigate(['/dashboard']);
         }
         else
