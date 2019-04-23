@@ -26,6 +26,7 @@ export class MiddleDivComponent implements OnInit {
   }
   movieClick(movieId)
   {
+    alert(movieId);
   this.router.navigate(['/movie-single',movieId]);
   }
 }

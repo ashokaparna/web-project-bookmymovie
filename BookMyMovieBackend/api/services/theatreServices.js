@@ -12,3 +12,20 @@ exports.save = function (theatre) {
    // console.log(pr
     return promise;
 };
+
+
+exports.get = function (theaterId) {
+    const promise = Theatre.findById(theaterId).exec();
+    return promise;
+};
+
+
+/**
+ * Returns an all theaters.
+ *
+ */
+exports.theaterList = function() {
+    const promise = Theatre.find().exec();
+    return promise;
+}
+

@@ -8,6 +8,7 @@ import { movie } from '../Models/movie';
 import { MovieService } from '../Services/movie.service';
 import { Review_Service } from '../Services/review.service';
 import { review } from '../Models/review';
+import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -17,29 +18,25 @@ import { review } from '../Models/review';
   styleUrls: ['./movie-single.component.scss']
 })
 export class MovieSingleComponent implements OnInit {
-  model;
+  dateModel: NgbDate;
   movie: movie;
   list_showtimes: Array<showTime>;
   selectedShowId: string;
   result: any[];
   movieId: string;
   theatreId: string;
+  showtime:string;
+
+  minDate: NgbDate;
+  maxDate: NgbDate;
   isOn: boolean = false;
   list: Array<review>;
   public movieName: String;
 
-  constructor(public reviewService: Review_Service, public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute, private router: Router) {
+ constructor(public moviesingle_service: MovieSingle_Service, public movieservice: MovieService, private ac: ActivatedRoute,private router:Router, private calendar: NgbCalendar,public reviewService: Review_Service) {
 
     this.movieId = this.ac.snapshot.params['movieId'];
     this.isOn = false;
-
-
-    //get reviews
-    let reviews$: Observable<Array<review>> = reviewService.getReviewsForMovie(this.movieId);
-    reviews$.subscribe(reviews => {
-      this.list = reviews;
-    });
-
     //get movie-single
     let movies$: Observable<movie> = movieservice.get_single_Movie(this.movieId);
     movies$.subscribe(movies => {
@@ -70,20 +67,31 @@ export class MovieSingleComponent implements OnInit {
       //this.list_showtimes = showtimes;
       // console.log(this.result);
     });
+    
+    //get reviews
+    let reviews$: Observable<Array<review>> = reviewService.getReviewsForMovie(this.movieId);
+    reviews$.subscribe(reviews => {
+      this.list = reviews;
+    });
 
   }
 
-
-  selectShowtime(showid, theatreid) {
-    // alert(showid + '//' + theatreid);
+ 
+  selectShowtime(showid,theatreid,showtime) {
+   // alert(showid + '//' + theatreid);
     this.selectedShowId = showid;
     this.theatreId = theatreid;
+    this.showtime = showtime;
   }
   onClickPostReview() {
     this.isOn = true;
   }
 
   ngOnInit() {
+    const today = new Date();
+     this.maxDate = new NgbDate(today.getFullYear(), today.getMonth(), today.getDate() + 6);
+     this.minDate = this.dateModel=new NgbDate(today.getFullYear(), today.getMonth(), today.getDate());
+
   }
   confirm() {
 
@@ -91,11 +99,9 @@ export class MovieSingleComponent implements OnInit {
       alert('please select showtime');
       return;
     }
-    this.router.navigate(['/seatselection', { showId: this.selectedShowId, movieId: this.movieId, theatreId: this.theatreId }]);
+    this.router.navigate(['/seatselection',{showId:this.selectedShowId,movieId:this.movieId,theatreId:this.theatreId,showtime:this.showtime,date:1}]);
 
   }
 
 }
-export class NgbdDatepickerPopup {
-  model;
-}
+

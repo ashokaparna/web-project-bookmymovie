@@ -40,9 +40,19 @@ var User = new Schema({
     },
     reset_password_expires: {
         type: String
+    },
+    access_token: {
+        type: String
     }
 
 });
+// // exports model
+// module.exports = mongoose.model('User', User);
+
+
 // exports model
-module.exports = mongoose.model('User', User);
+var userModel = mongoose.model('User', User);
+
+module.exports = userModel;
+module.exports = User
 

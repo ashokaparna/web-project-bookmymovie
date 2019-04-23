@@ -4,7 +4,7 @@
     <input type="text" [(ngModel)]="searchText" class="searchTextBox" placeholder="Search By Movie Name...">
 
     <div *ngFor="let l of list | filter : searchText">
-        <div class="col-sm-4">
+        <div class="col-sm-4" (click)="movieClick(l._id)">
             <span class="releaseDate">Release Date: {{l.movieReleaseDate}}</span> 
             <img src="../../assets/Images/{{l.movieImage}}" class="img-responsive" alt="Image">
             <span><i class="em em-heart"></i></span>

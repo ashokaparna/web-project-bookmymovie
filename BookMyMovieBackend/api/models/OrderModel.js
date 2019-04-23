@@ -3,35 +3,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var OrderSchema = new Schema({
    
-    userid :{
-        type:String,
-        required:'User Id is madatory.'
-    },
-    theatername:{
-        type:String,
-        required:'Theater name is mandatory.'
-    },
-    moviename:{
-        type:String,
-        required:'Movie name is mandatory.'
-    },
+    userid :{type:mongoose.Schema.Types.ObjectId, ref:"userModel"},
+    theaterid : {type:mongoose.Schema.Types.ObjectId, ref:"theatreModel"},
+    movieid :{type:mongoose.Schema.Types.ObjectId, ref:"movieModel"},
      showtime:{
         type:String,
         required:'Show time is mandatory.'
     },
-    noofseats:{
-        type:Number,
+    seatdetails:{
+        type:String,
         required:'Number of seats are mandatory'
     },
     totalamount:{
         type: Number,
-        required:'kindly enter number of seats.'
+        required:'kindly enter total amount.'
     },
-    creationtime:{
-        type: String,
-        required:'kindly enter creation time.'
-    }
-    
+    creationtime: {type: Date, default: Date.now()},   
 });
 // exports model
 module.exports = mongoose.model('Orders', OrderSchema);

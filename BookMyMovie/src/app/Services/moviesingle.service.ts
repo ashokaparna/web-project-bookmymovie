@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { order, order_list} from './../Models/order';
+import { order} from './../Models/order';
 
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';

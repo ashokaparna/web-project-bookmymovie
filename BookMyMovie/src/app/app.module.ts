@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FilterPipe } from './middle-div/filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,9 +18,11 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { LoginService } from "./Services/login.service";
-import { CookieService } from "ngx-cookie-service";
-import { MovieService } from './Services/movie.service';
+import {LoginService} from "./Services/login.service";
+import {CookieService} from "ngx-cookie-service";
+import{MovieService} from './Services/movie.service';
+import{TheaterService} from './Services/theater.service';
+import{ShowTimeService} from './Services/showtime.service';
 
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -37,6 +39,9 @@ import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { MovieSingle_Service } from './Services/moviesingle.service';
 import { ForgotPasswordService } from "./Services/forgot-password.service";
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bootstrap";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {UserProfileService} from "./Services/user-profile";
 
 @NgModule({
   declarations: [
@@ -56,18 +61,24 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     MovieShowSelectComponent,
     MovieSingleComponent,
     FilterPipe,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
     NgxPaginationModule,
     ReactiveFormsModule,
     Ng2CarouselamosModule,
+    NgbPaginationModule,
+    NgbAlertModule
   ],
-  providers: [Order_Service, Review_Service, LoginService, CookieService, MovieSingle_Service, MovieService, SignUpService, ForgotPasswordService],
+  providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , 
+    MovieService, SignUpService, ForgotPasswordService, TheaterService ,
+    ShowTimeService, UserProfileService,Review_Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

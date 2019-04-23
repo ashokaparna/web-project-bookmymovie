@@ -27,11 +27,12 @@ var fpMailOptions = {
   text: 'Congratulation on your order booking'
 };
 
+
 exports.email = function (newOrder) {
-  console.log('Inside email-' + newOrder.OrderId);
+  console.log(newOrder);
   mailOptions.text = 'Theater Name: ' + newOrder.theatername + 
-  " Movie Name: " + newOrder.moviename + " Show Time: " 
-  + newOrder.showtime + " Total Seats: " + newOrder.noofseats + 
+  " Movie Name: " + newOrder.movieName + " Show Time: " 
+  + newOrder.showtime + " Total Seats: " + newOrder.seatdetails + 
  " Total Amount: " + newOrder.totalamount + " Booking Time: " +
  newOrder.creationtime;
   console.log('Inside email-' + newOrder.email);

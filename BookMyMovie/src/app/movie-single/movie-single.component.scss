@@ -53,20 +53,36 @@
   line-height: 1.42857143;
   border-radius: 4px;
 }
-.movie-meta {
-  margin: 50px;
-  .starring,
-  ul,
-  li {
+.movie-meta
+{
+    margin: 50px;
+    .starring,ul,li
+  {
     margin: 10px;
-    list-style: none;
+    list-style: none; 
   }
 }
-
-.movie-meta li,
-.starring li {
+.movie-meta li, .starring li {
   margin-bottom: 10px;
 }
 .checked {
   color: orange;
+}
+button.calendar, button.calendar:active {
+  width: 64px;
+  height: 34px;
+  border: 1px solid gray;
+  background-image: url('../../assets/images/calendar.png')!important;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: center;
+  padding-left: 10px;
+}
+
+.ngb-dp-arrow-btn {
+  padding: 0 !important;
+}
+
+.date-picker{
+  width: 100px;
 }

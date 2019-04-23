@@ -4,6 +4,23 @@
 //import order service.
 const orderService = require('../services/orderServices');
 const emailService = require('../services/emailServices');
+var mongoose = require('mongoose');
+
+let Order = mongoose.model('Orders');
+
+exports.user_orders = function (request, response) {
+    Order.aggregate([  
+        { $match: {userid: mongoose.Types.ObjectId(request.params.userId)}},
+        { '$lookup': { from: 'users', localField: 'userid', foreignField: '_id', as: 'userRef'} },
+        { '$unwind': '$userRef' },
+        { '$lookup': { from: 'theatres', localField: 'theaterid', foreignField: '_id', as: 'theaterRef'} },
+        { '$unwind': '$theaterRef' },
+        { '$lookup': { from: 'movies', localField: 'movieid', foreignField: '_id', as: 'movieRef'} },
+        { '$unwind': '$movieRef' }
+
+    ]).exec(function (err, docs){
+      response.json(docs);
+}); }
 
 //code for post method
 exports.create_order = function(req, res) {  
@@ -61,12 +78,48 @@ exports.list_all_orders = function (request, response) {
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
  */
-exports.user_orders = function (request, response) {
+// exports.user_orders = function (request, response) {
+//     const resolve = (u_orders) => {
+//         response.status(200);
+//         response.json(u_orders);
+//     };
+//     orderService.user_orders(request.params.userId)
+//         .then(resolve)
+//         .catch(renderErrorResponse(response));
+// };
+
+exports.get_orderfor_bookedseats =function(req,response)
+{
+    console.log(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date);
+
     const resolve = (u_orders) => {
         response.status(200);
+        console.log(u_orders);
         response.json(u_orders);
     };
-    orderService.user_orders(request.params.userId)
+    orderService.get_orderfor_bookedseats(req.params.theaterId,req.params.movieId,req.params.showTime,req.params.date)
         .then(resolve)
         .catch(renderErrorResponse(response));
-};
+
+}
+
+
+
+
+// exports.user_orders = function (request, response) {
+//     Order.aggregate([
+//         { $match: {}}
+
+//     ]
+
+//     )
+//     const resolve = (u_orders) => {
+//         response.status(200);
+//         response.json(u_orders);
+//     };
+//     orderService.user_orders(request.params.userId)
+//         .then(resolve)
+//         .catch(renderErrorResponse(response));
+// };
+
+
