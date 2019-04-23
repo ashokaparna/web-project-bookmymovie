@@ -1,7 +1,11 @@
 .login-container{
   max-width: 400px;
   margin: 60px auto 0;
+  border: 1px solid black;
+  border-radius:14px;
+  padding:60px;
 }
+
 
 .login{
   color: white;
@@ -19,5 +23,14 @@
   color: tomato;
   font-size: 12px;
   padding-top: 4px
+}
+
+.forgotPass{
+  padding-left: 500px;
+
+}
+.signup{
+  padding-left: 450px;
+
 }
 

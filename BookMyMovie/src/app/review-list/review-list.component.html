@@ -1,0 +1,17 @@
+<table>
+  <thead>
+  <th>User ID </th>
+  <th>Movie Name </th>
+  <th>Description </th>
+  <th>Date</th>
+  </thead>
+  <tbody>
+  <tr class="reviewTable" *ngFor="let part of list">
+    <td>{{part.userid}}</td>
+    <td>{{part.mname}}</td>
+    <td>{{part.desc}}</td>
+    <td>{{part.date}}</td>
+    <td><button  (click)="deleteReview(part._id)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

@@ -74,14 +74,16 @@ exports.list_reviews_each_movie = function (request, response) {
         console.log(reviews);
         response.json(reviews);
     };
-    //using movieid to fetch reviews of a particular review
-    console.log(request.params._id);
-    reviewService.listOfMovieReview(request.params._id)
+    //using movieid to fetch reviews of a particular movie
+    console.log(request, "request");
+    console.log(request.params, "request params");
+    console.log(request.params.movieId, "request.params.movieid");
+    reviewService.listOfMovieReview(request.params.movieId)
         .then(resolve)
         .catch(renderErrorResponse(response));
 };
 
-/**
+/**s
  * Deletes a review object.
  *
  * @param {request} {HTTP request object}
