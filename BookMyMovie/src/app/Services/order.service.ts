@@ -47,9 +47,9 @@ export class Order_Service {
 
   //Added by Dharati on 4/21/2019
   
-  order_booked_seats(theatreId: string, movieId: string,showtime:string, date: string): Observable<Array<order>> {
+  order_booked_seats(theatreId: string, movieId: string,showtime:string, date: String): Observable<Array<order>> {
     console.log(`${this.orderDbURL}/${theatreId}/${movieId}/${showtime}/${date}`);
-        return this.http.get<Array<order>>(`${this.orderDbURL}/${theatreId}/${movieId}/${showtime}/${'1'}`);
+        return this.http.get<Array<order>>(`${this.orderDbURL}/${theatreId}/${movieId}/${showtime}/${date}`);
     
   }
 
