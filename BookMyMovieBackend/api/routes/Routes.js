@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.route('/users/:_id')
         .get(user.getProfile);
     app.route('/user')
-        .post(user.profile);
+        .put(user.profile);
     app.route('/signUp')
         .post(signUp.signUp);
     app.route('/login')
@@ -37,18 +37,22 @@ module.exports = function (app) {
         .get(showtimelist.list_all_showtime)
         .post(showtimelist.create_showtime);
 
-    app.route('/showtime/st/:showId')
+    app.route('/showtimes/st/:showId')
         .get(showtimelist.show_detail);  
 
     app.route('/showtime/:movieId')       
         .get(showtimelist.list_by_movie)
-     app.route('/reviews')     
-        .get(reviewlist.list_all_reviews)   
+    app.route('/reviews')
+        .get(reviewlist.list_all_reviews)
         .post(reviewlist.create_review);
     app.route('/reviews/:userId')
-        .get(reviewlist.user_reviews) 
-     app.route('/reviews/:reviewId')
-         .delete(reviewlist.delete) 
+        .get(reviewlist.user_reviews)
+
+    app.route('/reviews/:movieId')
+        .get(reviewlist.list_reviews_each_movie)
+
+    app.route('/reviews/:reviewId')
+        .delete(reviewlist.delete)
     app.route('/movies')
         .get(movieList.listMovies)
         .post(movieList.createMovies);

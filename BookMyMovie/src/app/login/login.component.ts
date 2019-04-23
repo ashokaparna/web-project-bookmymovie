@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.request)
       .subscribe((result: any) => {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
+        console.log( JSON.stringify(result));
         this.cookievalue = this.cookieService.get('UserDetails');
 
         alert(result.message)

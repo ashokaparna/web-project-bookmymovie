@@ -7,11 +7,11 @@ require('../models/ReviewModel');
 let Review = mongoose.model('Reviews');
 // save review method
 exports.save = function (review) {
-   console.log("inside review");
+    console.log("inside review");
     const newreview = new Review(review);
- console.log("before order review");
+    console.log("before order review");
     const promise = newreview.save();
-console.log(promise);
+    console.log(promise);
     return promise;
 };
 
@@ -20,10 +20,17 @@ console.log(promise);
  * Returns an all reviews.
  *
  */
-exports.reviewList = function() {
+exports.reviewList = function () {
     const promise = Review.find().exec();
     return promise;
 }
+
+
+exports.listOfMovieReview = function (_id) {
+    const promise = Review.findById({ movieid: _id }).exec();
+    return promise;
+}
+
 
 /**
  * Returns the order object matching the user id.
@@ -32,7 +39,7 @@ exports.reviewList = function() {
  */
 exports.user_reviews = function (userId) {
     console.log('finding' - userId)
-    const promise = Review.find({userid: userId}).exec();
+    const promise = Review.find({ userid: userId }).exec();
     return promise
 };
 
@@ -42,7 +49,7 @@ exports.user_reviews = function (userId) {
  *
  * @param {string} reviewId {Id of the contact object}
  */
-    exports.delete = function (reviewId) {
-    const promise = Review.remove({_id: reviewId});
+exports.delete = function (reviewId) {
+    const promise = Review.remove({ _id: reviewId });
     return promise;
 };

@@ -12,6 +12,7 @@ import { MovieSingleComponent } from './movie-single/movie-single.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import{CustomerReviewTemplateComponent} from "./customer-review-template/customer-review-template.component";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 const routes: Routes = [
   {
@@ -74,6 +75,11 @@ const routes: Routes = [
     path: 'orderhistory',
     component: OrderHistoryComponent,
     data: { title: 'Order History ' }
+  } ,
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+    data: { title: 'User Profile' }
   } ,
    { path: '**', component: PageNotFoundComponent }
 ];

@@ -3,22 +3,26 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ReviewSchema = new Schema({
-   
-    userid :{
-        type:String,
-        required:'kindly enter your Username.'
+
+    userid: {
+        type: String,
+        required: 'kindly enter your Username.'
     },
-    mname :{
-        type:String,
-        required:'kindly enter movie name.'
+    movieid: {
+        type: String,
+        required: 'kindly enter movie id'
     },
-    desc:{
-        type:String,
-        required:'kindly enter desc.'
+    mname: {
+        type: String,
+        required: 'kindly enter movie name.'
     },
-    date:{
-        type:String,
-        required:'kindly enter date.'
+    desc: {
+        type: String,
+        required: 'kindly enter desc.'
+    },
+    date: {
+        type: String,
+        required: 'kindly enter date.'
     },
 
 });
