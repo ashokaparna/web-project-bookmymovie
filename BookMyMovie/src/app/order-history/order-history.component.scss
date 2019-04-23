@@ -24,7 +24,7 @@ grid-gap: 8px;
     width : 460px; 
     background-color:rgb(31, 27, 34);
     }
-
+// accessing inheritence concepts 
 h1 {
    @extend %font-shared;
    color: whitesmoke;
