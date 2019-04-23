@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {FilterPipe} from './middle-div/filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,6 +38,8 @@ import { MovieSingle_Service } from './Services/moviesingle.service';
 import {ForgotPasswordService} from "./Services/forgot-password.service";
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bootstrap";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {UserProfileService} from "./Services/user-profile";
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bo
     MovieShowSelectComponent,
     MovieSingleComponent,
     FilterPipe,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -68,11 +71,11 @@ import {NgbModule,NgbPaginationModule, NgbAlertModule} from "@ng-bootstrap/ng-bo
     NgxPaginationModule,
     ReactiveFormsModule,
     NgbPaginationModule,
-    NgbAlertModule,
+    NgbAlertModule
   ],
   providers: [Order_Service, LoginService, CookieService, MovieSingle_Service , 
     MovieService, SignUpService, ForgotPasswordService, TheaterService ,
-    ShowTimeService],
+    ShowTimeService, UserProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -40,6 +40,9 @@ var User = new Schema({
     },
     reset_password_expires: {
         type: String
+    },
+    access_token: {
+        type: String
     }
 
 });

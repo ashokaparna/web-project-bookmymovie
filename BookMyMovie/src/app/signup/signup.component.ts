@@ -31,9 +31,6 @@ export class SignupComponent implements OnInit {
   get f() { return this.signUpForm.controls; }
   signUp(){
     this.submitted = true;
-    debugger;
-    console.log(this.signUpForm.get('firstname').value);
-    debugger;
     if (this.signUpForm.invalid) {
       return;
     }
@@ -43,7 +40,6 @@ export class SignupComponent implements OnInit {
     this.request.firstname = this.signUpForm.get('firstname').value;
     this.request.phoneNo = this.signUpForm.get('phoneNo').value;
     this.request.lastname = this.signUpForm.get('lastname').value;
-    debugger;
     this.signUpService.signUp(this.request)
       .subscribe((result: any) => {
         this.cookieService.set( 'UserDetails', JSON.stringify(result) );
