@@ -27,7 +27,7 @@ export class MovieSingleComponent implements OnInit {
   movieId: string;
   theatreId: string;
   showtime: string;
-  url:string;
+  url:String;
 
   minDate: NgbDate;
   maxDate: NgbDate;
