@@ -1,4 +1,0 @@
-# BookMyMovie Backend
-
-
-
