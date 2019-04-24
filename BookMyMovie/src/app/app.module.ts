@@ -37,6 +37,7 @@ import { DatePipe } from '@angular/common';
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {UserProfileService} from "./Services/user-profile";
 import { ReviewListComponent } from './review-list/review-list.component';
+import { SafetypipePipe } from './safetypipe.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,9 @@ import { ReviewListComponent } from './review-list/review-list.component';
     FilterPipe,
     ResetPasswordComponent,
     UserProfileComponent,
-    ReviewListComponent
+    ReviewListComponent,
+   
+    SafetypipePipe
   ],
   imports: [
     BrowserModule,
