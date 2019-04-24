@@ -2,8 +2,7 @@
   <div class="videomiddle">
     <h3> <span class="label label-warning"> {{movie.movieName}} Trailer</span></h3>
 
-    <iframe class="video" src="http://www.youtube.com/embed/jzQq-avJuBc">
-    </iframe>
+    <iframe class="video" [src]="url | safe"></iframe>
   </div>
   <div class="card">
     <p class="title">{{movie.movieName}}</p>

@@ -27,6 +27,7 @@ export class MovieSingleComponent implements OnInit {
   movieId: string;
   theatreId: string;
   showtime: string;
+  url:string;
 
   minDate: NgbDate;
   maxDate: NgbDate;
@@ -45,6 +46,10 @@ export class MovieSingleComponent implements OnInit {
       this.movie = movies;
       this.movieName = this.movie.movieName;
       this.movieIdentifier = this.movieId;
+      this.url = this.movie.movieURL;
+      console.log(this.url);
+      console.log(this.movie.movieURL);
+      
     });
 
     let showtimes$: Observable<Array<showTime>> = this.moviesingle_service.getshowTimes(this.movieId);
@@ -72,7 +77,7 @@ export class MovieSingleComponent implements OnInit {
   getReviewList() {
     let reviews$: Observable<Array<review>> = this.reviewService.getReviewsForMovie(this.movieId);
     reviews$.subscribe(reviews => {
-      debugger;
+     
       this.list = reviews;
     });
   }

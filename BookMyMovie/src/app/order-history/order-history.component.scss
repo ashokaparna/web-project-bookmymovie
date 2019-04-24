@@ -1,6 +1,8 @@
 @import "./../../scss/variable";
 
-
+.viewBtn{
+    color: black;
+}
 .mainc {
 display:grid;
 max-width: $grid__bp-md * 1px;
@@ -8,6 +10,7 @@ grid-template-columns: 30% auto 30%;
 background-color:rgb(14, 13, 13);
 grid-auto-rows: minmax(80px, auto);
 grid-gap: 8px;
+margin:10px;
 }
 
     .mainc_b
