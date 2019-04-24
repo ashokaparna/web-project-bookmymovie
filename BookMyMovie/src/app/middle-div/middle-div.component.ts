@@ -26,8 +26,7 @@ export class MiddleDivComponent implements OnInit {
     ngOnInit() {
   }
   movieClick(movieId)
-  {
-    alert(movieId);
+  {   
   this.router.navigate(['/movie-single',movieId]);
   }
 }
