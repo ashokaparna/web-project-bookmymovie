@@ -14,6 +14,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/user-profile']" *ngIf="!this.dataservice.getIsSignup()">
+          Profile
+        </a></li>
         <li> <a [routerLink]="['/orderhistory']" *ngIf="!this.dataservice.getIsSignup()">
             Booking History
           </a></li>
@@ -40,7 +43,10 @@
                  <a [routerLink]="['/signup']" *ngIf="this.dataservice.getIsSignup()">
                     / Sign Up
                   </a> <br><br>
-                  <a href="#" *ngIf="!this.dataservice.getIsSignup()">
+                  <a [routerLink]="['/user-profile']" *ngIf="!this.dataservice.getIsSignup()">
+                    Profile
+                  </a> <br><br>
+                  <a [routerLink]="['/orderhistory']" *ngIf="!this.dataservice.getIsSignup()">
                     Booking History
                   </a> <br><br>
                   <a [routerLink]="['/user-review-list']" *ngIf="!this.dataservice.getIsSignup()">
