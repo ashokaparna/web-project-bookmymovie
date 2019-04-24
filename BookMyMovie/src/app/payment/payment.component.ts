@@ -164,7 +164,7 @@ orderService.createOrder rest api to save the order in the database */
     //console.log(this.model);
     let neworder$: Observable<order> = this.orderService.createOrder(this.model);
     neworder$.subscribe(
-      success => { alert("Order placed successfully.")
+      success => { alert("Order placed successfull and  booking details have been sent to your email.")
         this.isDownloadEnabled = true;
      },
       error => {

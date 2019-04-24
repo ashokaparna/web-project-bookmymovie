@@ -1,41 +1,40 @@
 <footer class="section bg-footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="">
-                    <h6 class="footer-heading text-uppercase text-white">Information</h6>
+                    <h6 class="footer-heading text-uppercase text-white">features</h6>
                     <ul class="list-unstyled footer-link mt-4">
-                        <li><a href="">Pages</a></li>
-                        <li><a href="">Our Team</a></li>
-                        <li><a href="">Movies</a></li>
-                        <li><a href="">Pricing</a></li>
+                                                   <li>  <a href="#" *ngIf="!this.dataservice.getIsSignup()">
+                                Booking History
+                              </a> </li>
+                        <li> <a [routerLink]="['/user-review-list']" *ngIf="!this.dataservice.getIsSignup()">
+                            User Reviews
+                          </a> </li>
+
+                      <br><br>
+                             
+
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-3">
-                <div class="">
-                    <h6 class="footer-heading text-uppercase text-white">Resources</h6>
-                    <ul class="list-unstyled footer-link mt-4">
-                        <li><a href="">Image Tutorial</a></li>
-                        <li><a href="">Video Tutorial</a></li>
-                        <li><a href="">Term &amp; Service</a></li>
-                        <li><a href="">More Information</a></li>
-                    </ul>
-                </div>
+            <div class="col-lg-4">
+                    <div class="">
+                            <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                            <ul class="list-unstyled footer-link mt-4">
+                                <li> <a [routerLink]="['/login']" *ngIf="this.dataservice.getIsSignup()">
+                                    Login
+                                  </a></li>
+                                <li><a [routerLink]="['/signup']" *ngIf="this.dataservice.getIsSignup()">
+                                     Sign Up
+                                  </a> </li>
+                              
+                            </ul>
+                        </div>
             </div>
 
-            <div class="col-lg-2">
-                <div class="">
-                    <h6 class="footer-heading text-uppercase text-white">Help</h6>
-                    <ul class="list-unstyled footer-link mt-4">
-                        <li><a href="">Sign Up </a></li>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Terms of Services</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
+          
 
             <div class="col-lg-4">
                 <div class="">

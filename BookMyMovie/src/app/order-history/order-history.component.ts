@@ -35,7 +35,7 @@ export class OrderHistoryComponent implements OnInit {
     o_service.viewUserOrders(this.userid);
     orders$.subscribe(orders => {
       this.list = orders;
-  //    console.log(this.list);
+
     });
 
   }
@@ -48,7 +48,7 @@ export class OrderHistoryComponent implements OnInit {
   {
 
     this.showtime=orderd.showtime;
-    this.moviename=orderd.movieRef.movieName
+    this.moviename=orderd.movieRef.movieName;
     this.theatername = orderd.theaterRef.theatreName;
     this.seatdetails = orderd.seatdetails;
     this.totalamount = orderd.totalamount;

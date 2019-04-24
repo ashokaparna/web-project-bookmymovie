@@ -5,7 +5,7 @@
 
 let mongoose = require('mongoose');
 require('../models/ShowTimeModel');/**
- * Returns an all users.
+ * Returns an all showtime.
  *
  */
 let ShowTime = mongoose.model('ShowTime');
@@ -26,7 +26,7 @@ exports.showtimeList = function() {
 });   
    
 }
-
+// list by moviename
 exports.list_by_movieName = function(movieName) {
     const promise = ShowTime.find({"movieId": movieName}).exec();
     console.log(promise);
@@ -39,13 +39,14 @@ exports.list = function() {
     return promise;
 }
 
-
+//save showtime
 exports.save = function (show) {
     const newshow = new ShowTime(show);
     const promise = newshow.save();
     return promise;
 };
 
+// get showtime
 exports.get_show = function (showId) {
     const promise = ShowTime.findById(showId).exec();
     return promise;

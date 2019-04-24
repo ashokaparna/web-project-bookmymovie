@@ -54,12 +54,13 @@ export class SignupComponent implements OnInit {
         /*Navigate to the correct page according to payment url value*/
         this.pUrl = this.dataservice.getpUrl();
         if(this.pUrl == undefined) {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/login']);
         }
         else {
-          this.router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
+          this.router.navigate(['/login']);
+         // this.router.navigate(['/payment', { showId: this.pUrl.showId, movieId: this.pUrl.movieId, theatreId: this.pUrl.theatreId, seats: this.pUrl.seats, totalseat: this.pUrl.seats.length, showtime: this.pUrl.showtime, date: this.pUrl .date }]);
         }
-        this.router.navigate(['/dashboard', 2]);
+      
       }, (error: any) => {
         console.log(error);
       });

@@ -1,7 +1,7 @@
-
+@import "./../../scss/variable";
 //css for the header component
 input {
-    outline: none;
+    outline: $none;
 }
 
 input[type=search] {
