@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 let config = require('../../config');
 
 /**
- * Returns a web token after sign in
+ * Returns access token and user details
  *
  * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}

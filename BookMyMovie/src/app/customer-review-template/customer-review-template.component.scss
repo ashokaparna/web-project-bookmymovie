@@ -1,14 +1,14 @@
 
 @import "./../../scss/variable";
+//importing the font awesome css file
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 .col-12.col-md-9 {
   border: 0.5px solid black;
   border-radius: 12px;
   margin: 30px;
   padding: 30px;
 }
-
-//importing the font awesome css file
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset,
 label {

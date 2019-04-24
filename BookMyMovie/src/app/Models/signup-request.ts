@@ -1,3 +1,4 @@
+/*Sign up request model*/
 export class SignupRequest {
   password: string;
   username: string;

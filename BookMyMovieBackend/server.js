@@ -26,7 +26,6 @@ function main () {
 app.use(cors());
     var routes = require('./api/routes/Routes');
     routes(app); //register the route
-
     app.listen(port);
     console.log('API server started on: ' + port);
 }

@@ -1,3 +1,4 @@
+   
 import { Component, OnInit } from '@angular/core';
 import { MovieSingle_Service } from '../Services/moviesingle.service';
 import { showTime } from '../Models/showtime';

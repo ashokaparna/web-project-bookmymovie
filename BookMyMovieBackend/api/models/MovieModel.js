@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Movies = new Schema({
-
+//movie schema defined
     movieName: {
         type: String,
         required: 'Name of movie is mandatory field.'

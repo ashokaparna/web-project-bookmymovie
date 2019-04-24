@@ -1,8 +1,11 @@
+'use strict';
+//import user service.
 const forgotPasswordService = require('../services/forgotPasswordService');
 const emailService = require('../services/emailServices')
 const jwt = require("jsonwebtoken");
 let config = require('../../config');
 const crypto = require('crypto');
+
 // error function
 let renderErrorResponse = (response) => {
     const errorCallback = (error) => {
@@ -16,7 +19,12 @@ let renderErrorResponse = (response) => {
     return errorCallback;
 };
 
-
+/**
+ * Sends link in email to reset password
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.sendForgotPasswordEmail = function (request, response) {
     const resolve = (res) => {
         if(res !== null){
@@ -56,6 +64,12 @@ exports.sendForgotPasswordEmail = function (request, response) {
         .catch(renderErrorResponse(response));
 };
 
+/**
+ * Resets password using reset password token
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.reset_password = function (request, response){
     const resolve = (res) => {
         if(res !== null){
@@ -91,7 +105,6 @@ exports.reset_password = function (request, response){
             });
         }
     }
-
 
     forgotPasswordService.findUserByToken(request.body.token)
         .then(resolveUser)

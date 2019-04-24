@@ -1,13 +1,15 @@
+<!--Login component html-->
 <div ng-app="myApp" ng-controller="myController" class="container">
+  <!--For group declaration for login-->
   <form name="loginForm" [formGroup]="loginForm" (ngSubmit)="authenticate()">
     <div class="login-container">
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
             <label>Username</label>
+            <!--Field for username-->
             <input type="email" minlength="4" placeholder="Enter Username" id="username" formControlName="username" class="form-control"
                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
-
             <div *ngIf="submitted && f.username.errors" >
               <div *ngIf="f.username.errors.required" class="error">Username is required</div>
             </div>
@@ -17,6 +19,7 @@
         <div class="col-md-12">
           <div class="form-group">
             <label>Password</label>
+            <!--Field for password-->
             <input type="password" placeholder="Enter Password" formControlName="password" class="form-control"
                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
             <div *ngIf="submitted && f.password.errors" >
@@ -24,13 +27,6 @@
             </div>
           </div>
         </div>
-        <!--<div>-->
-          <!--<label class="custom-control custom-checkbox">-->
-            <!--<input type="checkbox" class="form-check-input">-->
-            <!--<span class="custom-control-indicator"></span>-->
-            <!--<span class="custom-control-description small text-dark remember-me">Remember me on this computer</span>-->
-          <!--</label>-->
-        <!--</div>-->
         <div class="col-md-12">
           <div class="form-group">
             <button class="btn btn-success login">Login</button>
@@ -38,10 +34,12 @@
           </div>
         </div>
       </div>
+      <!--Links to sign up and forgot password-->
+      <a class= "forgotPass"  (click)="forgotPassword()" [routerLink]="['/forgotpassword']">Forgot password?</a><br>
+      <span class="signup">Don't have an account? <a [routerLink]="['/signup']" > Sign Up</a></span>
     </div>
   </form>
-  <a class= "forgotPass" href="http://localhost:4500/forgotpassword" (click)="forgotPassword()">Forgot password?</a><br>
-  <span class="signup">Don't have an account? <a href="http://localhost:4500/signup"> Sign Up</a></span>
+
 
 
 </div>

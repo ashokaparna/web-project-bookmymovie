@@ -1,18 +1,16 @@
+@import "./../../scss/variable.scss";
+/*The whole page container*/
 .login-container{
   max-width: 400px;
   margin: 60px auto 0;
 }
 
+/*The sign up container*/
 .signup{
   color: white;
-  background-color: darkred;
+  background-color: $button-background-colors;
   width: 100%;
   margin-top: 10px;
-}
-
-.remember-me{
-  border: 1px gray;
-  padding-left: 20px;
 }
 
 .error{

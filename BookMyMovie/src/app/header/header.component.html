@@ -1,9 +1,12 @@
+
+<!-- All the dependency files needed for css -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<!-- file used inside script tag to render bootstrap css -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-
+<!-- bootstrap navigation bar -->
 <nav class="navbar navbar-inverse navbar-expand">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -11,7 +14,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li> <a href="#" *ngIf="!this.dataservice.getIsSignup()">
+        <li> <a [routerLink]="['/orderhistory']" *ngIf="!this.dataservice.getIsSignup()">
             Booking History
           </a></li>
         <li><a [routerLink]="['/user-review-list']" *ngIf="!this.dataservice.getIsSignup()">
