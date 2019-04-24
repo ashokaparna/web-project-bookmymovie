@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    alert(this.dataservice.getisDisplayname());
+    
   }
 
 
